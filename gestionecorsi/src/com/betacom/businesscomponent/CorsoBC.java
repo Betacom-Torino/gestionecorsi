@@ -24,7 +24,7 @@ public class CorsoBC {
 			if(corso.getCod() > 0) {
 				CorsoDAO.getFactory().update(conn, corso);
 			}else {
-				//settare l'id del corso con l'idGenerator
+				//settare l'id del corso con l'idGenerator prima di crearlo
 				CorsoDAO.getFactory().create(conn, corso);
 			}
 		}catch(SQLException sql) {

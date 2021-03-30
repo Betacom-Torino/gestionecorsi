@@ -65,4 +65,16 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants{
 		}
 	}
 	
+	public void delete(Connection conn, long idCorso) throws DAOException {
+		PreparedStatement ps;
+		try{
+			ps = conn.prepareStatement(DELETE_CORSO);
+			ps.setLong(1, idCorso);
+			ps.execute();
+			conn.commit();
+		}catch(SQLException sql) {
+			throw new DAOException(sql);
+		}
+	}
+	
 }

@@ -13,7 +13,7 @@ public interface DAOConstants {
 	String SELECT_AMMINISTRATORE = "Select * from amministratore where codadmin = ?";
 
 	String SELECT_DOCENTI = "Select * from docente";
-	String SELECT_DOCENTE_BY_ID = "Select * from docente where codocente = ?";
+	String SELECT_DOCENTE_BY_ID = "Select * from docente where coddocente = ?";
 
 	String SELECT_CORSO_CORSISTA = "Select * from corso_corsista";
 
@@ -25,7 +25,7 @@ public interface DAOConstants {
 	String UPDATE_CORSO = "Update corso set nomecorso = ?, datainiziocorso = ?, datafinecorso = ?, costocorso = ?, commenticorso = ?, aulacorso = ? where codcorso = ?";
 	String UPDATE_CORSISTA = "Update corsista set nomecorsista = ?, cognomecorsista = ?, precedentiformativi = ? where codcorsista = ?";
 
-	String DELETE_CORSO = "Delete from corso where codcors = ?";
+	String DELETE_CORSO = "Delete from corso where codcorso = ?";
 	String DELETE_CORSISTA = "Delete from corsista where codcorsista = ?";
 
 	// STATISTICHE DISPARI
