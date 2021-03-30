@@ -51,6 +51,14 @@ public class ClientFacade {
 
 	}
 
+	public void deleteCorso(long id) {
+
+	}
+
+	public void deleteCorsista(long id) {
+
+	}
+
 	public Docente getDocenteById(long id) {
 
 		Docente docente = null;
