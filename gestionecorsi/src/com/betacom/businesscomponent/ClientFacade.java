@@ -39,6 +39,14 @@ public class ClientFacade {
 		// corsoBC.create(corso);
 	}
 
+	public void updateCorso(Corso corso) {
+
+	}
+
+	public void updateCorsista(Corsista corsista) {
+
+	}
+
 	public void createCorsista(Corsista corsista) {
 
 	}
