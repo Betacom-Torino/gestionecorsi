@@ -11,23 +11,17 @@ import org.junit.jupiter.api.Test;
 
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.businesscomponent.ClientFacade;
-import com.betacom.businesscomponent.model.Amministratore;
 import com.betacom.businesscomponent.model.Corsista;
 import com.betacom.businesscomponent.model.Corso;
-import com.betacom.businesscomponent.model.Docente;
 
 class ClientFacadeTest {
 
 	private static Corsista corsista;
 	private static Corso corso;
-	private static Amministratore amministratore;
-	private static Docente docente;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 
-		amministratore = new Amministratore();
-		docente = new Docente();
 		corso = new Corso();
 		corsista = new Corsista();
 
@@ -36,7 +30,8 @@ class ClientFacadeTest {
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 
-		// ClientFacade.getInstance().delete..
+		ClientFacade.getInstance().deleteCorso(10);
+		ClientFacade.getInstance().deleteCorsista(10);
 
 	}
 
