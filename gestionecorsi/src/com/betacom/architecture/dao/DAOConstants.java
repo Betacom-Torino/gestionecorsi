@@ -1,6 +1,6 @@
 package com.betacom.architecture.dao;
 
-public class DAOConstants {
+public interface DAOConstants {
 
 	// ALERT: DA TESTARE
 
