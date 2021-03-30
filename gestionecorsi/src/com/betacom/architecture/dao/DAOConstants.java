@@ -25,6 +25,9 @@ public interface DAOConstants {
 	String UPDATE_CORSO = "Update corso set nomecorso = ?, datainiziocorso = ?, datafinecorso = ?, costocorso = ?, commenticorso = ?, aulacorso = ? where codcorso = ?";
 	String UPDATE_CORSISTA = "Update corsista set nomecorsista = ?, cognomecorsista = ?, precedentiformativi = ? where codcorsista = ?";
 
+	String DELETE_CORSO = "Delete from corso where codcors = ?";
+	String DELETE_CORSISTA = "Delete from corsista where codcorsista = ?";
+
 	// STATISTICHE DISPARI
 	String NUM_CORSI_TOT = "Select count(*) from corso";
 	String DATA_INIZIO_ULTIMO_CORSO = "Select max(datainiziocorso) from corso";
