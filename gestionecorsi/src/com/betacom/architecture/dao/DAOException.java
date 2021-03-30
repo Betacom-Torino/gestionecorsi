@@ -1,4 +1,4 @@
-package com.lupo.architecture.dao;
+package com.betacom.architecture.dao;
 
 import java.sql.SQLException;
 
@@ -28,7 +28,7 @@ public class DAOException extends SQLException {
 				log(sql);
 				break;
 			case ORA00001:
-				chiave = "Vincolo della tabelòla violato";
+				chiave = "Vincolo della tabella violato";
 				log(sql);
 				break;
 			default:
