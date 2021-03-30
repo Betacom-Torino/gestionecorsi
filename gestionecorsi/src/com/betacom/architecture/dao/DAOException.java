@@ -1,4 +1,4 @@
-package com.lupo.architecture.dao;
+package com.betacom.architecture.dao;
 
 import java.sql.SQLException;
 
