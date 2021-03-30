@@ -2,6 +2,8 @@ package com.betacom.architecture.dao;
 
 public class DAOConstants {
 
+	// ALERT: DA TESTARE
+
 	String SELECT_CORSI = "Select * from corso";
 	String SELECT_CORSI_BY_ID = "Select * from corso where codcorso = ?";
 
