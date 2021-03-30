@@ -73,11 +73,25 @@ public class ClientFacade {
 
 	}
 
-	public Corso getCorsoById() {
+	public Corso getCorsoById(long id) {
 
 		Corso corso = null;
 
 		return corso;
+	}
+
+	public Corsista getCorsistaById(long id) {
+
+		Corsista corsista = null;
+
+		return corsista;
+	}
+
+	public Corsista[] getCorsisti() {
+
+		Corsista[] corsisti = null;
+
+		return corsisti;
 	}
 
 }
