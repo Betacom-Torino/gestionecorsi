@@ -1,5 +1,5 @@
 package com.betacom.architecture.dao;
 
-public class GenericDAOAbstract {
+public abstract class GenericDAOAbstract implements GenericDAO {
 
 }
