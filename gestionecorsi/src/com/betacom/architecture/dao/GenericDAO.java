@@ -1,5 +1,5 @@
 package com.betacom.architecture.dao;
 
-public interface GenericDAO {
+public interface GenericDAO<T> {
 
 }
