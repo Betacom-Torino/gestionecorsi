@@ -15,3 +15,5 @@ insert into docente values(docente_seq.nextval,'Rosaria','Rosetta','cv/cv7.pdf')
 insert into docente values(docente_seq.nextval,'Alberto','Nerone','cv/cv8.pdf');
 insert into docente values(docente_seq.nextval,'Claudia','Violetta','cv/cv9.pdf');
 insert into docente values(docente_seq.nextval,'GianPiero','Bianchini','cv/cv10.pdf');
+
+
