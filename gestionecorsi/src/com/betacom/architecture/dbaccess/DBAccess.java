@@ -19,7 +19,7 @@ public class DBAccess {
 
 			Properties p = new Properties();
 			p.load(input);
-
+			
 			Class.forName(p.getProperty("jdbcDriver"));
 			conn = DriverManager.getConnection(p.getProperty("jdbcUrl"), p.getProperty("jdbcUsername"),
 					p.getProperty("jdbcPassword"));
