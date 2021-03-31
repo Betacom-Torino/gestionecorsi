@@ -206,11 +206,11 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			ps = conn.prepareStatement(NOME_CORSO_PIU_FREQ);
 			ResultSet rs = ps.executeQuery();
 			corsi = CorsoDAO.getFactory().getAll(conn);
-			if(rs.next()) {
-				for(Corso c : corsi)
+			for(Corso c : corsi)
+				if(rs.next()) {
 					if(c.getNome().equals(rs.getString(1)))
 						lista.add(c);
-			}
+				}
 			corsi = (Corso[]) lista.toArray();
 		}catch(SQLException exc) {
 			throw new DAOException(exc);
