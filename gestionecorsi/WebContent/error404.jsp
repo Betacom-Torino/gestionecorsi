@@ -67,7 +67,7 @@ a:before {
  .button {
   border: none;
   color: white;
-  padding: 12px 13px;
+  padding: 12px 15px;
   text-align: center;
   font-weight: bold;
   text-decoration: none;
