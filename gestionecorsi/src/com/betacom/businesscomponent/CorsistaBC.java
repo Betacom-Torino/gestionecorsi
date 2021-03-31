@@ -3,8 +3,6 @@ package com.betacom.businesscomponent;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.betacom.architecture.dao.CorsistaDAO;
 import com.betacom.architecture.dao.DAOException;
@@ -21,14 +19,14 @@ public class CorsistaBC {
 	}
 
 	public void createOrUpdate(Corsista corsista) throws DAOException, ClassNotFoundException, IOException {
-		long cod = -1;
+		idGen = CodGenerator.getIstance();
 		try {
 			if (corsista.getCodiceCor() > 0) {
 				CorsistaDAO.getFactory().update(conn, corsista);
 			} else {
-				cod = (CodGenerator.getIstance().getNextCod("corsista"));
-				corsista.setCodiceCor(cod);
+				corsista.setCodiceCor(idGen.getNextCod("corsista"));
 				CorsistaDAO.getFactory().create(conn, corsista);
+				conn.commit();
 			}
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
@@ -36,14 +34,12 @@ public class CorsistaBC {
 	}
 
 	public Corsista[] searchCorsista(String query) throws DAOException {
-		List<Corsista> lista = new ArrayList<Corsista>(50);
-		String[] criterioRicerca = query.toLowerCase().split(" ");
-
-		for (Corsista c : getCorsisti())
-			for (String s : criterioRicerca)
-				if (c.getNomeCor().equals(s) | c.getCognomeCor().equals(s))
-					lista.add(c);
-		Corsista[] corsisti = (Corsista[]) lista.toArray();
+		Corsista[] corsisti = null;
+		try {
+			corsisti = CorsistaDAO.getFactory().searchCorsista(query, conn);
+		}catch(SQLException sql) {
+			throw new DAOException(sql);
+		}
 		return corsisti;
 	}
 
