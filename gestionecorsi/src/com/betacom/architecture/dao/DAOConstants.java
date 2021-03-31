@@ -39,4 +39,7 @@ public interface DAOConstants {
 	String MAX_ISCRITTI = " Select nomecorso,max(num_iscritti) from numero_iscritti_corso nic, corso c where nic.codcorso=c.codcorso group by nomecorso having max(num_iscritti)=(select max(num_iscritti) from numero_iscritti_corso)";
 	String DURATA_MEDIA_CORSI = "Select ROUND(AVG(((datafine-datainizio)/7)*5)) as media from corso c";
 	String CORSO_ISCRITTI = "Select * from corso c where c.codcorso in (select codcorso from numero_iscritti_corso where num_iscritti<12)";
+
+	String CORSI_BY_CORSISTI="Select * from corso c, corso_corsista cc where c.codcorso=cc.codcorso and cc.codcorsista=?";
+
 }
