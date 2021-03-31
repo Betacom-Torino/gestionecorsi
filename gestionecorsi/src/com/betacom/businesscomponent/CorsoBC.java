@@ -60,9 +60,15 @@ public class CorsoBC {
 		return corsi;
 	}
 
-	public int getNumero() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Corso[] getDisponibili() throws DAOException {
+		Corso[] corsi = null;
+		try {
+			corsi = CorsoDAO.getFactory().getDisponibli(conn);
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return corsi;
+
 	}
 
 	public Date getDataUltimo() {
