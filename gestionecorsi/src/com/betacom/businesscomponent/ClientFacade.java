@@ -103,7 +103,7 @@ public class ClientFacade {
 		return corsistaBC.getCorsisti();
 	}
 
-	public Date getDataUltimoCorso() {
+	public Date getDataUltimoCorso() throws DAOException {
 		return corsoBC.getDataUltimo();
 	}
 
