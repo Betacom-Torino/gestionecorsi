@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -40,8 +38,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 			rowSet.updateInt(4, entity.getPreFormativi());
 			rowSet.insertRow();
 			rowSet.moveToCurrentRow();
-			rowSet.acceptChanges();
-			conn.commit();
+			rowSet.acceptChanges();	
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
@@ -146,16 +143,18 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 			rs.last();
 			corsisti = new Corsista[rs.getRow()];
 			rs.beforeFirst();
-			if(rs.next()) 
-					for(String s : criterioRicerca)
-						if(c.getCodiceCor() == rs.getLong(1) & (c.getNomeCor().toLowerCase().equals(s) | c.getCognomeCor().toLowerCase().equals(s))) {
-							corsisti[i].setCodiceCor(rs.getLong(1));
-							corsisti[i].setNomeCor(rs.getString(2));
-							corsisti[i].setCognomeCor(rs.getString(3));
-							corsisti[i].setPreFormativi(rs.getInt(4));
-							System.out.println(corsisti[i].toString());
-							i++;
+			if(rs.next()) {
+				for(String s : criterioRicerca)
+					if(rs.getString(2).toLowerCase().equals(s) | rs.getString(2).toLowerCase().equals(s) ) {
+						corsisti[i].setCodiceCor(rs.getLong(1));
+						corsisti[i].setNomeCor(rs.getString(2));
+						corsisti[i].setCognomeCor(rs.getString(3));
+						corsisti[i].setPreFormativi(rs.getInt(4));
+						System.out.println(corsisti[i].toString());
+						i++;
 					}
+			}
+					
 		}catch(SQLException sql) {
 			throw new DAOException(sql);
 		}

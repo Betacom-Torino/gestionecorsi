@@ -26,7 +26,6 @@ public class CorsistaBC {
 			} else {
 				corsista.setCodiceCor(idGen.getNextCod("corsista"));
 				CorsistaDAO.getFactory().create(conn, corsista);
-				conn.commit();
 			}
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
