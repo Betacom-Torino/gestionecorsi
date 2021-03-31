@@ -36,7 +36,7 @@ public class CorsistaBC {
 		Corsista[] corsisti = null;
 		try {
 			corsisti = CorsistaDAO.getFactory().searchCorsista(query, conn);
-		}catch(SQLException sql) {
+		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
 		return corsisti;
