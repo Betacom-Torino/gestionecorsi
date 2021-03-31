@@ -35,13 +35,14 @@ public class CorsistaBC {
 		}
 	}
 	
-	public Corsista[] searchCorsista(int query) throws DAOException {
+	public Corsista[] searchCorsista(String query) throws DAOException {
 		List<Corsista> lista = new ArrayList<Corsista>(50);
-		int criterioRicerca = query;
+		String[] criterioRicerca = query.toLowerCase().split(" ");
 		
 		for(Corsista c : getCorsisti())
-			if(c.getCodiceCor() == criterioRicerca)
-				lista.add(c);
+			for(String s : criterioRicerca)
+				if(c.getNomeCor().equals(s) | c.getCognomeCor().equals(s))
+					lista.add(c);
 		Corsista[] corsisti = (Corsista[]) lista.toArray();
 		return corsisti;
 	} 

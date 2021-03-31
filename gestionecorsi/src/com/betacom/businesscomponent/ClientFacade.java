@@ -82,6 +82,12 @@ public class ClientFacade {
 
 	}
 
+	public Corso[] getCorsoPiuFreq() throws DAOException {
+
+		return corsoBC.getCorsoPiuFreq();
+
+	}
+
 	public Corso getCorsoByCod(long cod) throws DAOException {
 
 		return corsoBC.getByCod(cod);
@@ -97,7 +103,7 @@ public class ClientFacade {
 		return corsistaBC.getCorsisti();
 	}
 
-	public Date getDataUltimoCorso() {
+	public Date getDataUltimoCorso() throws DAOException {
 		return corsoBC.getDataUltimo();
 	}
 
@@ -107,6 +113,10 @@ public class ClientFacade {
 
 	public int getNumCorsistiTotali() throws DAOException {
 		return corsistaBC.getNumCorsistiTotali();
+	}
+
+	public Docente[] getStatisticaDocenti() throws DAOException {
+		return docenteBC.statDocenti();
 	}
 
 }

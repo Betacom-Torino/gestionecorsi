@@ -39,7 +39,7 @@ public class DocenteBC {
 	public Docente[] statDocenti() throws DAOException{
 		Docente[] docente = null;
 		try {
-			docente = DocenteDAO.getFactory().getAll(conn);
+			docente = DocenteDAO.getFactory().docenteStat(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}

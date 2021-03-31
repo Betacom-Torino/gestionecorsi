@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -182,9 +184,38 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		return n;
 	}
 
-	public Date getDataUltimo() {
-		// TODO Auto-generated method stub
-		return null;
+	public Date getDataUltimo(Connection conn) throws DAOException {
+		Date data = null;
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(DATA_INIZIO_ULTIMO_CORSO);
+			if (rs.next()) {
+				data = new java.util.Date(rs.getDate(1).getTime());
+			}
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return data;
+	}
+	
+	public Corso[] getCorsoPiuFreq(Connection conn) throws DAOException, SQLException{
+		PreparedStatement ps;
+		List<Corso> lista = new ArrayList<Corso>();
+		Corso[] corsi;
+		try {
+			ps = conn.prepareStatement(NOME_CORSO_PIU_FREQ);
+			ResultSet rs = ps.executeQuery();
+			corsi = CorsoDAO.getFactory().getAll(conn);
+			if(rs.next()) {
+				for(Corso c : corsi)
+					if(c.getNome().equals(rs.getString(1)))
+						lista.add(c);
+			}
+			corsi = (Corso[]) lista.toArray();
+		}catch(SQLException exc) {
+			throw new DAOException(exc);
+		}
+			return corsi;
 	}
 
 }
