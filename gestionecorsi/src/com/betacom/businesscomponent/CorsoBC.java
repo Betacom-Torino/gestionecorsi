@@ -85,7 +85,7 @@ public class CorsoBC {
 		return n;
 	}
 
-	public Corso[] getCorsoPiuFreq() throws SQLException, DAOException {
+	public Corso[] getCorsoPiuFreq() throws DAOException {
 		Corso[] corsi;
 		try {
 			corsi = CorsoDAO.getFactory().getCorsoPiuFreq(conn);
