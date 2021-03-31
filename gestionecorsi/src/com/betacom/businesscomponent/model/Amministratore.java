@@ -29,4 +29,10 @@ public class Amministratore {
 		this.codAdmin = codAdmin;
 	}
 
+	@Override
+	public String toString() {
+		return "Amministratore [nomeAdmin=" + nomeAdmin + ", cognomeAdmin=" + cognomeAdmin + ", codAdmin=" + codAdmin
+				+ "]";
+	}
+
 }
