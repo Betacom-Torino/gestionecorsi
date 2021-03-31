@@ -24,61 +24,53 @@ class DocenteDAOTest {
 	
 	@BeforeAll
 	static void setUp() throws Exception {
-		conn = DBAccess.getConnection();
-		docente = new Docente();
-		docente.setNomeDocente("Mario");
-		docente.setCognomeDocente("Rossi");
-		docente.setCodDocente(1);
-		docente.setCvDocente("cv.pdf");
+		conn = DBAccess.getConnection(); 
 	}
 
 	@AfterAll
 	static void tearDown() throws Exception {
-		try {
-			docente = null;
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate("Delete from docente");
-			conn.commit();
-			System.out.println("Tabella docente pulita");
-		}catch(DAOException exc) {
-			exc.printStackTrace();
-			fail("Errore nella pulizia DB");
-		}
-	}
 
-	@Test
-	void testCreate() {
-		try {
-			DocenteDAO.getFactory().create(DBAccess.getConnection(), docente);
-			System.out.println("Docente creato correttamente");
-		}catch(ClassNotFoundException | DAOException | IOException exc) {
-			exc.printStackTrace();
-			fail("Creazione docente fallita");
-		}
 	}
 	
 	@Test
 	void testGetAll() {
 		try {
-			Docente[] docente = DocenteDAO.getFactory().getAll(conn);
-			assertNotNull(docente);
+			Docente[] docenti = DocenteDAO.getFactory().getAll(conn);
+			assertNotNull(docenti);
+			assertEquals(10, docenti.length);
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Recupero docenti non funzionante");
 		}
 	}
 	
-	/*
+	@Test
+	void testGetByCod() {
+		try {
+			docente = DocenteDAO.getFactory().getByCod(conn, 1);
+			assertNotNull(docente);
+			assertEquals("Lorenzo", docente.getNomeDocente());
+			assertEquals("Giallo", docente.getCognomeDocente());
+			assertEquals("cv/cv1.pdf", docente.getCvDocente());
+		} catch (DAOException exc) {
+			// TODO: handle exception
+			exc.printStackTrace();
+			fail("Test getByCod fallito");
+		}
+		
+	}
+	
+
 	@Test
 	void testDocenteStat() {
 		try {
-			Docente[] docente = DocenteDAO.getFactory().getAll(conn);
+			Docente[] docente = DocenteDAO.getFactory().docenteStat(conn);
 			assertNotNull(docente);
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Statistica su docenti non funzionante");
 		}
 	}
-	*/
+
 
 }
