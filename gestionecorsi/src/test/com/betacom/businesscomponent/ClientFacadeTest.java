@@ -55,10 +55,10 @@ class ClientFacadeTest {
 
 		try {
 
-			assertNotNull(ClientFacade.getInstance().getAmministratoreById(10));
-			assertNotNull(ClientFacade.getInstance().getCorsoById(10));
-			assertNotNull(ClientFacade.getInstance().getCorsistaById(10));
-			assertNotNull(ClientFacade.getInstance().getDocenteById(10));
+			assertNotNull(ClientFacade.getInstance().getAmministratoreByCod(10));
+			assertNotNull(ClientFacade.getInstance().getCorsoByCod(10));
+			assertNotNull(ClientFacade.getInstance().getCorsistaByCod(10));
+			assertNotNull(ClientFacade.getInstance().getDocenteByCod(10));
 
 			assertNotNull(ClientFacade.getInstance().getCorsi());
 			assertNotNull(ClientFacade.getInstance().getCorsisti());
