@@ -40,7 +40,7 @@ public class ClientFacade {
 	}
 
 	public void updateCorsista(Corsista corsista) {
-		corsistaBC.update(corsista);
+		CorsistaBC.update(corsista);
 
 	}
 
