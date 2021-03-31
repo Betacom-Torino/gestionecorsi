@@ -12,7 +12,9 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 
+import com.betacom.architecture.dao.CorsistaDAO;
 import com.betacom.architecture.dao.CorsoCorsistaDAO;
+import com.betacom.architecture.dao.CorsoDAO;
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.architecture.dbaccess.DBAccess;
 import com.betacom.businesscomponent.model.Corsista;
@@ -26,6 +28,7 @@ class CorsoCorsistaDAOTest {
 	private static Corso corso;
 	private static Corso corso2;
 	private static Corsista corsista;
+	private static Corsista corsista2;
 	private static CorsoCorsista corsocorsista;
 	private static CorsoCorsista corsocorsista2;
 
@@ -59,11 +62,11 @@ class CorsoCorsistaDAOTest {
 		corsista.setCognomeCor("Franco");
 		corsista.setPreFormativi(1);
 		
-		corsista = new Corsista();
-		corsista.setCodiceCor(2);
-		corsista.setNomeCor("Gianfranco");
-		corsista.setCognomeCor("Franco");
-		corsista.setPreFormativi(1);
+		corsista2 = new Corsista();
+		corsista2.setCodiceCor(2);
+		corsista2.setNomeCor("Gianfranco");
+		corsista2.setCognomeCor("Franco");
+		corsista2.setPreFormativi(1);
 		
 		corsocorsista= new CorsoCorsista();
 		corsocorsista.setCodCorsista(1);
@@ -78,13 +81,18 @@ class CorsoCorsistaDAOTest {
 	@Order(1)
 	void testCreate() {
 		try {
+			CorsoDAO.getFactory().create(conn , corso);
+			CorsoDAO.getFactory().create(conn , corso2);
+			CorsistaDAO.getFactory().create(conn, corsista);
+			CorsistaDAO.getFactory().create(conn, corsista2);
+			
 			CorsoCorsistaDAO.getFactory().create(conn, corsocorsista);
 			System.out.println("Corso_corsista 1 creato");
 			CorsoCorsistaDAO.getFactory().create(conn, corsocorsista2);
 			System.out.println("Corso_corsista 2 creato");
 		}catch(DAOException exc) {
 			exc.printStackTrace();
-			fail("Creazione corso fallita");
+			fail("test create fallita");
 		}
 	}
 	
@@ -93,9 +101,9 @@ class CorsoCorsistaDAOTest {
 	void testCorsiByCorsista() {
 		Corso[] corsi=null;
 		try {
-			CorsoCorsistaDAO.getFactory().corsiByCorsista(conn, corsista.getCodiceCor());
+		corsi=CorsoCorsistaDAO.getFactory().corsiByCorsista(conn, corsista.getCodiceCor());
 			assertNotNull(corsi);
-			assertEquals(2, corsi.length);
+			assertEquals(1, corsi.length);
 		}catch (DAOException e) {
 			e.printStackTrace();
 			System.out.println("testCorsiByCorsista fallito");
@@ -104,17 +112,28 @@ class CorsoCorsistaDAOTest {
 	
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
-		corso=null;
-		corso2=null;
-		corsista=null;
+		
 		try {
-			CorsoCorsistaDAO.getFactory().delete(conn, 1);
-			conn.commit();
+			//eliminiamo dal db corsi, corsisti e corsi corsisti creati
+
+			CorsoCorsistaDAO.getFactory().delete(conn, corsocorsista.getCodCorsista());
+			CorsoCorsistaDAO.getFactory().delete(conn, corsocorsista2.getCodCorsista());
+			CorsoDAO.getFactory().delete(conn , corso.getCod());
+			CorsistaDAO.getFactory().delete(conn, corsista.getCodiceCor());
+			CorsoDAO.getFactory().delete(conn , corso2.getCod());
+			CorsistaDAO.getFactory().delete(conn, corsista2.getCodiceCor());
+		
+			
 			System.out.println("db pulito");
 			conn.close();
+			
+			corso=null;
+			corso2=null;
+			corsista=null;
+			corsista2=null;
 		}catch(DAOException exc) {
 			exc.printStackTrace();
-			fail("pulizia fallita");
+			fail("pulizia db fallita");
 		}
 	}
 
