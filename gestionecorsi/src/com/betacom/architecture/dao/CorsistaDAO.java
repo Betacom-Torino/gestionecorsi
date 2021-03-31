@@ -28,25 +28,20 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 
 	@Override
 	public void create(Connection conn, Corsista entity) throws DAOException {
-
-		if (getNumeriCorsisti(conn, entity.getCodiceCor()) < 12) {
-			try {
-				// dd
-				rowSet.setCommand(SELECT_CORSISTI);
-				rowSet.execute(conn);
-				rowSet.moveToInsertRow();
-				rowSet.updateLong(1, entity.getCodiceCor());
-				rowSet.updateString(2, entity.getNomeCor());
-				rowSet.updateString(3, entity.getCognomeCor());
-				rowSet.updateInt(4, entity.getPreFormativi());
-				rowSet.insertRow();
-				rowSet.moveToCurrentRow();
-				rowSet.acceptChanges();
-			} catch (SQLException sql) {
-				throw new DAOException(sql);
-			}
+		try {
+			rowSet.setCommand(SELECT_CORSISTI);
+			rowSet.execute(conn);
+			rowSet.moveToInsertRow();
+			rowSet.updateLong(1, entity.getCodiceCor());
+			rowSet.updateString(2, entity.getNomeCor());
+			rowSet.updateString(3, entity.getCognomeCor());
+			rowSet.updateInt(4, entity.getPreFormativi());
+			rowSet.insertRow();
+			rowSet.moveToCurrentRow();
+			rowSet.acceptChanges();	
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
 		}
-
 	}
 
 	@Override
@@ -58,8 +53,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 			ps.setString(2, entity.getCognomeCor());
 			ps.setLong(3, entity.getCodiceCor());
 			ps.setInt(4, entity.getPreFormativi());
-			ps.execute();
-			conn.commit();
+			ps.executeUpdate();
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
@@ -72,7 +66,6 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 			ps = conn.prepareStatement(DELETE_CORSISTA);
 			ps.setLong(1, codiceCor);
 			ps.execute();
-			conn.commit();
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
@@ -126,24 +119,10 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 	}
 
 	public int getNumCorsistiTotali(Connection conn) throws DAOException {
-		int n;
-		try {
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(NUM_CORSISTI_TOT);
-			rs.next();
-			n = rs.getInt(1);
-		} catch (SQLException sql) {
-			throw new DAOException(sql);
-		}
-		return n;
-	}
-
-	public int getNumeriCorsisti(Connection conn, long codcorso) throws DAOException {
 		PreparedStatement ps;
 		int n = 0;
 		try {
-			ps = conn.prepareStatement(CORSO_ISCRITTI);
-			ps.setLong(1, codcorso);
+			ps = conn.prepareStatement(NUM_CORSISTI_TOT);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				n = rs.getInt(1);
@@ -152,6 +131,34 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 			throw new DAOException(sql);
 		}
 		return n;
+	}
+	
+	public Corsista[] searchCorsista(String query, Connection conn) throws DAOException {
+		String[] criterioRicerca = query.toLowerCase().split(" ");
+		Corsista[] corsisti;
+		try {
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = stmt.executeQuery(SELECT_CORSISTI);
+			int i = 0;
+			rs.last();
+			corsisti = new Corsista[rs.getRow()];
+			rs.beforeFirst();
+			if(rs.next()) {
+				for(String s : criterioRicerca)
+					if(rs.getString(2).toLowerCase().equals(s) | rs.getString(2).toLowerCase().equals(s) ) {
+						corsisti[i].setCodiceCor(rs.getLong(1));
+						corsisti[i].setNomeCor(rs.getString(2));
+						corsisti[i].setCognomeCor(rs.getString(3));
+						corsisti[i].setPreFormativi(rs.getInt(4));
+						System.out.println(corsisti[i].toString());
+						i++;
+					}
+			}
+					
+		}catch(SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return corsisti;
 	}
 
 }
