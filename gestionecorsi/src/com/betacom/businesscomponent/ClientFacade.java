@@ -1,6 +1,7 @@
 package com.betacom.businesscomponent;
 
 import java.io.IOException;
+import java.util.Date;
 
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.businesscomponent.model.Amministratore;
@@ -98,7 +99,13 @@ public class ClientFacade {
 	public int getNumeroCorsi() {
 		return corsoBC.getNumero();
 	}
-	
-	public 
+
+	public Date getDataUltimoCorso() {
+		return corsoBC.getDataUltimo();
+	}
+
+	public int getNumeroCommenti() {
+		return corsoBC.getNumeroCommenti();
+	}
 
 }
