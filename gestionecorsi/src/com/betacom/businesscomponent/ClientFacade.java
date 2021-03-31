@@ -58,11 +58,9 @@ public class ClientFacade {
 
 	}
 
-	public Docente getDocenteByCod(long id) {
+	public Docente getDocenteByCod(long cod) {
 
-		Docente docente = null;
-
-		return docente;
+		return docenteBC.getByCod(cod);
 	}
 
 	public Docente[] getDocenti() {
