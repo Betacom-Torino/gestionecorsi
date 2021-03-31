@@ -145,7 +145,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		Corso[] corsi = null;
 		try {
 			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = stmt.executeQuery(CORSI_ISCRITTI);
+			ResultSet rs = stmt.executeQuery(CORSO_ISCRITTI);
 			rs.last();
 			corsi = new Corso[rs.getRow()];
 			rs.beforeFirst();
