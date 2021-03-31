@@ -145,7 +145,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		Corso[] corsi = null;
 		try {
 			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = stmt.executeQuery(CORSI_ISCRITTI);
+			ResultSet rs = stmt.executeQuery(CORSO_ISCRITTI);
 			rs.last();
 			corsi = new Corso[rs.getRow()];
 			rs.beforeFirst();
@@ -203,12 +203,12 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		List<Corso> lista = new ArrayList<Corso>();
 		Corso[] corsi;
 		try {
-			ps = conn.prepareStatement(NOME_CORSO_PIU_FREQ);
+			ps = conn.prepareStatement(MAX_ISCRITTI);
 			ResultSet rs = ps.executeQuery();
 			corsi = CorsoDAO.getFactory().getAll(conn);
 			for(Corso c : corsi)
 				if(rs.next()) {
-					if(c.getNome().equals(rs.getString(1)))
+					if(c.getNome().toLowerCase().equals(rs.getString(1).toLowerCase()))
 						lista.add(c);
 				}
 			corsi = (Corso[]) lista.toArray();
