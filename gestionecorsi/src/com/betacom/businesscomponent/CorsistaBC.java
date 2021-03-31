@@ -21,12 +21,13 @@ public class CorsistaBC {
 	}
 
 	public void createOrUpdate(Corsista corsista) throws DAOException, ClassNotFoundException, IOException {
-		idGen = CodGenerator.getIstance();
+		long cod = -1;
 		try {
 			if (corsista.getCodiceCor() > 0) {
 				CorsistaDAO.getFactory().update(conn, corsista);
 			} else {
-				corsista.setCodiceCor(idGen.getNextCod("corsista"));
+				cod = (CodGenerator.getIstance().getNextCod("corsista"));
+				corsista.setCodiceCor(cod);
 				CorsistaDAO.getFactory().create(conn, corsista);
 			}
 		} catch (SQLException sql) {
