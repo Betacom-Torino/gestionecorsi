@@ -47,13 +47,14 @@ public class CorsistaBC {
 		return corsisti;
 	} 
 	
-	public Corsista getByCod(long id) {
+	public Corsista getByCod(long cod) {
+		Corsista corsista=null;
 		try {
-			return CorsistaDAO.getFactory().getByCod(conn, id);
+			corsista=CorsistaDAO.getFactory().getByCod(conn, cod);
 		}catch(SQLException sql) {
 			sql.printStackTrace();
-			return null;
 		}
+		return corsista;
 	}
 	
 	
@@ -76,13 +77,13 @@ public class CorsistaBC {
 	}
 	
 	public int getNumCorsistiTotali() throws DAOException {
-		int n;
-		try {
-			n=CorsistaDAO.getFactory().getNumCorsistiTotali(conn);
-		}catch(SQLException sql) {
-			throw new DAOException(sql);
-		}
-		return n;
+	 int n;
+			try {
+				n=CorsistaDAO.getFactory().getNumCorsistiTotali(conn);
+			}catch(SQLException sql) {
+				throw new DAOException(sql);
+			}
+			return n;
 	}
 	
 	
