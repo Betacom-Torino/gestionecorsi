@@ -7,9 +7,9 @@ public interface GenericDAO<T> {
 	
 	void create(Connection conn,T entity) throws DAOException;      //Create
 	void update(Connection conn, T entity) throws DAOException;     //Update
-	void delete(Connection conn, long id) throws DAOException;      //delete
+	void delete(Connection conn, long cod) throws DAOException;      //delete
 
-	T getByCod(Connection conn, long id) throws DAOException;        //read
+	T getByCod(Connection conn, long cod) throws DAOException;        //read
 	T[] getAll(Connection conn) throws DAOException;				//read
 	
 }
