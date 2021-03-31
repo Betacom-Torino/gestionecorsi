@@ -32,14 +32,13 @@ class CorsoDAOTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
-		docente = new Docente();
 		docente = DocenteDAO.getFactory().getByCod(conn, 1);
 		conn.close();
 		
 		corso = new Corso();
-		corso.setCod(7);
-		corso.setCodDocente(22);
-		corso.setNome("Sistem Operativi");
+		corso.setCod(100);
+		corso.setCodDocente(1);
+		corso.setNome("Sistemi Operativi");
 		corso.setDataInizio(new GregorianCalendar(2000, 4, 15).getTime());
 		corso.setDataFine(new GregorianCalendar(2000, 4, 20).getTime());
 		corso.setCosto(30);
@@ -47,8 +46,8 @@ class CorsoDAOTest {
 		corso.setAula("Aula magna");
 		
 		corso2 = new Corso();
-		corso2.setCod(8);
-		corso2.setCodDocente(21);
+		corso2.setCod(101);
+		corso2.setCodDocente(2);
 		corso2.setNome("Sicurezza");
 		corso2.setDataInizio(new GregorianCalendar(2020, 2, 15).getTime());
 		corso2.setDataFine(new GregorianCalendar(2020, 2, 25).getTime());
@@ -57,8 +56,7 @@ class CorsoDAOTest {
 		corso2.setAula("Aula magna");
 		
 		newCorso = new Corso();
-		newCorso.setCod(9);
-		newCorso.setCodDocente(23);
+		newCorso.setCod(100);
 		newCorso.setNome("Algoritmi");
 		newCorso.setDataInizio(new GregorianCalendar(2000, 5, 15).getTime());
 		newCorso.setDataFine(new GregorianCalendar(2000, 5, 25).getTime());
@@ -88,9 +86,9 @@ class CorsoDAOTest {
 	@Order(2)
 	void testGetByCod() {
 		try {
-			Corso c = CorsoDAO.getFactory().getByCod(conn, 7);
+			Corso c = CorsoDAO.getFactory().getByCod(conn, 100);
 			assertNotNull(c);
-			assertEquals("Sistem Operativi", c.getNome());
+			assertEquals("Sistemi Operativi", c.getNome());
 			assertEquals(30, c.getCosto());
 			assertEquals("Aula magna", c.getAula());
 		}catch(DAOException exc) {
@@ -103,9 +101,12 @@ class CorsoDAOTest {
 	@Order(3)
 	void testGetAll() {
 		try {
+			CorsoDAO.getFactory().create(conn, corso2);
+			System.out.println("Corso2 creato");
 			Corso[] corsi = CorsoDAO.getFactory().getAll(conn);
 			assertNotNull(corsi);
-			assertEquals(7, corsi.length);
+			assertEquals(2, corsi.length);
+			System.out.println("getAll passato");
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("GetAll corsi fallita");
