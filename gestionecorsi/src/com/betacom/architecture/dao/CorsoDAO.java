@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -179,6 +180,11 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			throw new DAOException(sql);
 		}
 		return n;
+	}
+
+	public Date getDataUltimo() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
