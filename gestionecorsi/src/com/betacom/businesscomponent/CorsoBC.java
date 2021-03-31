@@ -13,23 +13,22 @@ import com.betacom.businesscomponent.model.Corso;
 public class CorsoBC {
 	private Connection conn;
 	private IdGenerator idGen;
-	
+
 	public CorsoBC() throws DAOException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
-	
-	public void createOrUpdate(Corso corso) 
-			throws ClassNotFoundException, IOException, DAOException {
+
+	public void createOrUpdate(Corso corso) throws ClassNotFoundException, IOException, DAOException {
 		try {
-			if(corso.getCod() > 0) {
+			if (corso.getCod() > 0) {
 				CorsoDAO.getFactory().update(conn, corso);
-			}else {
-				//settare l'id del corso con l'idGenerator prima di crearlo
+			} else {
+				// settare l'id del corso con l'idGenerator prima di crearlo
 				CorsoDAO.getFactory().create(conn, corso);
 			}
-		}catch(SQLException sql) {
+		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
 	}
-	
+
 }
