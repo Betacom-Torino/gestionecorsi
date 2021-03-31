@@ -60,9 +60,10 @@ public class CorsoBC {
 		return corsi;
 	}
 
-	public int getNumero() {
+	public Corso[] getDisponibili() {
+		return null;
 		// TODO Auto-generated method stub
-		return 0;
+
 	}
 
 	public Date getDataUltimo() {
