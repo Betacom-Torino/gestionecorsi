@@ -73,4 +73,16 @@ public class CorsistaBC {
 			throw new DAOException(sql);
 		}
 	}
+	
+	public int getNumCorsistiTotali() throws DAOException {
+		int n;
+		try {
+			n=CorsistaDAO.getFactory().getNumCorsistiTotali(conn);
+		}catch(SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return n;
+	}
+	
+	
 }

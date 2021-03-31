@@ -121,7 +121,7 @@ private CachedRowSet rowSet;
 	}
 	
 	
-	public int numCorsistiTotali(Connection conn) throws DAOException {
+	public int getNumCorsistiTotali(Connection conn) throws DAOException {
 		int n;
 		try {
 			Statement stmt=conn.createStatement();

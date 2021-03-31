@@ -1,6 +1,7 @@
 package com.betacom.businesscomponent;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
 
 import com.betacom.architecture.dao.DAOException;
@@ -91,10 +92,6 @@ public class ClientFacade {
 		return corsistaBC.getCorsisti();
 	}
 
-	public int getNumeroCorsi() {
-		return corsoBC.getNumero();
-	}
-
 	public Date getDataUltimoCorso() {
 		return corsoBC.getDataUltimo();
 	}
@@ -102,4 +99,10 @@ public class ClientFacade {
 	public int getNumeroCommenti() {
 		return corsoBC.getNumeroCommenti();
 	}
+	
+	
+	public int getNumCorsistiTotali() throws DAOException {
+		return corsistaBC.getNumCorsistiTotali();
+	}
+	
 }
