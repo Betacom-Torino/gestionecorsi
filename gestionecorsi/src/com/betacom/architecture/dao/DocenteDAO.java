@@ -87,7 +87,7 @@ public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
 
 	}
 
-	public Docente[] DocenteStat(Connection conn) throws DAOException {
+	public Docente[] docenteStat(Connection conn) throws DAOException {
 		Docente[] docente = null;
 		try {
 			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

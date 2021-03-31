@@ -109,4 +109,8 @@ public class ClientFacade {
 		return corsistaBC.getNumCorsistiTotali();
 	}
 
+	public Docente[] getStatisticaDocenti() throws DAOException {
+		return docenteBC.statDocenti();
+	}
+
 }
