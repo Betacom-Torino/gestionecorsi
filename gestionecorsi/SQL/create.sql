@@ -13,6 +13,7 @@ constraint p_coddocente primary key(coddocente));
 
 create table corso(
 codcorso int,
+coddocente int,
 nomecorso varchar2(30) not null,
 datainizio date not null,
 datafine date not null,
