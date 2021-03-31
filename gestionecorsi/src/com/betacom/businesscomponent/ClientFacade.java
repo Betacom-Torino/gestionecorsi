@@ -67,46 +67,34 @@ public class ClientFacade {
 
 	public Docente[] getDocenti() {
 
-		Docente[] docenti = null;
-
-		return docenti;
+		return docentiBC.getAll();
 	}
 
-	public Amministratore getAmministratoreByCod(long id) {
+	public Amministratore getAmministratoreByCod(long cod) {
 
-		Amministratore amministratore = null;
-
-		return amministratore;
+		return amministratoreBC.getByCod(cod);
 
 	}
 
 	public Corso[] getCorsi() {
 
-		Corso[] corsi = null;
-
-		return corsi;
+		return corsoBC.getAll();
 
 	}
 
-	public Corso getCorsoByCod(long id) {
+	public Corso getCorsoByCod(long cod) {
 
-		Corso corso = null;
-
-		return corso;
+		return corsoBC.getByCod(cod);
 	}
 
-	public Corsista getCorsistaByCod(long id) {
+	public Corsista getCorsistaByCod(long cod) {
 
-		Corsista corsista = null;
-
-		return corsista;
+		return corsistaBC.getByCod(cod);
 	}
 
 	public Corsista[] getCorsisti() {
 
-		Corsista[] corsisti = null;
-
-		return corsisti;
+		return corsistaBC.getAll();
 	}
 
 }
