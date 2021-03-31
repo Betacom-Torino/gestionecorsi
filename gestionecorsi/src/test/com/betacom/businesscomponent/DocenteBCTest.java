@@ -13,58 +13,59 @@ import com.betacom.architecture.dao.CorsistaDAO;
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.architecture.dao.DocenteDAO;
 import com.betacom.architecture.dbaccess.DBAccess;
+import com.betacom.businesscomponent.DocenteBC;
 import com.betacom.businesscomponent.model.Corsista;
 import com.betacom.businesscomponent.model.Docente;
 
 class DocenteBCTest {
 	private static Connection conn;
-	private static Docente docente;
-	
+	private static DocenteBC docenteBc;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
+		docenteBc = new DocenteBC();
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
-	
+
 	}
 
 	@Test
 	void testGetByCod() {
 		try {
-			docente = DocenteDAO.getFactory().getByCod(conn, 1);
+			Docente docente = docenteBc.getDocenteByCod(1);
 			assertNotNull(docente);
-			assertEquals("Lorenzo", docente.getNomeDocente());
-			assertEquals("Giallo", docente.getCognomeDocente());
+			assertEquals("Enrico", docente.getNomeDocente());
+			assertEquals("Bini", docente.getCognomeDocente());
 			assertEquals("cv/cv1.pdf", docente.getCvDocente());
+			System.out.println("chiamata funzionante");
 		} catch (DAOException exc) {
 			// TODO: handle exception
 			exc.printStackTrace();
-			fail("Test getByCod fallito");
+			fail("Test getByCodBC fallito");
 		}
 	}
-	
+
 	@Test
 	void testGetAll() {
 		try {
-			Docente[] docenti = DocenteDAO.getFactory().getAll(conn);
+			Docente[] docenti = docenteBc.getDocenti();
 			assertNotNull(docenti);
 			assertEquals(10, docenti.length);
-		}catch(DAOException exc) {
+		} catch (DAOException exc) {
 			exc.printStackTrace();
 			fail("Recupero docenti non funzionante");
 		}
 	}
-	
 
 	@Test
 	void testDocenteStat() {
 		try {
-			Docente[] docente = DocenteDAO.getFactory().docenteStat(conn);
+			Docente[] docente = docenteBc.statDocenti();
 			assertNotNull(docente);
-		}catch(DAOException exc) {
+		} catch (DAOException exc) {
 			exc.printStackTrace();
 			fail("Statistica su docenti non funzionante");
 		}

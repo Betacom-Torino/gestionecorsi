@@ -49,8 +49,8 @@ class DocenteDAOTest {
 		try {
 			docente = DocenteDAO.getFactory().getByCod(conn, 1);
 			assertNotNull(docente);
-			assertEquals("Lorenzo", docente.getNomeDocente());
-			assertEquals("Giallo", docente.getCognomeDocente());
+			assertEquals("Enrico", docente.getNomeDocente());
+			assertEquals("Bini", docente.getCognomeDocente());
 			assertEquals("cv/cv1.pdf", docente.getCvDocente());
 		} catch (DAOException exc) {
 			// TODO: handle exception
@@ -59,7 +59,6 @@ class DocenteDAOTest {
 		}
 		
 	}
-	
 
 	@Test
 	void testDocenteStat() {

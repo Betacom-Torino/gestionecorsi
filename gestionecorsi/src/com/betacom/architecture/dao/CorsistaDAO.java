@@ -89,9 +89,9 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 
 			if (rs.next()) {
 				corsista = new Corsista();
-				corsista.setNomeCor(rs.getString(1));
-				corsista.setCognomeCor(rs.getString(2));
-				corsista.setCodiceCor(rs.getLong(3));
+				corsista.setCodiceCor(rs.getLong(1));
+				corsista.setNomeCor(rs.getString(2));
+				corsista.setCognomeCor(rs.getString(3));
 				corsista.setPreFormativi(rs.getInt(4));
 			}
 		} catch (SQLException sql) {
