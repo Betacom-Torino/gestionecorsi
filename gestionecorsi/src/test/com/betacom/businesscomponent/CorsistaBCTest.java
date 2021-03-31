@@ -1,86 +1,113 @@
-package test.com.betacom.businesscomponent;
+ackage test.com.betacom.businesscomponent;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
-import com.betacom.architecture.dao.CorsistaDAO;
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.architecture.dbaccess.DBAccess;
-import com.betacom.businesscomponent.idgenerator.CodGenerator;
+import com.betacom.businesscomponent.ClientFacade;
 import com.betacom.businesscomponent.model.Corsista;
 
+@TestMethodOrder(OrderAnnotation.class)
 class CorsistaBCTest {
 	private static Connection conn;
 	private static Corsista corsista;
-
+	
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
+	static void setUp() throws Exception{
 		conn = DBAccess.getConnection();
 		corsista = new Corsista();
+		corsista.setCodiceCor(5);
 		corsista.setNomeCor("Nino");
-		corsista.setCognomeCor("D'angelo");
+		corsista.setCognomeCor("D'Angelo");
 		corsista.setPreFormativi(1);
 	}
-
+	
 	@Test
-	void testCreateOrUpdate() throws ClassNotFoundException, DAOException, IOException, SQLException {
+	@Order(1)
+	void testCreateOrUpdate() throws ClassNotFoundException, IOException, SQLException {
 		try {
-			if (corsista.getCodiceCor() < CodGenerator.getIstance().getNextCod("corsista"))
-				CorsistaDAO.getFactory().update(conn, corsista);
-			else
-				CorsistaDAO.getFactory().create(conn, corsista);
-			conn.commit();
-			System.out.println("Corsista inserito correttamente");
-		} catch (DAOException exc) {
+			ClientFacade.getInstance().createOrUpdateCorsista(corsista);
+			System.out.println("Corsista inserito correttamente. " + corsista.toString());
+		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Errore nel inserimento del corsista");
 		}
 	}
-
-	/*
-	 * @Test void testGetByCod() { Corsista corsista =null; try { long cod = 5;
-	 * corsista = CorsistaDAO.getFactory().getByCod(conn,cod);
-	 * System.out.println("il corsista è:" +corsista.toString());
-	 * assertNotNull(corsista); }catch(DAOException exc) { exc.printStackTrace();
-	 * System.out.println("corsista non trovato"); } }
-	 * 
-	 * @Test void testSearchCorsista() { try { String nome = "Nino"; Corsista[]
-	 * corsisti = CorsistaDAO.getFactory().getAll(conn); assertNotNull(corsisti);
-	 * for(Corsista c: corsisti)
-	 * if(c.getNomeCor().toLowerCase().equals(nome.toLowerCase()) |
-	 * c.getCognomeCor().toLowerCase().equals(nome.toLowerCase()))
-	 * System.out.println(c.toString()); }catch(DAOException exc){
-	 * exc.printStackTrace(); fail("Errore nella ricerca del Corsista"); } }
-	 * 
-	 * 
-	 * 
-	 * @Test void testGetAll() { try { Corsista[] corsisti =
-	 * CorsistaDAO.getFactory().getAll(conn); assertNotNull(corsisti);
-	 * System.out.println("trovati tutti"); }catch(DAOException dao) {
-	 * dao.printStackTrace(); fail("Recupero dati fallito"); } }
-	 * 
-	 * @Test void getNumCorsistiTotali(){ try { int
-	 * n=CorsistaDAO.getFactory().getNumCorsistiTotali(conn); assertNotNull(n);
-	 * }catch(DAOException dao) { dao.printStackTrace();
-	 * fail("Recupero dati fallito"); } }
-	 * 
-	 */
-
+	
+	@Test
+	@Order(4)
+	void testGetByCod() throws ClassNotFoundException, IOException {
+		try {
+			long id = 5;
+			Corsista[] corsisti = ClientFacade.getInstance().getCorsisti();
+			for(Corsista c : corsisti)
+				if(c.getCodiceCor() == id)
+					System.out.println("Corsista ricercato: " + c.toString());
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			fail("Errorre nella ricerca per codice");
+		}
+	}
+	
+	@Test
+	@Order(3)
+	void testSearchCorsista() throws ClassNotFoundException, IOException{
+		try {
+			String nome = "Nino";
+			Corsista[] corsisti = ClientFacade.getInstance().searchCorsista(nome);
+			assertNotNull(corsisti);
+			System.out.println("Corsista trovato");
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			fail("Errore nella ricerca del corsista");
+		}
+	}
+	
+	
+	@Test
+	@Order(5)
+	void testGetAll() throws ClassNotFoundException, IOException {
+		try {
+			Corsista[] corsisti = ClientFacade.getInstance().getCorsisti();
+			assertNotNull(corsisti);
+			System.out.println("Trovati tutti");
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			fail("Errore nel trovarli tutti");
+		}
+	}
+	
+	@Test
+	@Order(2)
+	void getNumCorsistiTotali() throws ClassNotFoundException, IOException {
+		try {
+			int n = ClientFacade.getInstance().getNumCorsistiTotali();
+			assertNotNull(n);
+			System.out.println("Totale Corsisti: " + n);
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			fail("Errore nel recupero del totale dei corsisti");
+		}
+	}
 	@AfterAll
-	static void tearDownAfterClass() throws Exception {
+	static void tearDown() throws ClassNotFoundException, IOException {
 		try {
 			corsista = null;
-			CorsistaDAO.getFactory().delete(conn, corsista.getCodiceCor());
-			conn.commit();
-			System.out.println("Pulita la tabella corsista");
-		} catch (DAOException exc) {
+			ClientFacade.getInstance().deleteCorsista(5);
+			System.out.println("Pulito il DB");
+		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Errore nella pulizia del DB");
 		}
