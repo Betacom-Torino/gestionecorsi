@@ -38,6 +38,9 @@ constraint f_codcorsista foreign key(codcorsista) references corsista(codcorsist
 constraint f_codcorso foreign key(codcorso) references corso(codcorso) on delete cascade,
 constraint p_cc primary key(codcorsista, codcorso));
 
+create view numero_iscritti_corso as
+Select c.codcorso, count(*) as num_iscritti from corso c, corso_corsista cc where c.codcorso=cc.codcorso group by c.nomecorso, c.codcorso;
+
 -- sequenze
 
 create sequence corso_seq;

@@ -36,7 +36,7 @@ public interface DAOConstants {
 
 	
 	// STATISTICHE PARI
-	String MAX_ISCRITTI = "Select max(num_iscritti) from (Select count(*) as num_iscritti from corso c, corso_corsista cc where c.codcorso=cc.codcorso group by nomecorso, c.codcorso)";	 
+	String MAX_ISCRITTI = "Select nomecorso,max(num_iscritti) from (Select count(*) as num_iscritti from corso c, corso_corsista cc where c.codcorso=cc.codcorso group by nomecorso, c.codcorso)";	 
 	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
 	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista group by codcorso having Count(*)< 12)";
 }
