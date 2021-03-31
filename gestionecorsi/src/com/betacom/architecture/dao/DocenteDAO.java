@@ -86,15 +86,16 @@ public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
 	public void update(Connection conn, Docente entity) throws DAOException {
 
 	}
-	public Docente[] docenteStat(Connection conn) throws DAOException {
-		Docente[] docente=null;
+
+	public Docente[] DocenteStat(Connection conn) throws DAOException {
+		Docente[] docente = null;
 		try {
 			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = stmt.executeQuery(DOC_PIU_CORSI);
 			rs.last();
 			docente = new Docente[rs.getRow()];
 			rs.beforeFirst();
-			for(int i = 0; rs.next(); i++) {
+			for (int i = 0; rs.next(); i++) {
 				Docente a = new Docente();
 				a.setCodDocente(rs.getLong(1));
 				a.setNomeDocente(rs.getString(2));
