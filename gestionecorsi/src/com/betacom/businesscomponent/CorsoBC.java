@@ -86,4 +86,9 @@ public class CorsoBC {
 		return n;
 	}
 
+	public Corso[] getCorsoPiuFreq() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
