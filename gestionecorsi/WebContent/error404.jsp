@@ -34,7 +34,7 @@ a {
   margin-bottom: -1em;
   border: 2px solid #b9ddfb;
   color:  #F0FFFF;
-  font-weight: 500;
+  font-weight: 700;
  
   text-decoration: none;
   letter-spacing: 0.2em;
@@ -63,6 +63,28 @@ a:before {
     transition: 0.3s;
     z-index: -1;
   }
+  
+ .button {
+  border: none;
+  color: white;
+  padding: 12px 13px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 2px 1px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #2F4F4F;
+  color: #F0FFFF; 
+  border: 0px solid  #F0FFFF;
+}
+
+.button:hover {
+  background-color: #F0FFFF;
+  color: #2F4F4F;
+}
 </style>
 
 </head>
@@ -77,8 +99,15 @@ a:before {
 			 <h3><strong>Forse</strong> questa pagina ha un URL che Eclipse non ha voluto trovare</h3>
 			 <h3><strong>Forse</strong> si è presa il covid ed è in quarantena</h3>
 			 <br>
-			 <h2>Sah, fai che ricominciare da &nbsp; <a href="home.jsp">QUI</a> spero tu sia più fortunato!</h2>
+			 <h2>Sah, ti consiglio di ricominciare dalla &nbsp; <a href="home.jsp">HOME</a> per sicurezza.</h2>
 			 </div>
+			 <br>
+			 	  <hr>
+			  <div class="row justify-content-md-center" style="text-align: center;">
+		
+			  <h3>Altrimenti tenta un viaggio nel tempo e torna <button class="button" onclick="window.history.back()">indietro</button> </h3>
+			  </div>
+			 
 			 
 </div>
 	
