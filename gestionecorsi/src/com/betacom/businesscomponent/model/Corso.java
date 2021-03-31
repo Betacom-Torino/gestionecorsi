@@ -5,6 +5,7 @@ import java.util.Date;
 public class Corso {
 	
 	private long cod;
+	private long codDocente;
 	private String nome;
 	private Date dataInizio;
 	private Date dataFine;
@@ -18,6 +19,14 @@ public class Corso {
 
 	public void setCod(long cod) {
 		this.cod = cod;
+	}
+
+	public long getCodDocente() {
+		return codDocente;
+	}
+
+	public void setCodDocente(long codDocente) {
+		this.codDocente = codDocente;
 	}
 
 	public String getNome() {
@@ -70,8 +79,8 @@ public class Corso {
 
 	@Override
 	public String toString() {
-		return "Corso [cod=" + cod + ", nome=" + nome + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine
-				+ ", costo=" + costo + ", commenti=" + commenti + ", aula=" + aula + "]";
+		return "Corso [cod=" + cod + ", codDocente=" + codDocente + ", nome=" + nome + ", dataInizio=" + dataInizio
+				+ ", dataFine=" + dataFine + ", costo=" + costo + ", commenti=" + commenti + ", aula=" + aula + "]";
 	}
 
 }

@@ -37,7 +37,7 @@ public class CodGenerator implements DAOConstants {
 		public long getNextCod(String tipo) throws ClassNotFoundException, DAOException, IOException {
 			long cod = 0;
 			String query = null;
-	    tipo= tipo.toLowerCase();
+			tipo= tipo.toLowerCase();
 			if(tipo.equals("corso"))
 				query= SELECT_CORSOSEQ;
 			else if(tipo.equals("corsista"))
@@ -49,8 +49,6 @@ public class CodGenerator implements DAOConstants {
 			} catch (SQLException sql) {
 				throw new DAOException(sql);
 			}
-
-	
 			return cod;
 		}
 
