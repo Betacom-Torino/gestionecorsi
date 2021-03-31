@@ -19,7 +19,8 @@ datafine date not null,
 costocorso number(5,2) not null,
 commentocorso varchar2(200),
 aulacorso varchar2(30) not null,
-constraint p_codcorso primary key(codcorso));
+constraint p_codcorso primary key(codcorso)
+constraint f_coddocente foreign key(coddocente) references docente(coddocente) on delete cascade);
 
 create table corsista(
 codcorsista int,
