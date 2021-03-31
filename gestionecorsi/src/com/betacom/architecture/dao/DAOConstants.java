@@ -35,5 +35,5 @@ public interface DAOConstants {
 	String DOC_PIU_CORSI = "Select d.nomedocente, c.coddocente from corso c,docente d where c.coddocente=d.coddocente group by d.nomedocente,c.coddocente having count(*) >2";
 
 	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
-	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista where (select count(codcorsista)) from corso_corsista where codcorso = c.codcorso) < 12";
+	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista group by cocordo having Count(*)< 12)";
 }
