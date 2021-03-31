@@ -3,6 +3,7 @@ package com.betacom.businesscomponent;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 
 import com.betacom.architecture.dao.CorsoDAO;
 import com.betacom.architecture.dao.DAOException;
@@ -32,31 +33,46 @@ public class CorsoBC {
 			throw new DAOException(sql);
 		}
 	}
-	
+
 	public void delete(long cod) throws DAOException {
 		try {
 			CorsoDAO.getFactory().delete(conn, cod);
-		}catch(SQLException sql) {
-			throw new DAOException(sql);
-		}
-	}
-	
-	public Corso getByCod(long cod) throws DAOException {
-		try {
-			return CorsoDAO.getFactory().getByCod(conn, cod);
-		}catch(SQLException sql) {
+		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
 	}
 
-	public Corso[] getCorsi() throws DAOException{
+	public Corso getByCod(long cod) throws DAOException {
+		try {
+			return CorsoDAO.getFactory().getByCod(conn, cod);
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+	}
+
+	public Corso[] getCorsi() throws DAOException {
 		Corso[] corsi = null;
 		try {
 			corsi = CorsoDAO.getFactory().getAll(conn);
-		}catch(SQLException sql) {
+		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
 		return corsi;
 	}
-	
+
+	public int getNumero() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Date getDataUltimo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getNumeroCommenti() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

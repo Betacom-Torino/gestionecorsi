@@ -40,48 +40,43 @@ public class ClientFacade {
 		corsoBC.createOrUpdate(corso);
 	}
 
-	public void updateCorsista(Corsista corsista) {
-		CorsistaBC.update(corsista);
+	public void createOrUpdateCorsista(Corsista corsista) throws DAOException, ClassNotFoundException, IOException {
+		corsistaBC.createOrUpdate(corsista);
 
 	}
 
-	public void createCorsista(Corsista corsista) {
-		corsistaBC.create(corsista);
+	public void deleteCorso(long cod) throws DAOException {
+		corsoBC.delete(cod);
+	}
+
+	public void deleteCorsista(long cod) throws DAOException {
+		corsistaBC.delete(cod);
 
 	}
 
-	public void deleteCorso(long id) {
-		corsoBC.delete(corso);
+	public Docente getDocenteByCod(long cod) throws DAOException {
+
+		return docenteBC.getDocenteByCod(cod);
 	}
 
-	public void deleteCorsista(long id) {
-		corsistaBC.delete(corsista);
+	public Docente[] getDocenti() throws DAOException {
 
+		return docenteBC.getDocenti();
 	}
 
-	public Docente getDocenteByCod(long cod) {
-
-		return docenteBC.getByCod(cod);
-	}
-
-	public Docente[] getDocenti() {
-
-		return docentiBC.getAll();
-	}
-
-	public Amministratore getAmministratoreByCod(long cod) {
+	public Amministratore getAmministratoreByCod(long cod) throws DAOException {
 
 		return amministratoreBC.getByCod(cod);
 
 	}
 
-	public Corso[] getCorsi() {
+	public Corso[] getCorsi() throws DAOException {
 
-		return corsoBC.getAll();
+		return corsoBC.getCorsi();
 
 	}
 
-	public Corso getCorsoByCod(long cod) {
+	public Corso getCorsoByCod(long cod) throws DAOException {
 
 		return corsoBC.getByCod(cod);
 	}
@@ -91,9 +86,9 @@ public class ClientFacade {
 		return corsistaBC.getByCod(cod);
 	}
 
-	public Corsista[] getCorsisti() {
+	public Corsista[] getCorsisti() throws DAOException {
 
-		return corsistaBC.getAll();
+		return corsistaBC.getCorsisti();
 	}
 
 	public int getNumeroCorsi() {
@@ -107,5 +102,4 @@ public class ClientFacade {
 	public int getNumeroCommenti() {
 		return corsoBC.getNumeroCommenti();
 	}
-
 }
