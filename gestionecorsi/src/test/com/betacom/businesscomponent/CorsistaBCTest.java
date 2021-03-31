@@ -90,6 +90,17 @@ class CorsistaBCTest {
 			fail("Recupero dati fallito");
 		}
 	}
+	
+	@Test
+	void getNumCorsistiTotali(){
+		try {
+			int n=CorsistaDAO.getFactory().getNumCorsistiTotali(conn);
+			assertNotNull(n);
+		}catch(DAOException dao) {
+			dao.printStackTrace();
+			fail("Recupero dati fallito");
+		}
+	}
 	 
 	
 	@AfterAll
