@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import com.betacom.architecture.dao.CorsoDAO;
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.architecture.dbaccess.DBAccess;
-import com.betacom.businesscomponent.idgenerator.idGenerator;
+import com.betacom.businesscomponent.idgenerator.IdGenerator;
 import com.betacom.businesscomponent.model.Corso;
 
 public class CorsoBC {
 	private Connection conn;
-	private idGenerator idGen;
+	private IdGenerator idGen;
 	
 	public CorsoBC() throws DAOException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
