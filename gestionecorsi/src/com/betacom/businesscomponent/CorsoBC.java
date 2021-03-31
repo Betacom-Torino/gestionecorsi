@@ -76,9 +76,14 @@ public class CorsoBC {
 		return null;
 	}
 
-	public int getNumeroCommenti() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getNumeroCommenti() throws DAOException {
+		int n = 0;
+		try {
+			n = CorsoDAO.getFactory().getNumeroCommenti(conn);
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return n;
 	}
 
 }

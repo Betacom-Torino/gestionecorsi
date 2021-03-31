@@ -101,7 +101,7 @@ public class ClientFacade {
 		return corsoBC.getDataUltimo();
 	}
 
-	public int getNumeroCommenti() {
+	public int getNumeroCommenti() throws DAOException {
 		return corsoBC.getNumeroCommenti();
 	}
 
