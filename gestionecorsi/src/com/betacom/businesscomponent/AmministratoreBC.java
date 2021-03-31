@@ -16,7 +16,7 @@ public class AmministratoreBC {
 		conn=DBAccess.getConnection();
 	}
 	
-	public Amministratore getById(long cod) throws DAOException {
+	public Amministratore getByCod(long cod) throws DAOException {
 		try {
 			return AmministratoreDAO.getFactory().getByCod(conn, cod);
 		}catch (SQLException sql) {

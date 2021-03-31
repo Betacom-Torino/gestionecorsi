@@ -13,7 +13,7 @@ import com.betacom.architecture.dbaccess.DBAccess;
 import com.betacom.businesscomponent.model.Amministratore;
 
 class AmministratoreDAOTest {
-	Connection conn;
+	private Connection conn;
 
 	@Test
 	void test() {
