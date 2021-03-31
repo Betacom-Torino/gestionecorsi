@@ -95,4 +95,10 @@ public class ClientFacade {
 		return corsistaBC.getAll();
 	}
 
+	public int getNumeroCorsi() {
+		return corsoBC.getNumero();
+	}
+	
+	public 
+
 }
