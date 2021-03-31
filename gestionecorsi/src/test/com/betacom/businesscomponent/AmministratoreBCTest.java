@@ -7,10 +7,8 @@ import java.sql.Connection;
 
 import org.junit.jupiter.api.Test;
 
-import com.betacom.architecture.dao.AmministratoreDAO;
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.architecture.dbaccess.DBAccess;
-import com.betacom.businesscomponent.AmministratoreBC;
 import com.betacom.businesscomponent.ClientFacade;
 import com.betacom.businesscomponent.model.Amministratore;
 
