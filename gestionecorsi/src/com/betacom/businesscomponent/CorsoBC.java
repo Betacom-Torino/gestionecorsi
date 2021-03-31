@@ -71,9 +71,8 @@ public class CorsoBC {
 
 	}
 
-	public Date getDataUltimo() {
-		// TODO Auto-generated method stub
-		return null;
+	public Date getDataUltimo() throws DAOException {
+		return CorsoDAO.getFactory().getDataUltimo(conn);
 	}
 
 	public int getNumeroCommenti() throws DAOException {
@@ -84,6 +83,11 @@ public class CorsoBC {
 			throw new DAOException(sql);
 		}
 		return n;
+	}
+
+	public Corso[] getCorsoPiuFreq() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
