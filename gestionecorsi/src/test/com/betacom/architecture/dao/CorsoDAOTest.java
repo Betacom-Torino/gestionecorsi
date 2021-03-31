@@ -61,18 +61,18 @@ class CorsoDAOTest {
 			fail("Creazione corso fallita");
 		}
 	}
-//	
-//	@Test
-//	@Order(2)
-//	void testDelete() {
-//		try {
-//			CorsoDAO.getFactory().delete(conn, 100);
-//			System.out.println("Corso eliminato");
-//		}catch(DAOException exc) {
-//			exc.printStackTrace();
-//			fail("Eliminazione corso fallita");
-//		}
-//	}
+	
+	@Test
+	@Order(2)
+	void testDelete() {
+		try {
+			CorsoDAO.getFactory().delete(conn, 100);
+			System.out.println("Corso eliminato");
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			fail("Eliminazione corso fallita");
+		}
+	}
 	
 	@AfterEach
 	void tearDown() throws Exception {

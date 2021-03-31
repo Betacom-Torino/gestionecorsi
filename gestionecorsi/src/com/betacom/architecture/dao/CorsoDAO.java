@@ -166,4 +166,19 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		return corsi;
 	}
 
+	public int getNumeroCommenti(Connection conn) throws DAOException {
+		PreparedStatement ps;
+		int n = 0;
+		try {
+			ps = conn.prepareStatement(NUM_COMMENTI);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				n = rs.getInt(1);
+			}
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return n;
+	}
+
 }
