@@ -40,6 +40,7 @@ public interface DAOConstants {
 	String DURATA_MEDIA_CORSI = "Select ROUND(AVG(((datafine-datainizio)/7)*5)) as media from corso c";
 	String CORSO_ISCRITTI = "Select * from corso c where c.codcorso in (select codcorso from numero_iscritti_corso where num_iscritti<12)";
 
-	String CORSI_BY_CORSISTI="Select * from corso c, corso_corsista cc where c.codcorso=cc.codcorso and cc.codcorsista=?";
-
+	String SELECT_CORSI_BY_CORSISTA="Select * from corso c, corso_corsista cc where c.codcorso=cc.codcorso and cc.codcorsista=?";
+	
+	String DELETE_CORSO_CORSISTA="Delete from corso_corsista where codcorsista=?";
 }
