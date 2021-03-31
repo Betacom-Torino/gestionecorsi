@@ -120,4 +120,18 @@ private CachedRowSet rowSet;
 		return corsista;
 	}
 	
+	
+	public int numCorsistiTotali(Connection conn) throws DAOException {
+		int n;
+		try {
+			Statement stmt=conn.createStatement();
+			ResultSet rs=stmt.executeQuery(NUM_CORSISTI_TOT);
+			rs.next();
+			n=rs.getInt(1);
+		}catch(SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return n;
+	}
+	
 }
