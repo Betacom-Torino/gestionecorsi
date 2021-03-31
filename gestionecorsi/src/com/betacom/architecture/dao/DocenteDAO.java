@@ -11,7 +11,7 @@ import javax.sql.rowset.RowSetProvider;
 
 import com.betacom.businesscomponent.model.Docente;
 
-public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
+public class DocenteDAO extends GenericDAOAdapter<Docente> implements DAOConstants {
 	private CachedRowSet rowSet;
 
 	public static DocenteDAO getFactory() throws DAOException {
@@ -26,6 +26,7 @@ public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
 		}
 	}
 
+	@Override
 	public Docente getByCod(Connection conn, long cod) throws DAOException {
 		PreparedStatement ps;
 		Docente docente = null;
@@ -75,18 +76,6 @@ public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
 		return docente;
 	}
 
-	public void create(Connection conn, Docente entity) throws DAOException {
-
-	}
-
-	public void delete(Connection conn, long cod) throws DAOException {
-
-	}
-
-	public void update(Connection conn, Docente entity) throws DAOException {
-
-	}
-
 	public Docente[] docenteStat(Connection conn) throws DAOException {
 		Docente[] docente = null;
 		try {
@@ -105,7 +94,6 @@ public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
 			}
 			rs.close();
 		} catch (SQLException sql) {
-			// TODO: handle exception
 			throw new DAOException(sql);
 		}
 		return docente;

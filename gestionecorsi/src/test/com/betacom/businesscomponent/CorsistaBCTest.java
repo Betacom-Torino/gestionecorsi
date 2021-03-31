@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -49,6 +49,20 @@ class CorsistaBCTest {
 	}
 	
 	@Test
+	void testGetByCod() {
+		Corsista corsista =null;
+		try {
+			long cod = 5;
+			corsista = CorsistaDAO.getFactory().getByCod(conn,cod);
+			System.out.println("il corsista è:" +corsista.toString());
+			assertNotNull(corsista);
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			System.out.println("corsista non trovato");
+		}
+	}
+	
+	@Test
 	void testSearchCorsista() {
 		try {
 			String nome = "Nino";
@@ -63,37 +77,26 @@ class CorsistaBCTest {
 		}
 	}
 	
-	@Test
-	void testGetByCod() {
-		try {
-			long id = 5;
-			Corsista[] corsisti = CorsistaDAO.getFactory().getAll(conn);
-			assertNotNull(corsisti);
-			for(Corsista c : corsisti)
-				if(c.getCodiceCor() == id)
-					System.out.println("Corsista cercato:\n" + c.toString());
-		}catch(DAOException exc) {
-			exc.printStackTrace();
-		}
-	}
+
 	
 	@Test
-	void tesGetAll() {
+	void testGetAll() {
 		try {
 			Corsista[] corsisti = CorsistaDAO.getFactory().getAll(conn);
 			assertNotNull(corsisti);
+			System.out.println("trovati tutti");
 		}catch(DAOException dao) {
 			dao.printStackTrace();
 			fail("Recupero dati fallito");
 		}
 	}
+	 
 	
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		try{
 			corsista = null;
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate("Delete from corsista");
+			CorsistaDAO.getFactory().delete(conn, 5);
 			conn.commit();
 			System.out.println("Pulita la tabella corsista");
 		}catch(DAOException exc) {
