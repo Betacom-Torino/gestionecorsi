@@ -3,7 +3,6 @@ package com.betacom.businesscomponent.model;
 public class CorsoCorsista {
 	private int codCorsista;
 	private int codCorso;
-	
 	public int getCodCorsista() {
 		return codCorsista;
 	}
@@ -19,6 +18,7 @@ public class CorsoCorsista {
 	
 	@Override
 	public String toString() {
-		return "CorsoCorsista [codCorsista=" + codCorsista + ", codOrdine=" + codCorso + "]";
+		return "CorsoCorsista [codCorsista=" + codCorsista + ", codCorso=" + codCorso + "]";
 	}
+	
 }
