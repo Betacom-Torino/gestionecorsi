@@ -39,27 +39,26 @@ public class ClientFacade {
 		corsoBC.createOrUpdate(corso);
 	}
 
-	public void updateCorso(Corso corso) {
-
-	}
-
 	public void updateCorsista(Corsista corsista) {
+		corsistaBC.update(corsista);
 
 	}
 
 	public void createCorsista(Corsista corsista) {
+		corsistaBC.create(corsista);
 
 	}
 
 	public void deleteCorso(long id) {
-
+		corsoBC.delete(corso);
 	}
 
 	public void deleteCorsista(long id) {
+		corsistaBC.delete(corsista);
 
 	}
 
-	public Docente getDocenteById(long id) {
+	public Docente getDocenteByCod(long id) {
 
 		Docente docente = null;
 
@@ -68,46 +67,34 @@ public class ClientFacade {
 
 	public Docente[] getDocenti() {
 
-		Docente[] docenti = null;
-
-		return docenti;
+		return docentiBC.getAll();
 	}
 
-	public Amministratore getAmministratoreById(long id) {
+	public Amministratore getAmministratoreByCod(long cod) {
 
-		Amministratore amministratore = null;
-
-		return amministratore;
+		return amministratoreBC.getByCod(cod);
 
 	}
 
 	public Corso[] getCorsi() {
 
-		Corso[] corsi = null;
-
-		return corsi;
+		return corsoBC.getAll();
 
 	}
 
-	public Corso getCorsoById(long id) {
+	public Corso getCorsoByCod(long cod) {
 
-		Corso corso = null;
-
-		return corso;
+		return corsoBC.getByCod(cod);
 	}
 
-	public Corsista getCorsistaById(long id) {
+	public Corsista getCorsistaByCod(long cod) {
 
-		Corsista corsista = null;
-
-		return corsista;
+		return corsistaBC.getByCod(cod);
 	}
 
 	public Corsista[] getCorsisti() {
 
-		Corsista[] corsisti = null;
-
-		return corsisti;
+		return corsistaBC.getAll();
 	}
 
 }

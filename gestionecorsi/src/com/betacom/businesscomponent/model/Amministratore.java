@@ -3,7 +3,7 @@ package com.betacom.businesscomponent.model;
 public class Amministratore {
 	private String nomeAdmin;
 	private String cognomeAdmin;
-	private String codAdmin;
+	private long codAdmin;
 
 	public String getNomeAdmin() {
 		return nomeAdmin;
@@ -21,11 +21,11 @@ public class Amministratore {
 		this.cognomeAdmin = cognomeAdmin;
 	}
 
-	public String getCodAdmin() {
+	public long getCodAdmin() {
 		return codAdmin;
 	}
 
-	public void setCodAdmin(String codAdmin) {
+	public void setCodAdmin(long codAdmin) {
 		this.codAdmin = codAdmin;
 	}
 
