@@ -22,7 +22,7 @@ public interface DAOConstants {
 	String SELECT_CORSOSEQ = "Select corso_seq.nextval from dual";
 	String SELECT_CORSISTASEQ = "Select corsista_seq.nextval from dual";
 
-	String UPDATE_CORSO = "Update corso set nomecorso = ?, datainiziocorso = ?, datafinecorso = ?, costocorso = ?, commenticorso = ?, aulacorso = ? where codcorso = ?";
+	String UPDATE_CORSO = "Update corso set nomecorso = ?, datainizio = ?, datafine = ?, costocorso = ?, commentocorso = ?, aulacorso = ? where codcorso = ?";
 	String UPDATE_CORSISTA = "Update corsista set nomecorsista = ?, cognomecorsista = ?, precedentiformativi = ? where codcorsista = ?";
 
 	String DELETE_CORSO = "Delete from corso where codcorso = ?";
@@ -34,10 +34,9 @@ public interface DAOConstants {
 	String NUM_COMMENTI = "Select count(commenti) from corso";
 	String DOC_PIU_CORSI = "Select c.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente from corso c,docente d where c.coddocente=d.coddocente group by c.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente having count(*) >2";
 
-	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
-	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista group by cocordo having Count(*)< 12)";
-
+	
 	// STATISTICHE PARI
-	String NOME_CORSO_PIU_FREQ = "Select nomecorso from corso c, corso_corsista cc where c.codcorso=cc.codcorso group by nomecorso, c.codcorso having count(*) > (select count(c2.codcorso) from corso c2, corso_corsista cc2 where c2.codcorso=cc2.codcorso)";
-	String PROVA = "Select count(*) as num_iscritti from corso c, corsista cc, where c.codcorso=cc.codcorso group by nomecorso, c.codcorso";
+	String MAX_ISCRITTI = " Select nomecorso,max(num_iscritti) from numero_iscritti_corso nic, corso c where nic.codcorso=c.codcorso group by nomecorso having max(num_iscritti)=(select max(num_iscritti) from numero_iscritti_corso)";	 
+	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
+	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista group by codcorso having Count(*)< 12)";
 }

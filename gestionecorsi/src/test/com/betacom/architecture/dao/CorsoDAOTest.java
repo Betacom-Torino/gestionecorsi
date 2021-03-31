@@ -37,12 +37,31 @@ class CorsoDAOTest {
 		corso = new Corso();
 		corso.setCod(100);
 		corso.setCodDocente(1);
-		corso.setNome("Lavaggi con ammorbidente");
+		corso.setNome("Sistem Operativi");
 		corso.setDataInizio(new GregorianCalendar(2000, 4, 15).getTime());
-		corso.setDataFine(new GregorianCalendar(2020, 4, 20).getTime());
+		corso.setDataFine(new GregorianCalendar(2000, 4, 20).getTime());
 		corso.setCosto(30);
 		corso.setCommenti("nessun commento");
 		corso.setAula("Aula magna");
+		
+		corso2 = new Corso();
+		corso2.setCod(101);
+		corso2.setCodDocente(2);
+		corso2.setNome("Sicurezza");
+		corso2.setDataInizio(new GregorianCalendar(2020, 2, 15).getTime());
+		corso2.setDataFine(new GregorianCalendar(2020, 2, 25).getTime());
+		corso2.setCosto(30);
+		corso2.setCommenti("Soma bin ciapà");
+		corso2.setAula("Aula magna");
+		
+		newCorso = new Corso();
+		newCorso.setCod(100);
+		newCorso.setNome("Algoritmi");
+		newCorso.setDataInizio(new GregorianCalendar(2000, 5, 15).getTime());
+		newCorso.setDataFine(new GregorianCalendar(2000, 5, 25).getTime());
+		newCorso.setCosto(50);
+		newCorso.setCommenti("anche qui nessun commento");
+		newCorso.setAula("Aula magna");
 	}
 
 	@BeforeEach
