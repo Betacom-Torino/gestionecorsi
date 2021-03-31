@@ -38,8 +38,8 @@ class CorsoDAOTest {
 		corso.setCod(100);
 		corso.setCodDocente(1);
 		corso.setNome("Lavaggi con ammorbidente");
-		corso.setDataInizio(new GregorianCalendar(2020, 4, 15).getTime());
-		corso.setDataFine(new GregorianCalendar(2000, 4, 20).getTime());
+		corso.setDataInizio(new GregorianCalendar(2000, 4, 15).getTime());
+		corso.setDataFine(new GregorianCalendar(2020, 4, 20).getTime());
 		corso.setCosto(30);
 		corso.setCommenti("nessun commento");
 		corso.setAula("Aula magna");
