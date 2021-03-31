@@ -34,11 +34,9 @@ public interface DAOConstants {
 	String NUM_COMMENTI = "Select count(commenti) from corso";
 	String DOC_PIU_CORSI = "Select d.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente, c.coddocente from corso c,docente d where c.coddocente=d.coddocente group by d.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente, c.coddocente having count(*) >2";
 
-	
 	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
 	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista group by cocordo having Count(*)< 12)";
 
-	
 	// STATISTICHE PARI
-		String NOME_CORSO_PIU_FREQ = "Select nomecorso, max(count(*)) from corso c, corso_corsista cc where c.codcorso=cc.codcorso group by nomecorso, codcorso";
+	String NOME_CORSO_PIU_FREQ = "Select nomecorso, max(count(*)) from corso c, corso_corsista cc where c.codcorso=cc.codcorso group by nomecorso, codcorso";
 }
