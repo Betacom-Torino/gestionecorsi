@@ -82,6 +82,12 @@ public class ClientFacade {
 
 	}
 
+	public Corso[] getCorsoPiuFreq() throws DAOException {
+
+		return corsoBC.getCorsoPiuFreq();
+
+	}
+
 	public Corso getCorsoByCod(long cod) throws DAOException {
 
 		return corsoBC.getByCod(cod);
