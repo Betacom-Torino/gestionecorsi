@@ -39,7 +39,7 @@ constraint f_codcorso foreign key(codcorso) references corso(codcorso) on delete
 constraint p_cc primary key(codcorsista, codcorso));
 
 create view numero_iscritti_corso as
-Select c.codcorso, count(*) as num_iscritti from corso c, corso_corsista cc where c.codcorso=cc.codcorso group by c.nomecorso, c.codcorso;
+Select c.codcorso, count(cc.codcorsista) as num_iscritti from corso c, corso_corsista cc where cc.codcorso(+)=c.codcorso group by c.nomecorso, c.codcorso;
 
 -- sequenze
 
