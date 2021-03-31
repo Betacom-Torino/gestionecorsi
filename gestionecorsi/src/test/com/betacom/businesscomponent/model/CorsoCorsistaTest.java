@@ -18,7 +18,7 @@ class CorsoCorsistaTest {
 
 	@Test
 	void test() {
-		fail("Bruh");
+		fail("Test fallito");
 	}
 
 }
