@@ -22,7 +22,7 @@ public interface DAOConstants {
 	String SELECT_CORSOSEQ = "Select corso_seq.nextval from dual";
 	String SELECT_CORSISTASEQ = "Select corsista_seq.nextval from dual";
 
-	String UPDATE_CORSO = "Update corso set nomecorso = ?, datainiziocorso = ?, datafinecorso = ?, costocorso = ?, commenticorso = ?, aulacorso = ? where codcorso = ?";
+	String UPDATE_CORSO = "Update corso set nomecorso = ?, datainizio = ?, datafine = ?, costocorso = ?, commentocorso = ?, aulacorso = ? where codcorso = ?";
 	String UPDATE_CORSISTA = "Update corsista set nomecorsista = ?, cognomecorsista = ?, precedentiformativi = ? where codcorsista = ?";
 
 	String DELETE_CORSO = "Delete from corso where codcorso = ?";
