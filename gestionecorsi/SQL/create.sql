@@ -38,6 +38,7 @@ constraint p_cc primary key(codcorsista, codcorso));
 
 -- sequenze
 
+create sequence corso_seq;
 create sequence corsista_seq;
 create sequence docente_seq;
 create sequence amministratore_seq;
