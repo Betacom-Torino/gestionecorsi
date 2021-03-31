@@ -40,7 +40,7 @@ class ClientFacadeTest {
 
 		try {
 
-			ClientFacade.getInstance().createCorso(corso);
+			ClientFacade.getInstance().createOrUpdateCorso(corso);
 			ClientFacade.getInstance().createCorsista(corsista);
 
 		} catch (ClassNotFoundException | DAOException | IOException e) {

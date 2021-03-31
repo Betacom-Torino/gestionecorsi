@@ -39,27 +39,26 @@ public class ClientFacade {
 		corsoBC.createOrUpdate(corso);
 	}
 
-	public void updateCorso(Corso corso) {
-
-	}
-
 	public void updateCorsista(Corsista corsista) {
+		corsistaBC.update(corsista);
 
 	}
 
 	public void createCorsista(Corsista corsista) {
+		corsistaBC.create(corsista);
 
 	}
 
 	public void deleteCorso(long id) {
-
+		corsoBC.delete(corso);
 	}
 
 	public void deleteCorsista(long id) {
+		corsistaBC.delete(corsista);
 
 	}
 
-	public Docente getDocenteById(long id) {
+	public Docente getDocenteByCod(long id) {
 
 		Docente docente = null;
 
@@ -73,7 +72,7 @@ public class ClientFacade {
 		return docenti;
 	}
 
-	public Amministratore getAmministratoreById(long id) {
+	public Amministratore getAmministratoreByCod(long id) {
 
 		Amministratore amministratore = null;
 
@@ -89,14 +88,14 @@ public class ClientFacade {
 
 	}
 
-	public Corso getCorsoById(long id) {
+	public Corso getCorsoByCod(long id) {
 
 		Corso corso = null;
 
 		return corso;
 	}
 
-	public Corsista getCorsistaById(long id) {
+	public Corsista getCorsistaByCod(long id) {
 
 		Corsista corsista = null;
 
