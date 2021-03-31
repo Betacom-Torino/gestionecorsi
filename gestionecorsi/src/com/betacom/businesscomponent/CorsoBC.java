@@ -13,11 +13,7 @@ import com.betacom.businesscomponent.model.Corso;
 public class CorsoBC {
 	private Connection conn;
 	private IdGenerator idGen;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> branch 'main' of https://github.com/Betacom-Torino/gestionecorsi
 	public CorsoBC() throws DAOException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
