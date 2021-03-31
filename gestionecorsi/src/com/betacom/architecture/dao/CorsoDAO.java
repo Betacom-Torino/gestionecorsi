@@ -197,8 +197,8 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		}
 		return data;
 	}
-	
-	public Corso[] getCorsoPiuFreq(Connection conn) throws DAOException, SQLException{
+
+	public Corso[] getCorsoPiuFreq(Connection conn) throws DAOException, SQLException {
 		PreparedStatement ps;
 		List<Corso> lista = new ArrayList<Corso>();
 		Corso[] corsi;
@@ -206,25 +206,30 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			ps = conn.prepareStatement(MAX_ISCRITTI);
 			ResultSet rs = ps.executeQuery();
 			corsi = CorsoDAO.getFactory().getAll(conn);
-			for(Corso c : corsi)
-				if(rs.next()) {
-					if(c.getNome().toLowerCase().equals(rs.getString(1).toLowerCase()))
+			for (Corso c : corsi)
+				if (rs.next()) {
+					if (c.getNome().toLowerCase().equals(rs.getString(1).toLowerCase()))
 						lista.add(c);
 				}
 			corsi = (Corso[]) lista.toArray();
-		}catch(SQLException exc) {
+		} catch (SQLException exc) {
 			throw new DAOException(exc);
 		}
-			return corsi;
+		return corsi;
 	}
-	
-	public int mediaCorsi(Connection conn) throws DAOException{
-		int avg=0;
+
+	public int mediaCorsi(Connection conn) throws DAOException {
+		int avg = 0;
 		try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(DURATA_MEDIA_CORSI);
+			if (rs.next()) {
+				rs.getInt(avg);
+			}
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
 		}
+		return avg;
 	}
 
 }
