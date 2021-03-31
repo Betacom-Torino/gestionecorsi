@@ -32,7 +32,7 @@ public interface DAOConstants {
 	String NUM_CORSISTI_TOT = "Select count(*) from corsisti";
 	String DATA_INIZIO_ULTIMO_CORSO = "Select max(datainiziocorso) from corso";
 	String NUM_COMMENTI = "Select count(commenti) from corso";
-	String DOC_PIU_CORSI = "Select d.nomedocente, c.coddocente from corso c,docente d where c.coddocente=d.coddocente group by d.nomedocente,c.coddocente having count(*) >2";
+	String DOC_PIU_CORSI = "Select d.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente, c.coddocente from corso c,docente d where c.coddocente=d.coddocente group by d.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente, c.coddocente having count(*) >2";
 
 	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
 	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista group by cocordo having Count(*)< 12)";
