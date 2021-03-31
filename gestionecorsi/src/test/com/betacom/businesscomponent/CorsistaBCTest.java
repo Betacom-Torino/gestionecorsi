@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import com.betacom.architecture.dao.CorsistaDAO;
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.architecture.dbaccess.DBAccess;
-import com.betacom.businesscomponent.CorsistaBC;
 import com.betacom.businesscomponent.idgenerator.CodGenerator;
 import com.betacom.businesscomponent.model.Corsista;
 
