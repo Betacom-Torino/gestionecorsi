@@ -16,8 +16,8 @@ import com.betacom.businesscomponent.model.Corsista;
 public class CorsistaBC {
 	private Connection conn;
 	private CodGenerator idGen;
-	
-	public CorsistaBC() throws DAOException, ClassNotFoundException, IOException{
+
+	public CorsistaBC() throws DAOException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
 	

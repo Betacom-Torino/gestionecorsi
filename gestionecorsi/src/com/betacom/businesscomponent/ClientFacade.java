@@ -93,7 +93,7 @@ public class ClientFacade {
 		return corsoBC.getByCod(cod);
 	}
 
-	public Corsista getCorsistaByCod(long cod) {
+	public Corsista getCorsistaByCod(long cod) throws DAOException {
 
 		return corsistaBC.getByCod(cod);
 	}
