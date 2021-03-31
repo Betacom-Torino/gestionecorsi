@@ -119,4 +119,8 @@ public class ClientFacade {
 		return docenteBC.statDocenti();
 	}
 
+	public int getDurataMediaCorsi() throws DAOException {
+		return corsoBC.mediaCorso();
+	}
+
 }
