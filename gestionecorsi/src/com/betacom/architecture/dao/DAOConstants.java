@@ -7,7 +7,7 @@ public interface DAOConstants {
 	String SELECT_CORSI = "Select * from corso";
 	String SELECT_CORSI_BY_COD = "Select * from corso where codcorso = ?";
 
-	String SELECT_CORSISTI = "Select * from corsista";
+	String SELECT_CORSISTI = "Select * from corsista";  //USATO ANCHE PER STATISCTICA N.6
 	String SELECT_CORSISTA_BY_COD = "Select * from corsista where codcorsista = ?";
 
 	String SELECT_AMMINISTRATORE = "Select * from amministratore where codadmin = ?";
@@ -36,8 +36,7 @@ public interface DAOConstants {
 
 	
 	// STATISTICHE PARI
-	String MAX_ISCRITTI = " Select nomecorso,max(num_iscritti) from numero_iscritti_corso nic, corso c where nic.codcorso=c.codcorso group by nomecorso having max(num_iscritti)=(select max(num_iscritti) from numero_iscritti_corso)";	 
-	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
-	String CORSI_ISCRITTI = "Select * from corso c where codcorso in (select codcorso from corso_corsista group by codcorso having Count(*)< 12)";
+	String MAX_ISCRITTI = " Select nomecorso,max(num_iscritti) from numero_iscritti_corso nic, corso c where nic.codcorso=c.codcorso group by nomecorso having max(num_iscritti)=(select max(num_iscritti) from numero_iscritti_corso)";
 	String DURATA_MEDIA_CORSI = "Select ROUND(AVG(((datafine-datainizio)/7)*5)) as media from corso c";
+	String CORSO_ISCRITTI = "Select * from corso c where c.codcorso in (select codcorso from numero_iscritti_corso where num_iscritti<12)";
 }
