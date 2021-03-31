@@ -217,5 +217,14 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		}
 			return corsi;
 	}
+	
+	public int mediaCorsi(Connection conn) throws DAOException{
+		int avg=0;
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 
 }
