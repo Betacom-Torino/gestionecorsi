@@ -1,4 +1,4 @@
-ackage test.com.betacom.businesscomponent;
+package test.com.betacom.businesscomponent;
 
 import static org.junit.jupiter.api.Assertions.*;
 
