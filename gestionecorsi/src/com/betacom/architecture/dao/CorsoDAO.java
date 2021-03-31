@@ -195,5 +195,26 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		}
 		return data;
 	}
+	
+	public String getCorsoPiuFreq(Connection conn) throws DAOException, SQLException{
+		PreparedStatement ps;
+				String nome = null;
+				int max = 0;
+				try {
+					ps = conn.prepareStatement(NOME_CORSO_PIU_FREQ);
+					ResultSet rs = ps.executeQuery();
+					rs.first();
+					nome = rs.getString(1);
+					max = rs.getInt(2);
+					if(rs.next()) 
+						if(max < rs.getInt(2)) {
+							nome = rs.getString(1);
+							max = rs.getInt(2);
+						}
+				}catch(SQLException exc) {
+					throw new DAOException(exc);
+				}
+				return nome;
+	}
 
 }
