@@ -182,9 +182,18 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		return n;
 	}
 
-	public Date getDataUltimo() {
-		// TODO Auto-generated method stub
-		return null;
+	public Date getDataUltimo(Connection conn) throws DAOException {
+		Date data = null;
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(DATA_INIZIO_ULTIMO_CORSO);
+			if (rs.next()) {
+				data = new java.util.Date(rs.getDate(1).getTime());
+			}
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return data;
 	}
 
 }
