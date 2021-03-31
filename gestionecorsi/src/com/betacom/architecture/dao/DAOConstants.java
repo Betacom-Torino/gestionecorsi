@@ -34,4 +34,5 @@ public interface DAOConstants {
 	String NUM_COMMENTI = "Select count(commenti) from corso";
 	String DOC_PIU_CORSI = "Select d.nomedocente,c.coddocente from corso c,docente d where c.coddocente=d.coddocente group by d.nomedocente,c.coddocente having count(*) >2";
 
+	String CORSO_ISCRITTI = "Select count(codcorsista) from corso_corsista where codcorso = ? ";
 }

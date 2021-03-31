@@ -18,7 +18,7 @@ class CorsoCorsistaTest {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		fail("Test fallito");
 	}
 
 }
