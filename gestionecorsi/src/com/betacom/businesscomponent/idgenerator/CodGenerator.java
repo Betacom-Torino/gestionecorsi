@@ -43,6 +43,7 @@ public class CodGenerator implements DAOConstants {
 			else if(tipo.equals("corsista"))
 				query=SELECT_CORSISTASEQ;
 	    try {
+	    	stmt=conn.createStatement();
 	    	rs = stmt.executeQuery(query);
 			rs.next();
 			cod = rs.getLong(1);
