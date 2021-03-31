@@ -36,8 +36,7 @@ class ClientFacadeTest {
 		try {
 
 			assertNotNull(ClientFacade.getInstance().getAmministratoreByCod(1));
-			assertNull(ClientFacade.getInstance().getCorsoByCod(10));
-			assertNull(ClientFacade.getInstance().getCorsistaByCod(10));
+
 			assertNotNull(ClientFacade.getInstance().getDocenteByCod(10));
 
 			assertNotNull(ClientFacade.getInstance().getCorsi());
@@ -46,6 +45,9 @@ class ClientFacadeTest {
 
 			assertNotNull(ClientFacade.getInstance().getDocenti());
 			assertNotNull(ClientFacade.getInstance().getStatisticaDocenti());
+
+			assertNull(ClientFacade.getInstance().getCorsistaByCod(10));
+			assertNull(ClientFacade.getInstance().getCorsoByCod(10));
 
 		} catch (ClassNotFoundException | DAOException | IOException e) {
 			fail();

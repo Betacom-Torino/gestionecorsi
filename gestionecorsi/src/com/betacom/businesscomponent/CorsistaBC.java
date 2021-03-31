@@ -54,7 +54,7 @@ public class CorsistaBC {
 			throw new DAOException(sql);
 
 		}
-		return null;
+		return corsista;
 	}
 
 	public Corsista[] getCorsisti() throws DAOException {
