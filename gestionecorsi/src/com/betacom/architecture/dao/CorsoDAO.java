@@ -76,5 +76,17 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants{
 			throw new DAOException(sql);
 		}
 	}
+
+	@Override
+	public Corso getByCod(Connection conn, long cod) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Corso[] getAll(Connection conn) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

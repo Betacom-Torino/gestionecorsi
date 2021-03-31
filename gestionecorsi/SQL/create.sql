@@ -13,13 +13,15 @@ constraint p_coddocente primary key(coddocente));
 
 create table corso(
 codcorso int,
+coddocente int,
 nomecorso varchar2(30) not null,
 datainizio date not null,
 datafine date not null,
 costocorso number(5,2) not null,
 commentocorso varchar2(200),
 aulacorso varchar2(30) not null,
-constraint p_codcorso primary key(codcorso));
+constraint p_codcorso primary key(codcorso),
+constraint f_coddocente foreign key(coddocente) references docente(coddocente) on delete cascade);
 
 create table corsista(
 codcorsista int,
@@ -38,6 +40,7 @@ constraint p_cc primary key(codcorsista, codcorso));
 
 -- sequenze
 
+create sequence corso_seq;
 create sequence corsista_seq;
 create sequence docente_seq;
 create sequence amministratore_seq;

@@ -12,30 +12,30 @@ import com.betacom.architecture.dbaccess.DBAccess;
 
 import java.sql.PreparedStatement;
 
-public class IdGenerator implements DAOConstants {
+public class CodGenerator implements DAOConstants {
 
 	
 //Id corsista and id corso generator 
 
-		private static IdGenerator istanza;
+		private static CodGenerator istanza;
 		private Connection conn;
 		private Statement stmt;
 		private ResultSet rs;
 
-		private IdGenerator() throws ClassNotFoundException, DAOException, IOException {
+		private CodGenerator() throws ClassNotFoundException, DAOException, IOException {
 			conn = DBAccess.getConnection();
 		}
 
-		public static IdGenerator getIstance() throws ClassNotFoundException, DAOException, IOException {
+		public static CodGenerator getIstance() throws ClassNotFoundException, DAOException, IOException {
 			if (istanza == null) {
-				istanza = new IdGenerator();
+				istanza = new CodGenerator();
 			}
 			return istanza;
 
 		}
 
-		public long getNextId(String tipo) throws ClassNotFoundException, DAOException, IOException {
-			long id = 0;
+		public long getNextCod(String tipo) throws ClassNotFoundException, DAOException, IOException {
+			long cod = 0;
 			String query = null;
 	    tipo= tipo.toLowerCase();
 			if(tipo.equals("corso"))
@@ -45,13 +45,13 @@ public class IdGenerator implements DAOConstants {
 	    try {
 	    	rs = stmt.executeQuery(query);
 			rs.next();
-			id = rs.getLong(1);
+			cod = rs.getLong(1);
 			} catch (SQLException sql) {
 				throw new DAOException(sql);
 			}
 
 	
-			return id;
+			return cod;
 		}
 
 	}

@@ -35,8 +35,8 @@ public class ClientFacade {
 		return cF;
 	}
 
-	public void createCorso(Corso corso) {
-		// corsoBC.create(corso);
+	public void createOrUpdateCorso(Corso corso) throws ClassNotFoundException, DAOException, IOException {
+		corsoBC.createOrUpdate(corso);
 	}
 
 	public void updateCorso(Corso corso) {

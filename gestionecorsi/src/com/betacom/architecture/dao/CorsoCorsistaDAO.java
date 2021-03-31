@@ -43,11 +43,11 @@ public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>, DAOConstants
 	}
 
 	@Override
-	public void delete(Connection conn, long id) throws DAOException {
+	public void delete(Connection conn, long cod) throws DAOException {
 	}
 
 	@Override
-	public CorsoCorsista getbyId(Connection conn, long id) throws DAOException {
+	public CorsoCorsista getByCod(Connection conn, long cod) throws DAOException {
 		return null;
 	}
 
