@@ -22,7 +22,6 @@ public class DocenteBC {
 		try {
 			return DocenteDAO.getFactory().getByCod(conn, cod);
 		} catch (SQLException sql) {
-			// TODO: handle exception
 			throw new DAOException(sql);
 		}
 	}
