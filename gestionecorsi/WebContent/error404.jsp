@@ -105,7 +105,7 @@ a:before {
 			 	  <hr>
 			  <div class="row justify-content-md-center" style="text-align: center;">
 		
-			  <h3>Altrimenti tenta un viaggio nel tempo e torna <button class="button" onclick="window.history.back()">indietro</button> </h3>
+			  <h3>Altrimenti tenta un viaggio nel tempo e torna <button class="button" onclick="window.history.back()">INDIETRO</button> </h3>
 			  </div>
 			 
 			 
