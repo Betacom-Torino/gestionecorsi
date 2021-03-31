@@ -1,6 +1,7 @@
 package test.com.betacom.businesscomponent;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
@@ -22,31 +23,10 @@ class ClientFacadeTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 
-		corso = new Corso();
-		corsista = new Corsista();
-
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
-
-		ClientFacade.getInstance().deleteCorso(10);
-		ClientFacade.getInstance().deleteCorsista(10);
-
-	}
-
-	@Test
-	void testCreate() {
-
-		try {
-
-			ClientFacade.getInstance().createOrUpdateCorso(corso);
-			ClientFacade.getInstance().createOrUpdateCorsista(corsista);
-
-		} catch (ClassNotFoundException | DAOException | IOException e) {
-			fail();
-			e.printStackTrace();
-		}
 
 	}
 
@@ -55,14 +35,17 @@ class ClientFacadeTest {
 
 		try {
 
-			assertNotNull(ClientFacade.getInstance().getAmministratoreByCod(10));
-			assertNotNull(ClientFacade.getInstance().getCorsoByCod(10));
-			assertNotNull(ClientFacade.getInstance().getCorsistaByCod(10));
+			assertNotNull(ClientFacade.getInstance().getAmministratoreByCod(1));
+			assertNull(ClientFacade.getInstance().getCorsoByCod(10));
+			assertNull(ClientFacade.getInstance().getCorsistaByCod(10));
 			assertNotNull(ClientFacade.getInstance().getDocenteByCod(10));
 
 			assertNotNull(ClientFacade.getInstance().getCorsi());
 			assertNotNull(ClientFacade.getInstance().getCorsisti());
 			assertNotNull(ClientFacade.getInstance().getDocenti());
+
+			assertNotNull(ClientFacade.getInstance().getDocenti());
+			assertNotNull(ClientFacade.getInstance().getStatisticaDocenti());
 
 		} catch (ClassNotFoundException | DAOException | IOException e) {
 			fail();
