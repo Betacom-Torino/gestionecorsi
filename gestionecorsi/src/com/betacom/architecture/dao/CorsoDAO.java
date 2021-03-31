@@ -1,5 +1,6 @@
 package com.betacom.architecture.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.util.List;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
+import com.betacom.businesscomponent.ClientFacade;
 import com.betacom.businesscomponent.model.Corso;
 
 public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
@@ -224,7 +226,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(DURATA_MEDIA_CORSI);
 			if (rs.next()) {
-				rs.getInt(avg);
+				avg = rs.getInt(1);
 			}
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
