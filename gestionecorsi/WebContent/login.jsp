@@ -36,7 +36,7 @@
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span> <input type="text"
+							class="glyphicon glyphicon-home"></i></span> <input type="text"
 							name="cognome" id="cognome" placeholder="Cognome..."
 							class="form-control" autocomplete="cognome" required>
 					</div>
