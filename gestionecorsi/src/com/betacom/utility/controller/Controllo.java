@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.betacom.businesscomponent.utilities.AccessUtility;
+import com.betacom.security.AlgoritmoMD5;
 import com.betacom.architecture.dao.DAOException;
 
 @WebServlet("/controllo")
@@ -18,15 +19,15 @@ public class Controllo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		Long codice = Long.getLong(request.getParameter("codice"));
+		String codice = AlgoritmoMD5.convertiMD5(request.getParameter("codice"));
 		
 		HttpSession session = request.getSession();
-		Long adminpass;
+		String adminpass;
 		
 		if(nome != null && cognome != null && codice !=null) {
 			try {
 				AccessUtility au = new AccessUtility();
-				adminpass = Long.getLong(au.getAdminPass(nome, cognome));
+				adminpass = au.getAdminPass(nome, cognome);
 				
 				 if(adminpass != null) {
 					if(adminpass.equals(codice)) {
