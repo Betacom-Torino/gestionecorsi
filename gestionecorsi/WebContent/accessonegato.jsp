@@ -4,38 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<%@ include file="CDN.html"%>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style2.css">
 
 <script src="https://kit.fontawesome.com/4b9ba14b0f.js"></script>
 
 <style>
-body {
-	
-	background: #2F4F4F;
-	color: #F0FFFF;
-	font-family: Roboto;
-}
-
-a {
-	display: inline-block;
-	padding: 0.4em 0.9em;
-	margin-right: 0.5em;
-	margin-bottom: -0.75em;
-	border: 2px solid #b9ddfb;
-	color: #F0FFFF;
-	font-weight: 700;
-	text-decoration: none;
-	letter-spacing: 0.2em;
-	position: relative;
-	overflow: hidden;
-	transition: 0.3s;
-}
-
 a:hover {
 	color: #2F4F4F;
 }
@@ -46,7 +22,7 @@ a:hover:before {
 
 a:before {
 	content: "";
-	background: #F0FFFF;
+	background: white;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -66,45 +42,46 @@ a:before {
 	font-size: 18px;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	background-color: #2F4F4F;
-	color: #F0FFFF;
+	background-color: white;
+	color: #2F4F4F;
 	border: 0px solid #F0FFFF;
 }
 
 .button:hover {
-	background-color: #F0FFFF;
-	color: #2F4F4F;
+	background-color: #2F4F4F;
+	color: white;
 }
 </style>
 
 </head>
 <body>
-<div class="row justify-content-center"  style="margin-top: 50px;">
+	<div class="row justify-content-center" style="margin-top: 50px;">
 
-    <div class="col-4 align-self-center" style="font-size: 300px; text-align: center;">
-      <i class="fas fa-exclamation-triangle"></i>
-    </div>
-    <div class="col-6 align-self-center" style="text-align: center;">
-      <h1 style="font-size: 100px;" >
-        <strong>ATTENZIONE!</strong>
-      </h1>
-      <br>
-      <h2>Sembra che tu non possa accedere a questa pagina</h2>
-      <br>
-      <h3>
-        Torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a>
-        e riprova.
-      </h3>
-    </div>
-  </div>
-  
-  <div class="row justify-content-md-center"  style="margin-top:0px;" >
-  <h3>
-        Oppure torna
-        <button class="button" onclick="window.history.back()">INDIETRO</button>
-        alla pagina precedente
-      </h3>
-  </div>
+		<div class="col-4 align-self-center"
+			style="font-size: 300px; text-align: center;">
+			<i class="fas fa-exclamation-triangle"></i>
+		</div>
+		<div class="col-6 align-self-center" style="text-align: center;">
+			<h1 style="font-size: 100px;">
+				<strong>ATTENZIONE!</strong>
+			</h1>
+			<br>
+			<h2>Sembra che tu non possa accedere a questa pagina</h2>
+			<br>
+			<h3>
+				Torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a>
+				e riprova.
+			</h3>
+		</div>
+	</div>
 
+	<div class="row justify-content-md-center" style="margin-top: 0px;">
+		<h3>
+			Oppure torna
+			<button class="button" onclick="window.history.back()">INDIETRO</button>
+			alla pagina precedente
+		</h3>
+	</div>
+	<%@ include file="footer.html"%>
 </body>
 </html>
