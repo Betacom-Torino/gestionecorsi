@@ -79,6 +79,7 @@ public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>, DAOConstants
 			ResultSet rs=ps.executeQuery();
 			rs.last();
 			corsi=new Corso[rs.getRow()];
+			rs.beforeFirst();
 			for(int i=0; rs.next(); i++){
 				Corso c=new Corso();
 				c.setCod(rs.getLong(1));
