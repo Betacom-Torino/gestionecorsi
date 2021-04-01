@@ -138,22 +138,18 @@ long codCorso = 0;
 				<%
 				}
 				%>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item">
-					<button type="button" class="btn btn-primary btn-sm"
-						data-toggle="modal" data-target="#addCorsoModal">
-						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
-					</button>
-				</a> <a class="dropdown-item"> <jsp:include page="addCorsoModal.jsp">
-						<jsp:param value="<%=1%>" name="id" />
-					</jsp:include>
-				</a>
-
 			</div>
 		</div>
 		<%
 		}
 		%>
+					<button type="button" class="btn btn-primary btn-sm"
+						data-toggle="modal" data-target="#corsistaModal">
+						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
+					</button>
+					<jsp:include page="addCorsoModal.jsp">
+						<jsp:param value="1" name="id" />
+					</jsp:include>
 
 	</div>
 </body>
