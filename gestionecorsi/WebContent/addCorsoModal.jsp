@@ -12,22 +12,75 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label for="marca">Marca</label> <input type="text"
-						class="form-control" name="marca" value="marcaaa">
+					<label class="col-md-1 control-label">Nome </label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="fas fa-graduation-cap"></i></span> <input type="text"
+								name="nome" id="nome" placeholder="Nome corso..."
+								class="form-control">
+						</div>
+					</div>
+					<div class="col-md-7 control-label" id="infoNome"></div>
 				</div>
 				<div class="form-group">
-					<label for="modello">Modello</label> <input type="text"
-						class="form-control" name="modello" value="modelllooo">
+					<label class="col-md-1 control-label">Data Inizio</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group date" id="data1">
+							<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span> <input type="text"
+								name="inizio" id="inizio" placeholder="DD/MM/YYYY..."
+								class="form-control">
+						</div>
+					</div>
+					<div class="col-md-7 control-label" id="infoDataInizio"></div>
 				</div>
 				<div class="form-group">
-					<label for="prezzo">Prezzo</label> <input type="number"
-						class="form-control" name="prezzo" value="prezzooooo">
+					<label class="col-md-1 control-label">Data Fine</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group date" id="data2">
+							<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span> <input type="text"
+								name="fine" id="fine" placeholder="DD/MM/YYYY..."
+								class="form-control">
+						</div>
+					</div>
+					<div class="col-md-7 control-label" id="infoDataFine"></div>
 				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-success btn-md">Salva
-						modifiche</button>
-					<button type="submit" class="btn btn-default btn-md"
-						data-dismiss="modal">Annulla</button>
+				
+				<div class="form-group">
+					<label class="col-md-1 control-label">Costo</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="fas fa-graduation-cap"></i></span> <input type="number"
+								name="costo" id="costo"
+								class="form-control">
+						</div>
+					</div>
+					<div class="col-md-7 control-label" id="infoCosto"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-1 control-label">Commento</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="fas fa-graduation-cap"></i></span> <input type="text"
+								name="commento" id="commento" placeholder="Commento..."
+								class="form-control">
+						</div>
+					</div>
+					<div class="col-md-7 control-label" id="infoCommento"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-1 control-label">Aula</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="fas fa-graduation-cap"></i></span> <input type="text"
+								name="aula" id="aula" placeholder="Aula..."
+								class="form-control">
+						</div>
+					</div>
+					<div class="col-md-7 control-label" id="infoAula"></div>
 				</div>
 			</div>
 			<div class="modal-footer">
