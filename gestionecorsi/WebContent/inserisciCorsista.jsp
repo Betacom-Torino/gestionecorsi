@@ -13,12 +13,7 @@ long codCorso = 0;
 <head>
 <%@include file="CDN.html"%>
 <meta charset="ISO-8859-1">
-<script>
-	function selezionaCorso(idCorso) {
-		//sendRedirect("");
 
-	}
-</script>
 <title>Inserisci corsista</title>
 </head>
 <body>
@@ -144,13 +139,13 @@ long codCorso = 0;
 				}
 				%>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">
+				<a class="dropdown-item">
 					<button type="button" class="btn btn-primary btn-sm"
 						data-toggle="modal" data-target="#addCorsoModal">
 						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
 					</button>
-					<jsp:include page="addCorsoModal.jsp">
-					<jsp:param value="<%= 1%>" name="id"/>
+				</a> <a class="dropdown-item"> <jsp:include page="addCorsoModal.jsp">
+						<jsp:param value="<%=1%>" name="id" />
 					</jsp:include>
 				</a>
 
