@@ -37,7 +37,7 @@
 		%>
 
 		<ul class="navbar-nav navbar-right">
-			<li class="nav-item"><a class="nav-link disabled" href="#">User</a>
+			<li class="nav-item"><a class="nav-link disabled" href="#"><i class="fas fa-user-tie"></i>User</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="logout.jsp">Logout</a>
 			</li>
@@ -47,4 +47,5 @@
 		%>
 	</div>
 </nav>
+
 
