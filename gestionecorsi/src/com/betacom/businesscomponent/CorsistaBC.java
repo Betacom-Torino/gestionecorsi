@@ -21,7 +21,7 @@ public class CorsistaBC {
 	public void createOrUpdate(Corsista corsista) throws DAOException, ClassNotFoundException, IOException {
 		idGen = CodGenerator.getIstance();
 		try {
-			if (corsista.getCodiceCor() < CorsistaDAO.getFactory().getNumCorsistiTotali(conn)) {
+			if (corsista.getCodiceCor() <= CorsistaDAO.getFactory().getNumCorsistiTotali(conn)) {
 				CorsistaDAO.getFactory().update(conn, corsista);
 			} else {
 				corsista.setCodiceCor(idGen.getNextCod("corsista"));
