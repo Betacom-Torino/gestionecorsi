@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="css/style2.css">
 <title>Home</title>
 </head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body>
 	<%@ include file="nav.jsp"%>
 	<%
 	nome = (String) session.getAttribute("nome");
@@ -20,35 +19,31 @@
 		<div class="row mx-0">
 			<div class="col-12 px-0">
 				<img src="img/img.jpg" class="img-fluid w-100">
-
 				<form action="#section1">
 					<input type="submit" class="btn" id="bottone" value="Vai al login" />
 				</form>
-
 			</div>
 		</div>
-
 		<%@ include file="login.jsp"%>
-
 	</div>
-
 	<%@ include file="footer.html"%>
 	<%
 	} else {
 	%>
-	<div class="container-fluid px-0">
+	<div class="container-fluid px-0" id="section">
 		<div class="row mx-0">
 			<div class="col-12 px-0">
 				<img src="img/img.jpg" class="img-fluid w-100">
+				<form action="visualizzaStatistiche.jsp">
+					<input type="submit" class="btn" id="bottone"
+						value="Statistiche Generali" />
+				</form>
 			</div>
 		</div>
-		<%@ include file="inserisciCorsista.jsp"%>
 	</div>
-
 	<%@ include file="footer.html"%>
 	<%
 	}
 	%>
 </body>
-
 </html>

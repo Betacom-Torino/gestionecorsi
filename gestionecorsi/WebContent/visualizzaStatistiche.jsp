@@ -3,6 +3,14 @@
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@page import="com.betacom.businesscomponent.model.Corsista"%>
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
+
+<%
+	//devo verificare che l utente sia in sessione per richiamare la pass
+	String nome = (String)session.getAttribute("nome");
+	if(nome!=null){
+		
+
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -252,3 +260,9 @@
 <footer class="footer"><%@include file="footer.html" %></footer>
 </body>
 </html>
+
+<%
+	}else{
+		response.sendRedirect("error.jsp");
+	}
+%>

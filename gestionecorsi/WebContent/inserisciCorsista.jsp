@@ -1,7 +1,10 @@
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%
-long codCorso = 0;
+	long codCorso = 0;
+
+	String codice = (String)session.getAttribute("cod");
+
 %>
 <%@include file="CDN.html"%>
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
@@ -12,7 +15,15 @@ long codCorso = 0;
 <div class="container" style="width: 1000px;" id="inserisciCorsista">
 	<%
 	String s = (request.getParameter("codCorso"));
-	if (s != null) {
+	if(s!= null){
+		codCorso = Long.parseLong(s);
+	}else if(codice!=null){
+		codCorso = Long.parseLong(codice);
+	}else{
+		codCorso = 0;
+	}
+	
+	if (codCorso>0) {
 	%>
 	<div class="page-header">
 		<h3>Inserimento nuovo corsista</h3>
@@ -62,16 +73,17 @@ long codCorso = 0;
 			</a>
 		</div>
 		<%
-		codCorso = Long.parseLong(s);
 		Corso corsetto = ClientFacade.getInstance().getCorsoByCod(codCorso);
+						
 		Docente docente = ClientFacade.getInstance().getDocenteByCod(corsetto.getCodDocente());
+								
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
 		%>
 		<div class="table-responsive">
 			<table class="table table-hover" style="width: 100%;">
 				<tr>
 					<td><strong>Nome Corso</strong></td>
-					<td><%=corsetto.getNome()%></td>
+					<td><%=corsetto.getNome() %></td>
 				</tr>
 				<tr>
 					<td><strong>Data Inizio</strong></td>
