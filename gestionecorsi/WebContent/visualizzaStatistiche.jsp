@@ -17,7 +17,7 @@
 <html>
 <head>
 <%@ include file="CDN.html" %>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style2.css">
 <meta charset="ISO-8859-1">
 <title>Visualizza statistiche</title>
 </head>
