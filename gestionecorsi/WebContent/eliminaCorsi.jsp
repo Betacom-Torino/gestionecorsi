@@ -4,7 +4,7 @@
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%
-String username = (String) session.getAttribute("username");
+String username = (String) session.getAttribute("nome");
 if (username != null) {
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -19,7 +19,7 @@ if (username != null) {
 </head>
 <body>
 	<jsp:include page="nav.jsp" />
-	<div class="container">
+	<div class="container" style="margin-top:40px;">
 		<div class="page-header">
 			<h3>Corsi non ancora avviati</h3>
 		</div>
