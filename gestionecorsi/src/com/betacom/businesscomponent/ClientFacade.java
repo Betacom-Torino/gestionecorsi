@@ -130,4 +130,16 @@ public class ClientFacade {
 	public Corso[] corsiByCorsista(long cod) throws DAOException {
 		return corsoCorsistaBC.corsiByCorsista(cod);
 	}
+
+	public void deleteCorsoCorsistaByCorso(long cod) throws DAOException{
+		corsoCorsistaBC.deleteByCorso(cod);
+	}
+	
+	public Corso[] getCorsiNonIniziati() throws DAOException {
+		return corsoBC.getCorsiNonIniziati();
+	}
+
+	
+	
+
 }
