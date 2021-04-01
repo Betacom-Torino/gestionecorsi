@@ -79,14 +79,14 @@ a:before {
 
 </head>
 <body>
-	<div class="row justify-content-center"  style="margin-top: 0px;">
+	<div class="row justify-content-center"  style="margin-top: 50px;">
 
-		<div class="col-4 align-self-center" style="font-size: 400px; text-align: center;">
-			<i class="fas fa-times"></i>
+		<div class="col-4 align-self-center" style="font-size: 300px; text-align: center;">
+			<i class="fas fa-exclamation-triangle"></i>
 		</div>
-		<div class="col-6 align-self-center" style="font-size: 10px; text-align: center;">
-			<h1>
-				<strong>ATTENZIONE.</strong>
+		<div class="col-6 align-self-center" style="text-align: center;">
+			<h1 style="font-size: 100px;" >
+				<strong>ATTENZIONE!</strong>
 			</h1>
 			<br>
 			<h2>Sembra che tu non possa accedere a questa pagina</h2>
@@ -105,6 +105,6 @@ a:before {
 				alla pagina precedente
 			</h3>
 	</div> 
-
+	
 </body>
 </html>
