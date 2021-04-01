@@ -6,13 +6,23 @@
 <%@ include file="CDN.html"%>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
+
 <title>Home</title>
 </head>
-<body>
-<jsp:include page="nav.jsp" />
-<h3>Prova</h3>
-
-<footer class="footer"><%@ include file="footer.html"%></footer>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <%@ include file="nav.jsp"%>
+    <div class="container-fluid px-0">
+        <div class="row mx-0">
+            <div class="col-12 px-0">
+                <img src="img/img.jpg" class="img-fluid w-100">
+                <form action="#section1">
+                    <input type="submit" class="btn" id="bottone" value="Vai al login" />
+                </form>
+            </div>
+        </div>
+        <%@ include file="login.jsp"%>
+    </div>
+    
+<%@ include file="footer.html"%>
 </body>
 </html>
