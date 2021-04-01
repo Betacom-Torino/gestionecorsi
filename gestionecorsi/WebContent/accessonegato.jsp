@@ -56,7 +56,7 @@ a:before {
 </head>
 <body>
 	<div class="row justify-content-center" style="margin-top: 50px;">
-
+		<%@ include file="nav.jsp"%>
 		<div class="col-4 align-self-center"
 			style="font-size: 300px; text-align: center;">
 			<i class="fas fa-exclamation-triangle"></i>
