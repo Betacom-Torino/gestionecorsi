@@ -10,7 +10,7 @@ long codCorso = 0;
 	pageEncoding="ISO-8859-1"%>
 <script src="js/convalida.js"></script>
 <div class="container" style="width: 1000px;" id="inserisciCorsista">
-
+pippo
 	<%
 	String s = (request.getParameter("codCorso"));
 	if (s != null) {
