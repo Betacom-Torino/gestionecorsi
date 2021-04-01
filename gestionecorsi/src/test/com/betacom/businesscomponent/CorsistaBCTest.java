@@ -29,7 +29,7 @@ class CorsistaBCTest {
 	static void setUp() throws Exception{
 		conn = DBAccess.getConnection();
 		corsista = new Corsista();
-		corsista.setCodiceCor(2);
+		corsista.setCodiceCor(10);
 		corsista.setNomeCor("Mariano");
 		corsista.setCognomeCor("Franco");
 		corsista.setPreFormativi(1);
