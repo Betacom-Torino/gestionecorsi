@@ -141,7 +141,6 @@ long codCorso = 0;
 					<jsp:include page="addCorsoModal.jsp">
 						<jsp:param value="1" name="id" />
 					</jsp:include>
-					<>
 
 	</div>
 </body>
