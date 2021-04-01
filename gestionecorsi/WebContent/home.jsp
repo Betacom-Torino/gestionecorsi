@@ -16,7 +16,7 @@
 	nome = (String) session.getAttribute("nome");
 	if (nome == null) {
 	%>
-	<div class="container-fluid px-0">
+	<div class="container-fluid px-0" id="section">
 		<div class="row mx-0">
 			<div class="col-12 px-0">
 				<img src="img/img.jpg" class="img-fluid w-100">
