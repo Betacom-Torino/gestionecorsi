@@ -24,6 +24,7 @@
 			<li class="nav-item"><a class="nav-link" data-toggle="modal"
 				data-target="#myModal">Logout</a></li>
 		</ul>
+		
 		<%
 		}
 		%>
