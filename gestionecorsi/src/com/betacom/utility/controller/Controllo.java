@@ -19,7 +19,7 @@ public class Controllo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		String codice = AlgoritmoMD5.convertiMD5(request.getParameter("codice"));
+		String codice = request.getParameter("codice");
 		
 		HttpSession session = request.getSession();
 		String adminpass;
