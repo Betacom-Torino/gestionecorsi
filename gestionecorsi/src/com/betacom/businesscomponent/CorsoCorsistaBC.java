@@ -45,7 +45,7 @@ public class CorsoCorsistaBC {
 	}
 	
 	
-	public void deletebyCorso(long cod) throws DAOException {
+	public void deleteByCorso(long cod) throws DAOException {
 		try {
 			CorsoCorsistaDAO.getFactory().deleteByCorso(conn, cod);
 		} catch (SQLException sql) {
