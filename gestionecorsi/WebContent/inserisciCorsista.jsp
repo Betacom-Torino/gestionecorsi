@@ -8,17 +8,8 @@ long codCorso = 0;
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<%@include file="CDN.html"%>
-<meta charset="ISO-8859-1">
 
-<title>Inserisci corsista</title>
-</head>
-<body>
-
-	<div class="container" style="width: 700px;">
+	<div class="container" style="width: 700px;" id="inserisciCorsista">
 		<div class="page-header">
 			<h3>Inserimento nuovo corsista</h3>
 		</div>
