@@ -2,6 +2,7 @@
 <div class="modal fade" id="corsistaModal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
+	<form action="/gestionecorsi/inserisciCorso" method="post">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -84,9 +85,10 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+				<button type="submit" class="btn btn-primary">Crea corso</button>
 			</div>
 		</div>
+		</form>
 	</div>
 </div>
