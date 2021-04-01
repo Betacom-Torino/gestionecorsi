@@ -45,4 +45,6 @@ public interface DAOConstants {
 	String DELETE_CORSO_CORSISTA="Delete from corso_corsista where codcorsista=?";
 	String CORSI_NON_INIZIATI="select * from corso where datainizio > sysdate";
 
+String DELETE_CORSO_CORSISTA_BY_CORSO="Delete from corso_corsista where codcorso=?";
+
 }
