@@ -1,3 +1,8 @@
+<%
+	long codCorso = 0;
+	//String s  = (request.getParameter("codCorso"));
+%>
+
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -72,49 +77,45 @@
 				</a>
 			</div>
 			
-			<ul class="nav navbar-nav">
-		   		<li class="dropdown">
-		    		<a href="#" class="dropdown-toggle" 
-		    			data-toggle="dropdown" role="button" >Corso
-		    			<span class="caret"></span>
-		    		</a>
-		    		<ul class="dropdown-menu">
-		    		<%
-		    			Corso[] corsi = ClientFacade.getInstance().getCorsi();
+			<div class="btn-group">
+			 	<button type="button" class="btn btn-primary dropdown-toggle" 
+			 	data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Corso
+			  	</button>
+		  		<div class="dropdown-menu">
+			  		<%
+		    		Corso[] corsi = ClientFacade.getInstance().getCorsi();
 						for(int i=0; i<corsi.length; i++){
 		    		%>
-			    		<li>
-			    			<button type="button" class="btn btn-info btn-xs" ><%=corsi[i].getNome() %> &nbsp;&nbsp;
-								<span class="glyphicon glyphicon-education"></span>
-							</button>
-			    		</li>
+			    		<a class="dropdown-item" href="inserisciCorsista.jsp?codCorso=<%= corsi[i].getCod() %>"><%=corsi[i].getNome() %></a>
+			    			
 		    		<%
-						}
+					}
 		    		%>
-		     			<li>
-		      				<button type="button" class="btn btn-info btn-xs" data-toggle="modal" 
-							data-target="#addCorsoModal">Aggiungi Corso &nbsp;&nbsp;
-								<span class="glyphicon glyphicon-plus"></span>
-							</button>
-		     			</li>
-		    		</ul>
-		    	</li>
-		   	</ul>
-
-			<!-- DA PROVAREEEEE     E' DI BOOTSTRAP 4 MA NON FUNZIONA IL DROPDOWN MENU -->
-			<div class="dropdown show">
-			  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Dropdown link
-			  </a>
-			
-			  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			    <a class="dropdown-item" href="#">Action</a>
-			    <a class="dropdown-item" href="#">Another action</a>
-			    <a class="dropdown-item" href="#">Something else here</a>
-			  </div>
+		    		<div class="dropdown-divider"></div>
+		    		<a class="dropdown-item" href="#">
+		    			<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" 
+						data-target="#addCorsoModal">Aggiungi Corso
+						
+						</button>
+					</a>
+		    		
+		    		
+		  		</div>
+		  		<%
+		  			String s  = (request.getParameter("codCorso"));
+		  			if(s != null){
+		  				codCorso = Long.parseLong(s);
+		  				%>
+		  				<h1>CI SIAMOOOOOOOOO: codcorso = <%=s %></h1>		
+		  				<%
+		  			}else{
+		  				%>
+		  				<h1>NON CI SIAMOOOOOOOOO MA PER NIENTE: <%=s %></h1>		
+		  				<%
+		  			}
+		  		%>
 			</div>
-		
-
 		</form>
 	</div>
 </body>
