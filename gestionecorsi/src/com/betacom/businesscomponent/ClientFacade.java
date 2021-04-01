@@ -82,7 +82,7 @@ public class ClientFacade {
 
 	}
 
-	public Corso[] getCorsoPiuFreq() throws DAOException {
+	public String[] getCorsoPiuFreq() throws DAOException {
 
 		return corsoBC.getCorsoPiuFreq();
 

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.betacom.architecture.dao.CorsistaDAO;
+
 import com.betacom.architecture.dao.CorsoCorsistaDAO;
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.architecture.dbaccess.DBAccess;
@@ -38,7 +38,7 @@ public class CorsoCorsistaBC {
 	
 	public void delete(long cod) throws DAOException {
 		try {
-			CorsistaDAO.getFactory().delete(conn, cod);
+			CorsoCorsistaDAO.getFactory().delete(conn, cod);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
