@@ -2,7 +2,6 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%
 long codCorso = 0;
-//String s  = (request.getParameter("codCorso"));
 %>
 
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
@@ -150,6 +149,9 @@ long codCorso = 0;
 						data-toggle="modal" data-target="#addCorsoModal">
 						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
 					</button>
+					<jsp:include page="addCorsoModal.jsp">
+					<jsp:param value="<%= 1%>" name="id"/>
+					</jsp:include>
 				</a>
 
 			</div>
