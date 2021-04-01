@@ -5,7 +5,7 @@
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%
 String username = (String) session.getAttribute("username");
-if (username == null) {
+if (username != null) {
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -46,7 +46,6 @@ if (username == null) {
 						<th style="width: 200px;">Inizio</th>
 						<th style="width: 200px;">Fine</th>
 						<th style="width: 200px;">Costo</th>
-						<th style="width: 200px;">Commenti</th>
 						<th style="width: 200px;">Aula</th>
 						<th style="width: 200px;">Rimuovi</th>
 					</tr>
@@ -61,8 +60,7 @@ if (username == null) {
 						<td><%=c.getNome()%></td>
 						<td><%Date p=new Date(c.getDataInizio().getTime()); %> <%=p %></td>
 						<td><%Date p1=new Date(c.getDataFine().getTime()); %> <%=p1%></td>
-						<td><%=c.getCosto()%></td>
-						<td><%=c.getCommenti()%></td>
+						<td><%=c.getCosto()%> &euro;</td>
 						<td><%=c.getAula()%></td>
 
 						<td>
@@ -83,7 +81,20 @@ if (username == null) {
 			</table>
 		</div>
 		<hr>
-	</div>
+	
+	
+		<div style=" margin-bottom: 100px;">
+			
+				<form action="/home.jsp"
+					method="post">
+					<button type="submit" class="btn btn-outline-success ">
+						<i class="fas fa-home"></i>Torna alla Home</button>
+						
+				</form>
+				<br>
+			</div>
+			</div>
+		
 	<footer class="footer"><%@include file="footer.html"%></footer>
 </body>
 </html>
