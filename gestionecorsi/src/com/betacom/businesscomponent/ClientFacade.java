@@ -126,4 +126,8 @@ public class ClientFacade {
 	public Corsista[] searchCorsista(String query) throws DAOException {
 		return corsistaBC.searchCorsista(query);
 	}
+	
+	public Corso[] corsiByCorsista(long cod) throws DAOException {
+		return corsoCorsistaBC.corsiByCorsista(cod);
+	}
 }
