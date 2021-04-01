@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@include file="../CDN.html"%>
+<%@include file="CDN.html"%>
 <meta charset="ISO-8859-1">
 <script>
 	function selezionaCorso(idCorso){
@@ -81,15 +81,13 @@
 		    		<ul class="dropdown-menu">
 		    		<%
 		    			Corso[] corsi = ClientFacade.getInstance().getCorsi();
-								
 						for(int i=0; i<corsi.length; i++){
 		    		%>
-		    		<li>
-		    			<button type="button" class="btn btn-info btn-xs" 
-		    			onclick = "selezionaCorso(<%= corsi[i].getCod()%>)"><%=corsi[i].getNome() %> &nbsp;&nbsp;
-							<span class="glyphicon glyphicon-plus"></span>
-						</button>
-		    		</li>
+			    		<li>
+			    			<button type="button" class="btn btn-info btn-xs" ><%=corsi[i].getNome() %> &nbsp;&nbsp;
+								<span class="glyphicon glyphicon-education"></span>
+							</button>
+			    		</li>
 		    		<%
 						}
 		    		%>
@@ -103,7 +101,19 @@
 		    	</li>
 		   	</ul>
 
-
+			<!-- DA PROVAREEEEE     E' DI BOOTSTRAP 4 MA NON FUNZIONA IL DROPDOWN MENU -->
+			<div class="dropdown show">
+			  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Dropdown link
+			  </a>
+			
+			  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			    <a class="dropdown-item" href="#">Action</a>
+			    <a class="dropdown-item" href="#">Another action</a>
+			    <a class="dropdown-item" href="#">Something else here</a>
+			  </div>
+			</div>
+		
 
 		</form>
 	</div>
