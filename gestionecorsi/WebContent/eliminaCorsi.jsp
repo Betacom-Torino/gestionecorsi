@@ -19,7 +19,7 @@ if (username != null) {
 </head>
 <body>
 	<jsp:include page="nav.jsp" />
-	<div class="container">
+	<div class="container" style="margin-top:40px;">
 		<div class="page-header">
 			<h3>Corsi non ancora avviati</h3>
 		</div>
