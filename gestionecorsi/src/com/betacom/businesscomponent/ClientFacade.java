@@ -122,5 +122,8 @@ public class ClientFacade {
 	public int getDurataMediaCorsi() throws DAOException {
 		return corsoBC.mediaCorso();
 	}
-
+	
+	public Corsista[] searchCorsista(String query) throws DAOException {
+		return corsistaBC.searchCorsista(query);
+	}
 }

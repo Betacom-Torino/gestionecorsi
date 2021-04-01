@@ -26,8 +26,10 @@ class CorsoDAOTest {
 	private static Connection conn;
 	private static Corso corso;
 	private static Corso corso2;
+	private static Corso corsoFuturo;
 	private static Corso newCorso;
 	private static Docente docente;
+	
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -63,6 +65,20 @@ class CorsoDAOTest {
 		newCorso.setCosto(50);
 		newCorso.setCommenti("anche qui nessun commento");
 		newCorso.setAula("Aula magna");
+		
+		
+		corsoFuturo= new Corso();
+		corsoFuturo.setCod(102);
+		corsoFuturo.setCodDocente(2);
+		corsoFuturo.setNome("Strutture Dati");
+		corsoFuturo.setDataInizio(new GregorianCalendar(2022, 12, 11).getTime());
+		corsoFuturo.setDataFine(new GregorianCalendar(2023, 2, 25).getTime());
+		corsoFuturo.setCosto(240);
+		corsoFuturo.setCommenti("Corso molto interessante");
+		corsoFuturo.setAula("Aula A");
+		
+		
+		
 	}
 
 	@BeforeEach
@@ -125,19 +141,51 @@ class CorsoDAOTest {
 		}
 	}
 	
+	
 	@Test
 	@Order(5)
+	void testCorsiNonIniziati() {
+		try {
+			CorsoDAO.getFactory().create(conn, corsoFuturo);
+			System.out.println(" CorsoFuturo creato");
+			Corso[] corsiFuturi = CorsoDAO.getFactory().getCorsiNonIniziati(conn);
+			assertNotNull(corsiFuturi);
+			assertEquals(1, corsiFuturi.length);
+			System.out.println("getCorsiNonIniziati passato");
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			fail("GetCorsiNonIniziati fallito");
+		}
+	}
+	
+	
+	@Test
+	@Order(6)
 	void testDelete() {
 		try {
 			CorsoDAO.getFactory().delete(conn, 100);
 			System.out.println("Corso1 eliminato");
 			CorsoDAO.getFactory().delete(conn, 101);
 			System.out.println("Corso2 eliminato");
+			CorsoDAO.getFactory().delete(conn, 102);
+			System.out.println("CorsoFuturo eliminato");
+
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Eliminazione corso fallita");
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@AfterEach
 	void tearDown() throws Exception {
@@ -149,7 +197,9 @@ class CorsoDAOTest {
 		docente=null;
 		corso=null;
 		corso2=null;
+		corsoFuturo=null;
 		newCorso=null;
+
 	}
 	
 }

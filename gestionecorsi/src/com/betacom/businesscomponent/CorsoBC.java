@@ -106,4 +106,20 @@ public class CorsoBC {
 		return n;
 	}
 
+	
+	public Corso[] getCorsiNonIniziati() throws DAOException {
+		Corso[] corsi = null;
+		try {
+			corsi = CorsoDAO.getFactory().getCorsiNonIniziati(conn);
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return corsi;
+	}
+
+	
+	
+	
+	
 }

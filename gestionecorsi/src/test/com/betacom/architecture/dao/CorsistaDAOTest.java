@@ -29,20 +29,6 @@ class CorsistaDAOTest {
 		corsista.setPreFormativi(1);
 	}
 
-	@AfterAll
-	static void tearDown() throws Exception {
-		try {
-			corsista = null;
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate("Delete from corsista");
-			conn.commit();
-			System.out.println("Pulita la tabella corsista");
-		}catch(DAOException exc) {
-			exc.printStackTrace();
-			fail("Errore nella pulizia DB");
-		}
-	}
-
 	@Test
 	void testCreate() {
 		try {
@@ -59,9 +45,26 @@ class CorsistaDAOTest {
 		try {
 			Corsista[] corsisti = CorsistaDAO.getFactory().getAll(conn);
 			assertNotNull(corsisti);
+			for(Corsista c : corsisti)
+				System.out.println(c.toString());
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Recupero corsisti fallito");
+		}
+	}
+	
+
+	@AfterAll
+	static void tearDown() throws Exception {
+		try {
+			corsista = null;
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("Delete from corsista");
+			conn.commit();
+			System.out.println("Pulita la tabella corsista");
+		}catch(DAOException exc) {
+			exc.printStackTrace();
+			fail("Errore nella pulizia DB");
 		}
 	}
 
