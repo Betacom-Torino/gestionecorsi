@@ -40,11 +40,9 @@
 		<div class="row mx-0">
 			<div class="col-12 px-0">
 				<img src="img/img.jpg" class="img-fluid w-100">
-
-
 			</div>
 		</div>
-
+		<%@ include file="inserisciCorsista.jsp"%>
 	</div>
 
 	<%@ include file="footer.html"%>
