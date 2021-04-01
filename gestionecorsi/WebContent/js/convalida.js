@@ -90,3 +90,33 @@ $(document).ready(
 		});
 	}
 );
+
+
+$(function() {
+	$('#data1').datepicker({
+		format : 'dd/mm/yyyy',
+		autoclose : true,
+		startDate : '01/01/1900',
+		endDate : new Date()
+	}).on(
+			'changeDate',
+			function(e) {
+				// Rivalidazione del data field
+				$('#userForm').bootstrapValidator(
+						'revalidateField', 'nascita');
+			});
+});
+$(function() {
+	$('#data2').datepicker({
+		format : 'dd/mm/yyyy',
+		autoclose : true,
+		startDate : '01/01/1900',
+		endDate : new Date()
+	}).on(
+			'changeDate',
+			function(e) {
+				// Rivalidazione del data field
+				$('#userForm').bootstrapValidator(
+						'revalidateField', 'nascita');
+			});
+});
