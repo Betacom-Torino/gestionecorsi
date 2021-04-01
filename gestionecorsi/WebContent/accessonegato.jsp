@@ -55,8 +55,9 @@ a:before {
 
 </head>
 <body>
+
+<%@ include file="nav.jsp"%>
 	<div class="row justify-content-center" style="margin-top: 50px;">
-		<%@ include file="nav.jsp"%>
 		<div class="col-4 align-self-center"
 			style="font-size: 300px; text-align: center;">
 			<i class="fas fa-exclamation-triangle"></i>
@@ -69,7 +70,7 @@ a:before {
 			<h2>Sembra che tu non possa accedere a questa pagina</h2>
 			<br>
 			<h3>
-				Torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a>
+				Torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home" style="color: #2F4F4F;"></i></a>
 				e riprova.
 			</h3>
 		</div>
