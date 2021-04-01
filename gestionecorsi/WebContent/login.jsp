@@ -1,7 +1,5 @@
 
 <div class="row" id="section1">
-	<h3>Inserire i dati per il login</h3>
-
 	<form action="<%=request.getContextPath()%>/controllo" method="post"
 		class="form-horizontal" id="userForm">
 
