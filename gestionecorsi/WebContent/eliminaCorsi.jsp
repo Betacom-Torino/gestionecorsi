@@ -4,7 +4,7 @@
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%
-String username = (String) session.getAttribute("username");
+String username = (String) session.getAttribute("nome");
 if (username != null) {
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
