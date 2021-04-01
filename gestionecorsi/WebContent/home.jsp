@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +10,32 @@
 <title>Home</title>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-    <%@ include file="nav.jsp"%>
-    <div class="container-fluid px-0">
-        <div class="row mx-0">
-            <div class="col-12 px-0">
-                <img src="img/img.jpg" class="img-fluid w-100">
-                <form action="#section1">
-                    <input type="submit" class="btn" id="bottone" value="Vai al login" />
-                </form>
-            </div>
-        </div>
-        <%@ include file="login.jsp"%>
-    </div>
-    
-<%@ include file="footer.html"%>
+	<%@ include file="nav.jsp"%>
+	<div class="container-fluid px-0">
+		<div class="row mx-0">
+			<div class="col-12 px-0">
+				<img src="img/img.jpg" class="img-fluid w-100">
+				<%
+				nome = (String) session.getAttribute("nome");
+				if (nome == null) {
+				%>
+				<form action="#section1">
+					<input type="submit" class="btn" id="bottone" value="Vai al login" />
+				</form>
+				<%
+				}
+				%>
+			</div>
+		</div>
+		<%
+		if (nome == null) {
+		%>
+		<%@ include file="login.jsp"%>
+		<%
+		}
+		%>
+	</div>
+
+	<%@ include file="footer.html"%>
 </body>
 </html>
