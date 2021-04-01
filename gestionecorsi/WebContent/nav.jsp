@@ -13,7 +13,7 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="nav justify-content-end">
+		<ul class="navbar-nav navbar-right">
 			<li class="nav-item"><a class="nav-link active" href="#">Inserisci corsista</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Visualizza Statistiche</a></li>
