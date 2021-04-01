@@ -67,7 +67,7 @@ a:before {
 		</div>
 		<div class="col-6 align-self-center" style="text-align: center;">
 			<h1 style="font-size: 150px;" >
-				<strong>OPS</strong>
+				<strong>OPS :/</strong>
 			</h1>
 			<br>
 			<h2>Sembra che qualcosa sia andato storto</h2>
