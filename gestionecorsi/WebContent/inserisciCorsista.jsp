@@ -1,4 +1,5 @@
-
+<%@page import="com.betacom.businesscomponent.model.Docente"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%
 long codCorso = 0;
 //String s  = (request.getParameter("codCorso"));
@@ -23,7 +24,7 @@ long codCorso = 0;
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" style="width:700px;">
 		<div class="page-header">
 			<h3>Inserimento nuovo corsista</h3>
 		</div>
@@ -36,7 +37,7 @@ long codCorso = 0;
 			method="post" class="form-horizontal" id="userForm">
 
 			<div class="form-group">
-				<label class="col-md-1 control-label">Nome</label>
+				<label class="col-md-1 control-label"><strong>Nome</strong></label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"> <i
@@ -50,7 +51,7 @@ long codCorso = 0;
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-1 control-label">Cognome</label>
+				<label class="col-md-1 control-label"><strong>Cognome</strong></label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"> <i
@@ -65,7 +66,7 @@ long codCorso = 0;
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-1 control-label">Precedenti formativi</label>
+				<label class="col-md-1 control-label"><strong>Precedenti formativi</strong></label>
 				<div class="col-md-4 inputGroupContainer"></div>
 				<div class="col-md-7 control-label" id="infoPrecForm"></div>
 
@@ -81,33 +82,52 @@ long codCorso = 0;
 			</div>
 			<%
 			codCorso = Long.parseLong(s);
+			Corso corsetto = ClientFacade.getInstance().getCorsoByCod(codCorso);
+			Docente docente = ClientFacade.getInstance().getDocenteByCod(corsetto.getCodDocente());
+			SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
 			%>
-			<h1>
-				CI SIAMOOOOOOOOO: codcorso =
-				<%=s%></h1>
-			<div class="btn-group">
-			<button type="button" class="btn btn-primary dropdown-toggle"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Corso</button>
-			<div class="dropdown-menu">
-				<%
-				Corso[] corsi = ClientFacade.getInstance().getCorsi();
-				for (int i = 0; i < corsi.length; i++) {
-				%>
-				<a class="dropdown-item"
-					href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>&nomeCorsista=#nome&cognomeCorsista=#cognome"><%=corsi[i].getNome()%></a>
-				<%
-				}
-				%>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">
-					<button type="button" class="btn btn-primary btn-sm"
-						data-toggle="modal" data-target="#addCorsoModal">Aggiungi
-						Corso</button>
-				</a>
-
+			<div class="table-responsive">
+				<table class="table table-hover" style="width: 100%;">
+					<tr>
+						<td><strong>Nome Corso</strong></td>
+						<td><%=corsetto.getNome()%></td>
+					</tr>
+					<tr>
+						<td><strong>Data Inizio</strong></td>
+						<td><%=f.format(corsetto.getDataInizio())%></td>
+					</tr>
+					<tr>
+						<td><strong>Data Fine</strong></td>
+						<td><%=f.format(corsetto.getDataFine())%></td>
+					</tr>
+					<tr>
+						<td><strong>Docente Corso</strong></td>
+						<td><%=docente.getNomeDocente()%>&nbsp;<%=docente.getCognomeDocente()%></td>
+					</tr>
+					<tr>
+						<td><strong>Costo Corso</strong></td>
+						<td><%=String.format("%.2f",corsetto.getCosto())%>&euro;</td>
+					</tr>
+					<tr>
+						<td><strong>Commento</strong></td>
+						<td><%=corsetto.getCommenti()%></td>
+					</tr>
+					<tr>
+						<td><strong>Aula corso</strong></td>
+						<td><%=corsetto.getAula()%></td>
+					</tr>
+				</table>
 			</div>
-		</div>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-1">
+				<input type="hidden" name="codCorso" value="<%=codCorso%>">
+					<button type="submit" class="btn btn-primary">
+						Inserisci&nbsp; 
+					</button>
+				</div>
+			</div>
+			<hr>
+			<a href="inserisciCorsista.jsp">Torna alla selezione del Corso</a>
 		</form>
 		<%
 		} else {
@@ -122,7 +142,7 @@ long codCorso = 0;
 				for (int i = 0; i < corsi.length; i++) {
 				%>
 				<a class="dropdown-item"
-					href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>&nomeCorsista=nome&cognomeCorsista=cognome"><%=corsi[i].getNome()%></a>
+					href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>"><%=corsi[i].getNome()%></a>
 
 				<%
 				}
@@ -139,7 +159,7 @@ long codCorso = 0;
 		<%
 		}
 		%>
-		
+
 	</div>
 </body>
 </html>
