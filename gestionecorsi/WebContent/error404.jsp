@@ -13,8 +13,6 @@
 
 <style>
 
-
-
 a:hover {
 	color: #2F4F4F;
 }
@@ -57,11 +55,11 @@ a:before {
 </style>
 
 </head>
-</head>
+
 <body>
 	<%@ include file="nav.jsp"%>
 	<div class="container">
-		<div style="margin-top: 30px; font-size: 200px; text-align: center;">
+		<div style="margin-top: 50px; font-size: 200px; text-align: center;">
 
 
 			4<i class="far fa-question-circle fa-spin"></i>4
@@ -79,7 +77,7 @@ a:before {
 	</div>
 	<div style="text-align: center; margin-top: 50px;">
 		<h3>
-			Ricomincia dalla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a>
+			Ricomincia dalla &nbsp; <a href="home.jsp"><i class="fas fa-home" style="color: #2F4F4F;"></i></a>
 			oppure torna
 			<button class="button" onclick="window.history.back()">INDIETRO</button>
 			alla pagina precedente
