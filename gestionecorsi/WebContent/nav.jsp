@@ -22,8 +22,8 @@
 				</div></li>
 		</ul>
 		<%
-		String username = (String) session.getAttribute("username");
-		if (username == null) {
+		String nome = (String) session.getAttribute("nome");
+		if (nome == null) {
 		%>
 
 		<ul class="navbar-nav  navbar-right">
@@ -37,9 +37,9 @@
 		%>
 
 		<ul class="navbar-nav navbar-right">
-			<li class="nav-item"><a class="nav-link disabled" href="#">User</a>
+			<li class="nav-item"><a class="nav-link disabled" href="#"><i class="fas fa-user-tie"></i>&nbsp;<%= nome %></a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="logout.jsp">Logout</a>
+			<li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#myModal">Logout</a>
 			</li>
 		</ul>
 		<%
@@ -47,4 +47,4 @@
 		%>
 	</div>
 </nav>
-
+<jsp:include page="logout.jsp"/>

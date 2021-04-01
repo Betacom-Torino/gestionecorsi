@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class AccesUtilityTest {
+class AccessUtilityTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
