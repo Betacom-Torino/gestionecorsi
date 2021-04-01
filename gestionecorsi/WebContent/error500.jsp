@@ -33,7 +33,7 @@ a {
 	margin-bottom: -1em;
 	border: 2px solid #b9ddfb;
 	color: #F0FFFF;
-	font-weight: 700;
+	font-weight: 900;
 	text-decoration: none;
 	letter-spacing: 0.2em;
 	position: relative;
@@ -60,7 +60,6 @@ a:before {
 	transition: 0.3s;
 	z-index: -1;
 }
-
 </style>
 
 </head>
@@ -68,21 +67,25 @@ a:before {
 	<div class="container">
 
 		<div class="row justify-content-md-center"
-			style="font-size: 150px; text-align: center;">
-			<i class="fas fa-power-off"> 500</i>
+			style="font-size: 100px; text-align: center;">
+			<i class="fas fa-spinner fa-pulse"> </i>
 		</div>
-
+		<br>
+		<div class="row justify-content-md-center"
+			style="font-size: 100px; text-align: center;">
+			Error 500
+		</div>
 		<div class="row justify-content-md-center" style="text-align: center;">
-			<br> <br>
-			<h1>
+			<br> 
+			<h2>
 				<strong>SPEGNI TUTTO</strong>
-			</h1>
+			</h2>
 
 			<br>
-			<h2>
-				Se proprio ci tieni, torna alla &nbsp; <a href="home.jsp">HOME</a> e
+			<h3>
+				Se proprio ci tieni, torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a> e
 				riprova.
-			</h2>
+			</h3>
 		</div>
 	</div>
 

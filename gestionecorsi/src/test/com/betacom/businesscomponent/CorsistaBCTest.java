@@ -29,8 +29,7 @@ class CorsistaBCTest {
 	static void setUp() throws Exception{
 		conn = DBAccess.getConnection();
 		corsista = new Corsista();
-		corsista.setCodiceCor(2);
-		corsista.setNomeCor("Mariano");
+		corsista.setNomeCor("Maria");
 		corsista.setCognomeCor("Franco");
 		corsista.setPreFormativi(1);
 	}
@@ -51,7 +50,7 @@ class CorsistaBCTest {
 	@Order(4)
 	void testGetByCod() throws ClassNotFoundException, IOException {
 		try {
-			long id = 5;
+			long id = 24;
 			Corsista[] corsisti = ClientFacade.getInstance().getCorsisti();
 			for(Corsista c : corsisti)
 				if(c.getCodiceCor() == id)
