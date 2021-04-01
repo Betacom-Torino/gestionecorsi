@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center" id="section1"
 	style="background-color: #2F4F4F">
-	<div class="d-flex justify-content-center h-100">
+	<div class="d-flex justify-content-center h-100" style="margin-top: 3.5%; margin-bottom: 3.5%;">
 		<div class="card">
 			<div class="card-header">
 				<h3>Login</h3>
