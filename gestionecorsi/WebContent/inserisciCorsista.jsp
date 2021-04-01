@@ -8,8 +8,17 @@ long codCorso = 0;
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<%@include file="CDN.html"%>
+<meta charset="ISO-8859-1">
 
-	<div class="container" style="width: 700px;" id="inserisciCorsista">
+<title>Inserisci corsista</title>
+</head>
+<body>
+
+	<div class="container" style="width: 700px;">
 		<div class="page-header">
 			<h3>Inserimento nuovo corsista</h3>
 		</div>
@@ -129,19 +138,22 @@ long codCorso = 0;
 				<%
 				}
 				%>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item">
+					<button type="button" class="btn btn-primary btn-sm"
+						data-toggle="modal" data-target="#addCorsoModal">
+						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
+					</button>
+				</a> <a class="dropdown-item"> <jsp:include page="addCorsoModal.jsp">
+						<jsp:param value="<%=1%>" name="id" />
+					</jsp:include>
+				</a>
+
 			</div>
 		</div>
 		<%
 		}
 		%>
-					<button type="button" class="btn btn-primary btn-sm"
-						data-toggle="modal" data-target="#corsistaModal">
-						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
-					</button>
-					<jsp:include page="addCorsoModal.jsp">
-						<jsp:param value="1" name="id" />
-					</jsp:include>
-					<>
 
 	</div>
 </body>
