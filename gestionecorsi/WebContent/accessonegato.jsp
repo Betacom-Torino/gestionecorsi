@@ -79,32 +79,6 @@ a:before {
 
 </head>
 <body>
-	<div class="row justify-content-center"  style="margin-top: 0px;">
-
-		<div class="col-4 align-self-center" style="font-size: 400px; text-align: center;">
-			<i class="fas fa-times"></i>
-		</div>
-		<div class="col-6 align-self-center" style="font-size: 10px; text-align: center;">
-			<h1>
-				<strong>ATTENZIONE.</strong>
-			</h1>
-			<br>
-			<h2>Sembra che tu non possa accedere a questa pagina</h2>
-			<br>
-			<h3>
-				Torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a>
-				e riprova.
-			</h3>
-		</div>
-	</div>
-	
-	<div class="row justify-content-md-center"  style="margin-top:0px;" >
-	<h3>
-				Oppure torna
-				<button class="button" onclick="window.history.back()">INDIETRO</button>
-				alla pagina precedente
-			</h3>
-	</div> 
 
 </body>
 </html>

@@ -1,39 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isErrorPage="true"%>
 
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <script src="https://kit.fontawesome.com/4b9ba14b0f.js"></script>
 
 <style>
 body {
-	position: absolute;
-	width: 800px;
-	height: 200px;
-	z-index: 15;
-	top: 20%;
-	left: 25%;
-	margin: -50px 0 0 -50px;
+	
 	background: #2F4F4F;
 	color: #F0FFFF;
 	font-family: Roboto;
 }
 
-p {
-	width: 100%;
-	font-size: 20px;
-}
-
 a {
 	display: inline-block;
-	padding: 0.6em 1em;
-	margin-right: 1em;
-	margin-bottom: -1em;
+	padding: 0.4em 0.9em;
+	margin-right: 0.5em;
+	margin-bottom: -0.75em;
 	border: 2px solid #b9ddfb;
 	color: #F0FFFF;
-	font-weight: 900;
+	font-weight: 700;
 	text-decoration: none;
 	letter-spacing: 0.2em;
 	position: relative;
@@ -60,34 +55,56 @@ a:before {
 	transition: 0.3s;
 	z-index: -1;
 }
+
+.button {
+	border: none;
+	color: white;
+	padding: 12px 15px;
+	text-align: center;
+	font-weight: bold;
+	display: inline-block;
+	font-size: 18px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	background-color: #2F4F4F;
+	color: #F0FFFF;
+	border: 0px solid #F0FFFF;
+}
+
+.button:hover {
+	background-color: #F0FFFF;
+	color: #2F4F4F;
+}
 </style>
 
 </head>
 <body>
-	<div class="container">
+	<div class="row justify-content-center"  style="margin-top: 50px;">
 
-		<div class="row justify-content-md-center"
-			style="font-size: 100px; text-align: center;">
-			<i class="fas fa-spinner fa-pulse"> </i>
+		<div class="col-4 align-self-center" style="font-size: 300px; text-align: center;">
+		<i class="fas fa-spinner fa-pulse"> </i>
 		</div>
-		<br>
-		<div class="row justify-content-md-center"
-			style="font-size: 100px; text-align: center;">
-			Error 500
-		</div>
-		<div class="row justify-content-md-center" style="text-align: center;">
-			<br> 
-			<h2>
-				<strong>SPEGNI TUTTO</strong>
-			</h2>
-
+		<div class="col-6 align-self-center" style="text-align: center;">
+			<h1 style="font-size: 150px;" >
+				<strong>Err 500</strong>
+			</h1>
+			<br>
+			<h2>Sembra che qualcosa sia andato storto</h2>
 			<br>
 			<h3>
-				Se proprio ci tieni, torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a> e
-				riprova.
+				Torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a>
+				e riprova.
 			</h3>
 		</div>
 	</div>
+	
+	<div class="row justify-content-md-center"  style="margin-top:0px;" >
+	<h3>
+				Oppure torna
+				<button class="button" onclick="window.history.back()">INDIETRO</button>
+				alla pagina precedente
+			</h3>
+	</div> 
 
 </body>
 </html>
