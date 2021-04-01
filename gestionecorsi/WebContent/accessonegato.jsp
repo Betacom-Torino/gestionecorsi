@@ -4,23 +4,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js">
-	
-</script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <script src="https://kit.fontawesome.com/4b9ba14b0f.js"></script>
 
 <style>
 body {
-	position: absolute;
-	width: 800px;
-	height: 200px;
-	z-index: 15;
-	top: 20%;
-	left: 25%;
-	margin: -50px 0 0 -50px;
+	
 	background: #2F4F4F;
 	color: #F0FFFF;
 	font-family: Roboto;
@@ -84,37 +79,32 @@ a:before {
 
 </head>
 <body>
-	<div class="container">
-		<div class="row justify-content-md-center"
-			style="font-size: 150px; text-align: center;">
-			<i class="fas fa-exclamation-triangle"></i>
-		</div>
-		<div class="row justify-content-md-center" style="text-align: center;">
-			<h1 style="font-size: 50px; text-align: center;">
-				<strong>OPS!</strong>
-			</h1>
-		</div>
-		<div class="row justify-content-md-center" style="text-align: center;">
+	<div class="row justify-content-center"  style="margin-top: 0px;">
 
-			<h2>Qualcosa è andato storto</h2>
+		<div class="col-4 align-self-center" style="font-size: 400px; text-align: center;">
+			<i class="fas fa-times"></i>
+		</div>
+		<div class="col-6 align-self-center" style="font-size: 10px; text-align: center;">
+			<h1>
+				<strong>ATTENZIONE.</strong>
+			</h1>
+			<br>
+			<h2>Sembra che tu non possa accedere a questa pagina</h2>
+			<br>
 			<h3>
 				Torna alla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a>
 				e riprova.
 			</h3>
 		</div>
-		<br>
-		<hr>
-		<div class="row justify-content-md-center" style="text-align: center;">
-
-			<h3>
+	</div>
+	
+	<div class="row justify-content-md-center"  style="margin-top:0px;" >
+	<h3>
 				Oppure torna
 				<button class="button" onclick="window.history.back()">INDIETRO</button>
 				alla pagina precedente
 			</h3>
-		</div>
-
-
-	</div>
+	</div> 
 
 </body>
 </html>

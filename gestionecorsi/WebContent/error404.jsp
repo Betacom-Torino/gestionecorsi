@@ -99,7 +99,7 @@ a:before {
 			 <h3><strong>Forse</strong> questa pagina ha un URL che Eclipse non ha voluto trovare</h3>
 			 <h3><strong>Forse</strong> si è presa il covid ed è in quarantena</h3>
 			 <br>
-			 <h2>Sah, ti consiglio di ricominciare dalla &nbsp; <a href="home.jsp">HOME</a> per sicurezza.</h2>
+			 <h2>Sah, ti consiglio di ricominciare dalla &nbsp; <a href="home.jsp"><i class="fas fa-home"></i></a> per sicurezza.</h2>
 			 </div>
 			 <br>
 			 	  <hr>
