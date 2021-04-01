@@ -13,12 +13,7 @@ long codCorso = 0;
 <head>
 <%@include file="CDN.html"%>
 <meta charset="ISO-8859-1">
-<script>
-	function selezionaCorso(idCorso) {
-		//sendRedirect("");
 
-	}
-</script>
 <title>Inserisci corsista</title>
 </head>
 <body>
@@ -65,15 +60,16 @@ long codCorso = 0;
 			</div>
 
 			<div class="form-group">
-				<label class="control-label"><strong>Precedenti
-						formativi</strong></label> <a class="custom-control custom-radio"> <input
-					type="radio" class="custom-control-input" id="precForm"
-					name="precForm" value="1"> <label
-					class="custom-control-label" for="precForm">Si</label>
-				</a> <a class="custom-control custom-radio"> <input type="radio"
-					class="custom-control-input" id="precForm" name="precForm"
-					value="0" checked> <label class="custom-control-label"
-					for="precForm">No</label>
+				<label class="control-label"><strong>Precedenti formativi</strong></label>
+				<a class="custom-control custom-radio">
+					<input type="radio" class="custom-control-input" id="precForm"
+					name="precForm" value="1"> 
+					<label class="custom-control-label" for="precForm">Si</label>
+				</a> 
+				<a class="custom-control custom-radio">
+					<input type="radio" class="custom-control-input" id="precForm"
+					name="precForm" value="0" checked> 
+					<label class="custom-control-label"	for="precForm">No</label>
 				</a>
 			</div>
 			<%
