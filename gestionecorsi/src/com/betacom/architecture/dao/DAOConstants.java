@@ -30,8 +30,8 @@ public interface DAOConstants {
 
 	// STATISTICHE DISPARI
 	String NUM_CORSISTI_TOT = "Select count(*) from corsista";
-	String DATA_INIZIO_ULTIMO_CORSO = "Select max(datainiziocorso) from corso";
-	String NUM_COMMENTI = "Select count(commenti) from corso";
+	String DATA_INIZIO_ULTIMO_CORSO = "Select max(datainizio) from corso";
+	String NUM_COMMENTI = "Select count(commentocorso) from corso";
 	String DOC_PIU_CORSI = "Select c.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente from corso c,docente d where c.coddocente=d.coddocente group by c.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente having count(*) >2";
 
 	

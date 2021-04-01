@@ -200,25 +200,27 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		return data;
 	}
 
-	public Corso[] getCorsoPiuFreq(Connection conn) throws DAOException, SQLException {
-		PreparedStatement ps;
-		List<Corso> lista = new ArrayList<Corso>();
-		Corso[] corsi;
+	public String[] getCorsoPiuFreq(Connection conn) throws DAOException, SQLException {
+		String[] nomeCorsi = null;
 		try {
-			ps = conn.prepareStatement(MAX_ISCRITTI);
-			ResultSet rs = ps.executeQuery();
-			corsi = CorsoDAO.getFactory().getAll(conn);
-			for (Corso c : corsi)
-				if (rs.next()) {
-					if (c.getNome().toLowerCase().equals(rs.getString(1).toLowerCase()))
-						lista.add(c);
-				}
-			corsi = (Corso[]) lista.toArray();
-		} catch (SQLException exc) {
-			throw new DAOException(exc);
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = stmt.executeQuery(MAX_ISCRITTI);
+			rs.last();
+			nomeCorsi = new String[rs.getRow()];
+			rs.beforeFirst();
+			for (int i = 0; rs.next(); i++) {
+				String stringa;
+				stringa=(rs.getString(1));
+				
+				nomeCorsi[i] = stringa;
+			}
+			rs.close();
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
 		}
-		return corsi;
+		return nomeCorsi;
 	}
+	
 
 	public int mediaCorsi(Connection conn) throws DAOException {
 		int avg = 0;
