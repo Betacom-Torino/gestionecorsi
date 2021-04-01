@@ -31,6 +31,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants {
 
 		if (getNumeriCorsisti(conn, entity.getCodiceCor()) < 12) {
 			try {
+				// dd
 				rowSet.setCommand(SELECT_CORSISTI);
 				rowSet.execute(conn);
 				rowSet.moveToInsertRow();

@@ -32,16 +32,15 @@ class CorsoDAOTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
-		docente = new Docente();
 		docente = DocenteDAO.getFactory().getByCod(conn, 1);
 		conn.close();
 		
 		corso = new Corso();
 		corso.setCod(100);
 		corso.setCodDocente(1);
-		corso.setNome("Lavaggi con ammorbidente");
+		corso.setNome("Sistemi Operativi");
 		corso.setDataInizio(new GregorianCalendar(2000, 4, 15).getTime());
-		corso.setDataFine(new GregorianCalendar(2020, 4, 20).getTime());
+		corso.setDataFine(new GregorianCalendar(2000, 4, 20).getTime());
 		corso.setCosto(30);
 		corso.setCommenti("nessun commento");
 		corso.setAula("Aula magna");
@@ -89,7 +88,7 @@ class CorsoDAOTest {
 		try {
 			Corso c = CorsoDAO.getFactory().getByCod(conn, 100);
 			assertNotNull(c);
-			assertEquals("Sistem Operativi", c.getNome());
+			assertEquals("Sistemi Operativi", c.getNome());
 			assertEquals(30, c.getCosto());
 			assertEquals("Aula magna", c.getAula());
 		}catch(DAOException exc) {
@@ -107,6 +106,7 @@ class CorsoDAOTest {
 			Corso[] corsi = CorsoDAO.getFactory().getAll(conn);
 			assertNotNull(corsi);
 			assertEquals(2, corsi.length);
+			System.out.println("getAll passato");
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("GetAll corsi fallita");

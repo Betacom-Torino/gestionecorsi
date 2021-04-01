@@ -27,9 +27,10 @@ class ClientFacadeTest {
 
 			assertNotNull(ClientFacade.getInstance().getStatisticaDocenti());
 
-			// X LORENZO: inserisce codice di un corsista e un corso che hai nel DB
-			assertNull(ClientFacade.getInstance().getCorsistaByCod(17));
-			assertNull(ClientFacade.getInstance().getCorsoByCod(17));
+			assertNotNull(ClientFacade.getInstance().getCorsistaByCod(1));
+			assertNotNull(ClientFacade.getInstance().getCorsoByCod(2)); 
+			assertNotNull(ClientFacade.getInstance().getDurataMediaCorsi());
+			System.out.println(ClientFacade.getInstance().getDurataMediaCorsi());
 
 		} catch (ClassNotFoundException | DAOException | IOException e) {
 			fail();

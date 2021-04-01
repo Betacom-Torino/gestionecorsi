@@ -89,10 +89,21 @@ public class CorsoBC {
 		Corso[] corsi;
 		try {
 			corsi = CorsoDAO.getFactory().getCorsoPiuFreq(conn);
-		}catch(SQLException exc){
+		} catch (SQLException exc) {
 			throw new DAOException(exc);
 		}
 		return corsi;
+	}
+
+	public int mediaCorso() throws DAOException {
+
+		int n = 0;
+		try {
+			n = CorsoDAO.getFactory().mediaCorsi(conn);
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return n;
 	}
 
 }
