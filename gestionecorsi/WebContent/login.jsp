@@ -12,7 +12,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="nome" name="nome">
+						<input type="text" class="form-control" placeholder="Nome..." name="nome">
 
 					</div>
 
@@ -20,7 +20,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="cognome" name="cognome">
+						<input type="text" class="form-control" placeholder="Cognome..." name="cognome">
 
 					</div>
 
@@ -28,7 +28,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="codice" name="codice">
+						<input type="password" class="form-control" placeholder="Codice..." name="codice">
 					</div>
 
 					<div class="form-group">

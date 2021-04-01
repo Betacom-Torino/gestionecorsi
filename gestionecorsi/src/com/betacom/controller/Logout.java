@@ -20,9 +20,9 @@ public class Logout extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		String name = (String) session.getAttribute("name");
+		String nome = (String) session.getAttribute("nome");
 
-		if (name != null) {
+		if (nome != null) {
 			session.invalidate();
 			response.sendRedirect("home.jsp");
 		} else {
