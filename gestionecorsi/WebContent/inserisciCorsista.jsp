@@ -24,7 +24,7 @@ long codCorso = 0;
 </head>
 <body>
 
-	<div class="container" style="width:700px;">
+	<div class="container" style="width: 700px;">
 		<div class="page-header">
 			<h3>Inserimento nuovo corsista</h3>
 		</div>
@@ -66,14 +66,11 @@ long codCorso = 0;
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-1 control-label"><strong>Precedenti formativi</strong></label>
-				<div class="col-md-4 inputGroupContainer"></div>
-				<div class="col-md-7 control-label" id="infoPrecForm"></div>
-
-				<a class="custom-control custom-radio"> <input type="radio"
-					class="custom-control-input" id="precForm" name="precForm"
-					value="1"> <label class="custom-control-label"
-					for="precForm">Si</label>
+				<label class="control-label"><strong>Precedenti
+						formativi</strong></label> <a class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input" id="precForm"
+					name="precForm" value="1"> <label
+					class="custom-control-label" for="precForm">Si</label>
 				</a> <a class="custom-control custom-radio"> <input type="radio"
 					class="custom-control-input" id="precForm" name="precForm"
 					value="0" checked> <label class="custom-control-label"
@@ -106,7 +103,7 @@ long codCorso = 0;
 					</tr>
 					<tr>
 						<td><strong>Costo Corso</strong></td>
-						<td><%=String.format("%.2f",corsetto.getCosto())%>&euro;</td>
+						<td><%=String.format("%.2f", corsetto.getCosto())%>&euro;</td>
 					</tr>
 					<tr>
 						<td><strong>Commento</strong></td>
@@ -120,10 +117,9 @@ long codCorso = 0;
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-md-offset-1">
-				<input type="hidden" name="codCorso" value="<%=codCorso%>">
+					<input type="hidden" name="codCorso" value="<%=codCorso%>">
 					<button type="submit" class="btn btn-primary">
-						Inserisci&nbsp; 
-					</button>
+						Inserisci&nbsp;</button>
 				</div>
 			</div>
 			<hr>
@@ -142,7 +138,8 @@ long codCorso = 0;
 				for (int i = 0; i < corsi.length; i++) {
 				%>
 				<a class="dropdown-item"
-					href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>"><%=corsi[i].getNome()%></a>
+					href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>"><%=corsi[i].getNome()%>&nbsp;&nbsp;<i
+					class="fas fa-graduation-cap"></i></a>
 
 				<%
 				}
@@ -150,8 +147,9 @@ long codCorso = 0;
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">
 					<button type="button" class="btn btn-primary btn-sm"
-						data-toggle="modal" data-target="#addCorsoModal">Aggiungi
-						Corso</button>
+						data-toggle="modal" data-target="#addCorsoModal">
+						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
+					</button>
 				</a>
 
 			</div>
