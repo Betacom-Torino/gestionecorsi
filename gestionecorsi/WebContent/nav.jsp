@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" style="color: white;">TorinoUniversity</a>
+	<a class="navbar-brand" style="color: white;" href="#section">TorinoUniversity</a>
 
 	<%
 	String nome = (String) session.getAttribute("nome");
@@ -14,20 +14,16 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="home.jsp">Home</a></li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"> Opzioni </a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="inserisciCorsista.jsp">Inserisci
-						corsista</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Lista corsi</a>
-				</div></li>
+
 		</ul>
 
 		<ul class="navbar-nav navbar-right">
+			<li class="nav-item"><a class="nav-link" href="#inserisciCorsista">Inserisci
+					corsista</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Visualizza
+					Statistiche</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Elimina
+					corso</a></li>
 			<li class="nav-item"><a class="nav-link disabled" href="#"><i
 					class="fas fa-user-tie"></i>&nbsp;<%=nome%></a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="modal"

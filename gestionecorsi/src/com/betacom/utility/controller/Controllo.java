@@ -44,7 +44,9 @@ public class Controllo extends HttpServlet {
 				exc.printStackTrace();
 				throw new ServletException(exc.getMessage());
 			}
-		}	
+		}else {
+			response.sendRedirect("accessonegato.jsp");
+		}
 	}
 
 }

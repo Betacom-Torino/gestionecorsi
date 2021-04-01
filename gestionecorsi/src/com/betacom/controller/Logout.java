@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Logout
  */
-@WebServlet("/Logout")
+@WebServlet("/logout")
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -20,10 +20,9 @@ public class Logout extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("username");
-		String admin = (String) session.getAttribute("admin");
+		String nome = (String) session.getAttribute("nome");
 
-		if (username != null || admin != null) {
+		if (nome != null) {
 			session.invalidate();
 			response.sendRedirect("home.jsp");
 		} else {

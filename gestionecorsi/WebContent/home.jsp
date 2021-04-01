@@ -9,33 +9,46 @@
 <link rel="stylesheet" href="css/style2.css">
 <title>Home</title>
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<%@ include file="nav.jsp"%>
+	<%
+	nome = (String) session.getAttribute("nome");
+	if (nome == null) {
+	%>
+	<div class="container-fluid px-0" id="section">
+		<div class="row mx-0">
+			<div class="col-12 px-0">
+				<img src="img/img.jpg" class="img-fluid w-100">
+
+				<form action="#section1">
+					<input type="submit" class="btn" id="bottone" value="Vai al login" />
+				</form>
+
+			</div>
+		</div>
+
+		<%@ include file="login.jsp"%>
+
+	</div>
+
+	<%@ include file="footer.html"%>
+	<%
+	} else {
+	%>
 	<div class="container-fluid px-0">
 		<div class="row mx-0">
 			<div class="col-12 px-0">
 				<img src="img/img.jpg" class="img-fluid w-100">
-				<%
-				nome = (String) session.getAttribute("nome");
-				if (nome == null) {
-				%>
-				<form action="#section1">
-					<input type="submit" class="btn" id="bottone" value="Vai al login" />
-				</form>
-				<%
-				}
-				%>
 			</div>
 		</div>
-		<%
-		if (nome == null) {
-		%>
-		<%@ include file="login.jsp"%>
-		<%
-		}
-		%>
+		<%@ include file="inserisciCorsista.jsp"%>
 	</div>
 
 	<%@ include file="footer.html"%>
+	<%
+	}
+	%>
 </body>
+
 </html>
