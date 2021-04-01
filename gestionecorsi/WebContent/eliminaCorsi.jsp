@@ -1,9 +1,11 @@
 
+<%@page import="java.sql.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%
 String username = (String) session.getAttribute("username");
-if (username != null) {
+if (username == null) {
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -23,16 +25,18 @@ if (username != null) {
 		</div>
 		<p>
 
-			<% 
-//inserisco in un array tutti i corsi non ancora iniziati
-	Corso[] corsi = ClientFacade.getInstance().getCorsiNonIniziati(); //facciata: select su corsi non acora iniziati
-				
-%>
+			<%
+			//inserisco in un array tutti i corsi non ancora iniziati
+			Corso[] corsi = ClientFacade.getInstance().getCorsiNonIniziati(); //facciata: select su corsi non acora iniziati
+			%>
 
 
 			Totale corsi non ancora avviati:&nbsp;
-			<%= corsi.length  %>;
+			<%=corsi.length%>
 		</p>
+
+
+
 		<div class="table-responsive">
 			<table class="table table-hover" style="width: 100%;">
 				<thead>
@@ -50,27 +54,24 @@ if (username != null) {
 				<tbody>
 					<%
 					
-for(Corso c:corsi){
-	
+					for (Corso c : corsi) {
 					%>
 					<tr>
 						<td><%=c.getCod()%></td>
 						<td><%=c.getNome()%></td>
-						<td><%=c.getDataInizio()%></td>
-						<td><%=c.getDataFine()%></td>
+						<td><%Date p=new Date(c.getDataInizio().getTime()); %> <%=p %></td>
+						<td><%Date p1=new Date(c.getDataFine().getTime()); %> <%=p1%></td>
 						<td><%=c.getCosto()%></td>
 						<td><%=c.getCommenti()%></td>
 						<td><%=c.getAula()%></td>
 
 						<td>
-							
-							<% System.out.println("VALORE CODICE "+c.getCod() ); %>
-							<% System.out.println(application.getServletContextName() ); %>
+							<%System.out.println(" contesto "+ request.getContextPath()+" codice corso "+c.getCod()); %>
 							<form
-								action="/<%=application.getServletContextName()%>/rimuoviCorso?cod=<%=c.getCod()%>"
+								action="<%=request.getContextPath()%>/rimuoviCorso?cod=<%=c.getCod()%>"
 								method="post">
-								<button type="button" class="btn btn-outline-danger">
-									<i class="glyphicon glyphicon-trash"></i> elimina
+								<button type="submit" class="btn btn-outline-danger">
+									<i class="fas fa-trash"></i> elimina
 								</button>
 							</form>
 						</td>
@@ -88,6 +89,7 @@ for(Corso c:corsi){
 </html>
 <%
 } else {
-response.sendRedirect("error.jsp");   //accesso ala pagina senza login
+response.sendRedirect("error.jsp"); //accesso ala pagina senza login
 }
 %>
+
