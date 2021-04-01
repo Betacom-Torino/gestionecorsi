@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+
+/*HOME*/
+.col-12 {
+	position: relative;
+}
+
+.col-12  .btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); -ms-transform : translate( -50%, -50%
+	);
+	background-color: #555;
+	color: white;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+	-ms-transform: translate(-50%, -50%);
+}
+
+.col-12  .btn:hover {
+	background-color: black;
+}
+
+.form {
+	margin-left: 5%;
+	margin-top: 2%;
+}
+
+#bottone {
+	background-color: transparent;
+	border-color: black;
+	box-sizing: border-box;
+	border: 1px solid black;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+	border-radius: 0%;
+}
+
+#bottone:hover {
+	color: white;
+	background-color: #0476bd;
+
+}
+
+#bottone:hover:before {
+	top: 0;
+}
+
+#bottone:before {
+	content: "";
+	background: #F0FFFF;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: -100%;
+	left: 0;
+	transition: 0.3s;
+	z-index: -1;
+}
+
+/*NAV*/
+.nav{
+	color: white;
+}
