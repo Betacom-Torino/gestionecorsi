@@ -29,8 +29,8 @@ class CorsistaBCTest {
 	static void setUp() throws Exception{
 		conn = DBAccess.getConnection();
 		corsista = new Corsista();
-		corsista.setCodiceCor(5);
-		corsista.setNomeCor("Gianni");
+		corsista.setCodiceCor(2);
+		corsista.setNomeCor("Mariano");
 		corsista.setCognomeCor("Franco");
 		corsista.setPreFormativi(1);
 	}
@@ -40,7 +40,6 @@ class CorsistaBCTest {
 	void testCreateOrUpdate() throws ClassNotFoundException, IOException, SQLException {
 		try {
 			ClientFacade.getInstance().createOrUpdateCorsista(corsista);
-			CorsistaDAO.getFactory().create(conn, corsista);
 			System.out.println("Corsista inserito correttamente. " + corsista.toString());
 		}catch(DAOException exc) {
 			exc.printStackTrace();
@@ -67,7 +66,7 @@ class CorsistaBCTest {
 	@Order(3)
 	void testSearchCorsista() throws ClassNotFoundException, IOException{
 		try {
-			String nome = "Gianni";
+			String nome = "nino";
 			Corsista[] corsisti = ClientFacade.getInstance().searchCorsista(nome);
 			assertNotNull(corsisti);
 			System.out.println("Corsista trovato");
@@ -113,7 +112,6 @@ class CorsistaBCTest {
 		try {
 			corsista = null;
 			ClientFacade.getInstance().deleteCorsista(5);
-			CorsistaDAO.getFactory().delete(conn, 5);
 			System.out.println("Pulito il DB");
 		}catch(DAOException exc) {
 			exc.printStackTrace();
