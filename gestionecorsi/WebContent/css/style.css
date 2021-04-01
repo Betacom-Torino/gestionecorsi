@@ -35,6 +35,9 @@ footer {
 		background-color: #111;
 		color: white;
 	}
+	body{
+		margin-bottom:520px;
+	}
 }
 
 
