@@ -5,12 +5,18 @@ long codCorso = 0;
 
 String codice = (String) session.getAttribute("cod");
 %>
+<!DOCTYPE html>
+<html>
+<head>
 <%@include file="CDN.html"%>
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <script src="js/convalida.js"></script>
+<title>Inserisci Corsista</title>
+</head>
+<body>
 <%@ include file="nav.jsp"%>
 <div class="container" style="width: 1000px;" id="inserisciCorsista">
 	<%
@@ -160,5 +166,7 @@ String codice = (String) session.getAttribute("cod");
 	<%
 	}
 	%>
-	<%@ include file="footer.html"%>
 </div>
+<%@ include file="footer.html"%>
+</body>
+</html>
