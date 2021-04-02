@@ -1,6 +1,6 @@
 $(document).ready(
 	function() {
-		$('#userForm').bootstrapValidator({
+		$('#corsistaForm').bootstrapValidator({
 			feedbackIcons: {
 				valid: 'glyphicon glyphicon-ok',
 				invalid: 'glyphicon glyphicon-remove',
@@ -102,8 +102,8 @@ $(function() {
 			'changeDate',
 			function(e) {
 				// Rivalidazione del data field
-				$('#userForm').bootstrapValidator(
-						'revalidateField', 'nascita');
+				$('#corsistaForm').bootstrapValidator(
+						'revalidateField', 'data1');
 			});
 });
 $(function() {
@@ -116,7 +116,7 @@ $(function() {
 			'changeDate',
 			function(e) {
 				// Rivalidazione del data field
-				$('#userForm').bootstrapValidator(
-						'revalidateField', 'nascita');
+				$('#corsistaForm').bootstrapValidator(
+						'revalidateField', 'data2');
 			});
 });
