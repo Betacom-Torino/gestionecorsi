@@ -17,7 +17,7 @@
 <html>
 <head>
 <%@ include file="CDN.html" %>
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/style.css">
 <meta charset="ISO-8859-1">
 <title>Visualizza statistiche</title>
 </head>
@@ -27,37 +27,7 @@
 
 	<h1 align="center"><strong>Statistiche</strong></h1>
 	
-	<!-- 1 STATISTICA-------------------------------------------------------------------------------------------------------- -->
-	<%
-		int n=ClientFacade.getInstance().getNumCorsistiTotali();
-	%>
-	<h3>Numero corsisti totali&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= n %></span></h3>
 	
-	
-	<!-- 3 STATISTICA-------------------------------------------------------------------------------------------------------- -->
-	<%
-		int durata=ClientFacade.getInstance().getDurataMediaCorsi();
-	%>
-	<h3>Durata media dei corsi&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= durata %></span></h3>
-	
-	
-	<!-- 4 STATISTICA---------------------------------------------------------------------------------------------------------- -->
-	<%
-		Date inizio=ClientFacade.getInstance().getDataUltimoCorso();
-		if(inizio != null){
-	%>
-	<h3>Data inizio ultimo corso&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%=new java.sql.Date( inizio.getTime())%></span></h3> 
-	<%
-		}
-	%>
-	
-	<!-- 5 STATISTICA----------------------------------------------------------------------------------------------------------- -->
-	<%
-		int commenti=ClientFacade.getInstance().getNumeroCommenti();
-	%>
-	<h3>Numero totale di commenti&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= commenti %></span></h3>
-		
-		
 	<div>
 	<!-- NUMERO CORSI PIU FREQUENTATI-------------------------------------------------------------------------------------------- -->
 	<p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#corsiPiuFrequentati" aria-expanded="false" aria-controls="collapseExample">
@@ -100,87 +70,56 @@
 	    <div class="table-responsive">
 			<table class="table table-hover" style="width:100%">
 				<thead>
-					<tr>
-					<th style="width:200px">Codice Corsista</th>
-					<th style="width:200px">Nome</th>
-					<th style="width:200px">Cognome</th>
-					<th style="width:200px">Precedenti formativi</th>
+					<tr class="row">
+					<th  class="col-12 col-sm-3">&nbsp;Codice Corsista</th>
+					<th class="col-12 col-sm-3">Nome</th>
+					<th class="col-12 col-sm-3">Cognome</th>
+					<th class="col-12 col-sm-3">Precedenti formativi</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%
 						Corsista[] corsisti=ClientFacade.getInstance().getCorsisti();
 						if(corsisti!=null){
-						int i=1;
+						
+							for(int i=0; i<corsisti.length; i++){
+					%>
+
+							<tr class="row" role="clickable-row" class="btn btn-light btn-lg" data-toggle="modal" data-target="#editModal_<%=corsisti[i].getCodiceCor()%>">
 							
-							%>
-							<tr  data-toggle="collapse" data-target="#elencoCorsi" aria-expanded="false" aria-controls="collapseExample">
-							<td><%= corsisti[i].getCodiceCor()%></td>
-							<td><%= corsisti[i].getNomeCor()%></td>
-							<td><%= corsisti[i].getCognomeCor()%></td>
-							<%if(corsisti[i].getPreFormativi()==1) {%>
-							<td ><span><i class="fas fa-check-circle"></i> </span></td> 
-							<%}else{ %>
-							<td><span><i class="fas fa-times-circle"></i></span></td>
-							<%
-							}
-							%>
+								
+								<td  class="col-12 col-sm-3">&nbsp;<%= corsisti[i].getCodiceCor()%></td>
+								<td  class="col-12 col-sm-3"><%= corsisti[i].getNomeCor()%></td>
+								<td  class="col-12 col-sm-3"><%= corsisti[i].getCognomeCor()%></td>
+								<%
+									if(corsisti[i].getPreFormativi()==1){
+								%>
+								<td class="col-12 col-sm-3"><span><i class="fas fa-check-circle"></i> </span></td> 
+								<%  
+									}else{ 								
+								%>
+								<td class="col-12 col-sm-3"><span><i class="fas fa-times-circle"></i></span></td>
+								<%
+									}
+								%>
+								<jsp:include page="corsoModal.jsp">
+ 								<jsp:param value="<%=corsisti[i].getCodiceCor() %>" name="id"/>
+								</jsp:include>
 							</tr>
-							
+								
+							  <%
+							  	
+									}
+						}
+						
+   							  %>
+   							  	
 						</tbody>
 					</table>
 				</div>
 			  </div>
 			</div>
 
-	
-						
-<div class="collapse" id="elencoCorsi">
-	<div class="card card-body">
-	 	<div class="table-responsive">
-			<table class="table table-hover" >
-				<thead>
-					<tr>
-					<th style="width:150px">Codice Corso</th>
-					<th style="width:200px">Codice Docente</th>
-					<th style="width:120px">Nome</th>
-					<th style="width:150px">Data inizio</th>
-					<th style="width:150px">Data fine</th>
-					<th style="width:150px">Costo</th>
-					<th style="width:150px">Commento</th>
-					<th style="width:150px">Aula</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-						Corso[] corsi2=ClientFacade.getInstance().corsiByCorsista(corsisti[i].getCodiceCor());
-						if(corsi2!=null){
-						for(int j=0; j<corsi2.length; j++){
-							%>
-					<tr>
-					<td><%= corsi2[j].getCod()%></td>
-					<td><%= corsi2[j].getCodDocente()%></td>
-					<td><%= corsi2[j].getNome()%></td>
-					<td><%= new java.sql.Date(corsi2[j].getDataInizio().getTime())%></td> 
-					<td><%= new java.sql.Date(corsi2[j].getDataFine().getTime())%></td>
-					<td><%= corsi2[j].getCosto()%></td>
-					<td><%= corsi2[j].getCommenti()%></td>
-					<td><%= corsi2[j].getAula()%></td>
-					</tr>
-					<%
-						}
-						}
-					%>
-			    </tbody>
-					
-		</table>
-	</div>
-  </div>
-</div> 
-   <%
-	}
-   %>
-   
    
  <!--ELENCO DOCENTI CHE TENGONO PIU CORSI--------------------------------------------------------------------------------------  -->
    <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#elencoDocenti" aria-expanded="false" aria-controls="collapseExample">
@@ -219,6 +158,7 @@
 	  		</div>
 		</div>
 	</div>
+   
    
    <!-- CORSI DISPONIBILI------------------------------------------------------------------------------------------------------- -->
    <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#corsiDisponibili" aria-expanded="false" aria-controls="collapseExample">
@@ -266,13 +206,51 @@
 	  		</div>
 	  </div>
 	</div>
+	
+	<!-- 1 STATISTICA-------------------------------------------------------------------------------------------------------- -->
+	<%
+		int n=ClientFacade.getInstance().getNumCorsistiTotali();
+	%>
+	<h3>Numero corsisti totali&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= n %></span></h3>
+	
+	
+	<!-- 3 STATISTICA-------------------------------------------------------------------------------------------------------- -->
+	<%
+		int durata=ClientFacade.getInstance().getDurataMediaCorsi();
+	%>
+	<h3>Durata media dei corsi&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= durata %></span></h3>
+	
+	
+	<!-- 4 STATISTICA---------------------------------------------------------------------------------------------------------- -->
+	<%
+		Date inizio=ClientFacade.getInstance().getDataUltimoCorso();
+		if(inizio != null){
+	%>
+	<h3>Data inizio ultimo corso&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%=new java.sql.Date( inizio.getTime())%></span></h3> 
+	<%
+		}
+	%>
+	
+	<!-- 5 STATISTICA----------------------------------------------------------------------------------------------------------- -->
+	<%
+		int commenti=ClientFacade.getInstance().getNumeroCommenti();
+	%>
+	<h3>Numero totale di commenti&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= commenti %></span></h3>
+		
+		
 
 	
 </div>
 
 
-
 </div>
+<p>
+
+
+
+
+
+</p>
 <footer class="footer"><%@include file="footer.html" %></footer>
 </body>
 </html>

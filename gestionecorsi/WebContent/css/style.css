@@ -6,7 +6,11 @@ html {
 }
 
 body {
-	margin-bottom: 0px;
+	margin-bottom: 300px;
+}
+
+body .modal-ku {
+width: 1024px;
 }
 
 ::-webkit-scrollbar {
@@ -20,7 +24,7 @@ body {
 footer {
 	position: absolute;
 	width: 100%;
-	bottom: 0;
+	bottom: 0px;
 	height: 250px;
 	background-color: #000;
 	color: white;
@@ -31,12 +35,9 @@ footer {
 		position: absolute;
 		width: 100%;
 		bottom: 0px;
-		height: 540px;
+		height: 520px;
 		background-color: #111;
 		color: white;
-	}
-	body{
-		margin-bottom:500px;
 	}
 }
 
