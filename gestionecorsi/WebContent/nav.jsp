@@ -15,7 +15,7 @@
 		</ul>
 		<ul class="navbar-nav navbar-right">
 			<li class="nav-item"><a class="nav-link"
-				href="prova.jsp">Inserisci corsista</a></li>
+				href="inserisciCorsista.jsp">Inserisci corsista</a></li>
 				<li class="nav-item"><a class="nav-link"
 				href="inserisciCorso.jsp">Inserisci corso</a></li>
 			<li class="nav-item"><a class="nav-link"

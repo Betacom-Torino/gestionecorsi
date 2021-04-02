@@ -1,6 +1,4 @@
 
-
-
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
@@ -13,37 +11,48 @@
 	pageEncoding="ISO-8859-1"%>
 <link rel="stylesheet" href="css/style2.css">
 <script src="js/convalida.js"></script>
-<script src="js/modal.js"></script>
+
 
 
 <title>Inserisci Corsista</title>
 </head>
 <body>
 	<%@ include file="nav.jsp"%>
-	<div class="container" style="height: 100vh; margin-top: 20px; " id="inserisciCorsista" >
-		<%
-		long codCorso;
-		Corso codice = (Corso) session.getAttribute("c");
-		String s = (request.getParameter("codCorso"));
-		if (s != null) {
-			codCorso = Long.parseLong(s);
-		} else if (codice != null) {
-			codCorso = codice.getCod();
-		} else {
-			codCorso = 0;
-		}
-		if (codCorso > 0) {
-			session.removeAttribute("c");
-		%>
+	<div class="container" style="margin-top: 20px;" id="inserisciCorsista">
+
 		<div class="page-header">
-			<h3 style="margin-top: 25px; margin-bottom: 35px; color: #133347;">
+			<h3 style="margin-top: 35px; color: #133347;">
 				<strong>Inserimento nuovo corsista</strong>
 			</h3>
 		</div>
 		<form action="/gestionecorsi/inserisciCorsista" method="post"
 			class="form-horizontal" id="corsistaForm"
-			style="margin-bottom: 50px;" >
+			style="margin-bottom: 50px;">
+			<div class="btn-group" style="width: 184px;">
+				<button type="button" class="btn btn-primary dropdown-toggle"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+					style="background-color: #133347; width: 100%; border-radius: 0px; margin-top: 10px; margin-bottom: 25px; margin-left: 20px;">
+					Corso</button>
+				<div class="dropdown-menu">
+					<%
+					String valoreNome = request.getParameter("nome");
+					String valoreCognome = request.getParameter("cognome");
 
+					
+					Corso[] corsi = ClientFacade.getInstance().getCorsi();
+					for (int i = 0; i < corsi.length; i++) {
+					%>
+					<a class="dropdown-item"
+						href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>">
+						<%=corsi[i].getNome()%>&nbsp;&nbsp;
+						<i class="fas fa-graduation-cap"></i></a>
+					<%
+					}
+					%>
+
+				</div>
+
+			</div>
 			<div class="form-group">
 				<label class="col-md-1 control-label"><strong>Nome</strong></label>
 				<div class="col-md-4 inputGroupContainer">
@@ -51,8 +60,8 @@
 						<span class="input-group-addon"> <i
 							class="glyphicon glyphicon-user"></I>
 						</span> <input type="text" name="nome" id="nome" placeholder="nome..."
-							value="<%=request.getParameter("nomeCorsista") != null ? request.getParameter("nomeCorsista") : ""%>"
-							class="form-control">
+							value="<%=request.getParameter("nome") != null ? request.getParameter("nome") : "" %>"
+							clas="form-control" required>
 					</div>
 				</div>
 				<div class="col-md-7 control-label" id="infoNome"></div>
@@ -66,8 +75,8 @@
 							class="glyphicon glyphicon-user"></I>
 						</span> <input type="text" name="cognome" id="cognome"
 							placeholder="cognome..."
-							value="<%=request.getParameter("cognomeCorsista") != null ? request.getParameter("cognomeCorsista") : ""%>"
-							class="form-control">
+							value="<%=request.getParameter("cognome") != null ? request.getParameter("cognome") : "" %>"
+							class="form-control" required>
 					</div>
 				</div>
 				<div class="col-md-7 control-label" id="infoCognome"></div>
@@ -81,13 +90,17 @@
 					class="custom-control-label" for="precFormSi">Si</label>
 				</a> <a class="custom-control custom-radio"> <input type="radio"
 					class="custom-control-input" id="precFormNo" name="precForm"
-					value="0"> <label class="custom-control-label"
+					value="0" required> <label class="custom-control-label"
 					for="precFormNo">No</label>
 				</a>
 
 			</div>
 			<%
-			Corso corsetto = ClientFacade.getInstance().getCorsoByCod(codCorso);
+			String s = (request.getParameter("codCorso"));
+			
+			if(s!=null){
+							
+			Corso corsetto = ClientFacade.getInstance().getCorsoByCod(Long.parseLong(s));
 
 			Docente docente = ClientFacade.getInstance().getDocenteByCod(corsetto.getCodDocente());
 
@@ -125,55 +138,22 @@
 					</tr>
 				</table>
 			</div>
+			<%} %>
 			<div class="row">
 				<div class="col-md-4 col-md-offset-1">
-					<input type="hidden" name="codCorso" value="<%=codCorso%>">
-					<button type="submit" class="btn btn-primary" style="border-radius: 0px; margin-left: 20px;">
+					<input type="hidden" name="codCorso" value="<%=1%>">
+					<button type="submit" class="btn btn-primary"
+						style="border-radius: 0px; margin-left: 30px; background-color: #133347;">
 						Inserisci&nbsp;</button>
 				</div>
 			</div>
 			<hr>
-			<a href="inserisciCorsista.jsp" style="margin-top: 30px;">Torna
+			<a href="inserisciCorsista.jsp"
+				style="margin-top: 30px; color: #133347; margin-left: 30px;">Torna
 				alla selezione del Corso</a>
 		</form>
-		<%
-		} else {
-		%>
-		<div class="page-header">
-			<h3>Scegli un corso per il corsista da aggiungere:</h3>
-		</div>
-		<div class="btn-group" style="width: 184px;">
-			<button type="button" class="btn btn-primary dropdown-toggle"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #133347; width: 100%; border-radius: 0px; margin-top: 10px;">
-				Corso</button>
-			<div class="dropdown-menu">
-				<%
-				Corso[] corsi = ClientFacade.getInstance().getCorsi();
-				for (int i = 0; i < corsi.length; i++) {
-				%>
-				<a class="dropdown-item"
-					href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>"><%=corsi[i].getNome()%>&nbsp;&nbsp;<i
-					class="fas fa-graduation-cap"></i></a>
-				<%
-				}
-				%>
-				<a class="dropdown-item">
-					<button type="button" class="btn btn-primary btn-sm"
-						data-toggle="modal" data-target="#corsistaModal" style="border-radius: 0px; background-color: #133347;">
-						Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
-					</button>
-				</a>
-			</div>
-			<jsp:include page="addCorsoModal.jsp">
-				<jsp:param value="1" name="id" />
-			</jsp:include>
 
-		</div>
-		<%
-		}
-		%>
 	</div>
 	<%@ include file="footer.html"%>
 </body>
 </html>
-

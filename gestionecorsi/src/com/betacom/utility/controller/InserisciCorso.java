@@ -1,6 +1,7 @@
 package com.betacom.utility.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
@@ -28,25 +29,24 @@ public class InserisciCorso extends HttpServlet {
 			try {
 				ClientFacade.getInstance().createOrUpdateCorso(corso);
 				
-			HttpSession session = request.getSession();
-			session.setAttribute("corso", corso);
-			session.setAttribute("valore", 1);
-
-			Corso[] corsi = ClientFacade.getInstance().getCorsi();
-			
-			for(Corso c : corsi) {
-				if(c.getNome().equals(corso.getNome())) {
-					session.setAttribute("c", c);
+				HttpSession session = request.getSession();
+				session.setAttribute("corso", corso);
+				session.setAttribute("valore", 1);
+	
+				Corso[] corsi = ClientFacade.getInstance().getCorsi();
+				
+				for(Corso c : corsi) {
+					if(c.getNome().equals(corso.getNome())) {
+						session.setAttribute("c", c);
+					}
 				}
-			}
-			
 			
 			}catch(DAOException | ClassNotFoundException exc) {
 				exc.printStackTrace();
 				throw new ServletException(exc.getMessage());
 			}
-		}
-		response.sendRedirect("inserisciCorsista.jsp");
+		}		
+		response.sendRedirect("home.jsp");
 		
 	}
 	
