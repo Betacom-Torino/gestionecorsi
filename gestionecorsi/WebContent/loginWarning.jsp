@@ -23,9 +23,9 @@
 				<div class="modal-content" style="background-color: rgba(0,0,0,0.85) !important; color: white;">
 
 					<!-- Modal Header -->
-					<div class="modal-header">
+					<div class="modal-header border-0">
 						<h4 class="modal-title"><strong>Warning!</strong></h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
 					</div>
 
 					<!-- Modal body -->
@@ -35,7 +35,7 @@
 					</div>
 
 					<!-- Modal footer -->
-					<div class="modal-footer">
+					<div class="modal-footer border-0">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Chiudi</button>
 					</div>
