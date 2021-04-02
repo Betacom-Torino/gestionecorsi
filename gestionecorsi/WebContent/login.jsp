@@ -13,21 +13,21 @@
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" class="form-control" placeholder="Nome..."
-							name="nome">
+							name="nome" required>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" class="form-control" placeholder="Cognome..."
-							name="cognome">
+							name="cognome" required>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
 						<input type="password" class="form-control"
-							placeholder="Codice..." name="codice">
+							placeholder="Codice..." name="codice" required>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Login"
