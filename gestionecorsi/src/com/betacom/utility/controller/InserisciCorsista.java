@@ -35,7 +35,7 @@ public class InserisciCorsista extends HttpServlet implements DAOConstants {
 			rs.beforeFirst();
 			while(rs.next()) {
 				if(rs.getLong(1)==Long.parseLong(request.getParameter("codCorso"))) {
-					if(rs.getInt(2)<=12) {
+					if(rs.getInt(2)<=11) {
 						Corsista corsista = getCorsista(request);
 
 						if (corsista != null) {
