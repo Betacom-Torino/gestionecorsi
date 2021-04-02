@@ -67,7 +67,7 @@ public class InserisciCorso extends HttpServlet {
 			
 			
 			long coddocente = getDocente(request);
-			
+			System.out.println(coddocente);
 			corso.setCodDocente(coddocente);
 		}catch(Exception exc) {
 			exc.printStackTrace();
@@ -79,8 +79,7 @@ public class InserisciCorso extends HttpServlet {
 		
 		long coddocente = 0;
 		String nomeEcognome = request.getParameter("sceltaDocenteName");
-		String[] dati = nomeEcognome.split(" ");
-		
+		String[] dati = nomeEcognome.split("-");
 		Docente[] docenti= null;
 		try {
 			docenti = ClientFacade.getInstance().getDocenti();

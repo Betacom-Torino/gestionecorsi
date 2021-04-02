@@ -99,7 +99,7 @@
 					Docente[] docenti = ClientFacade.getInstance().getDocenti();
 					for(int i = 0; i < docenti.length; i++) {
 				%>
-				  <option value="<%=docenti[i].getNomeDocente()%>&nbsp;&nbsp;<%=docenti[i].getCognomeDocente()%>">  
+				  <option value="<%=docenti[i].getNomeDocente()%>-<%=docenti[i].getCognomeDocente()%>">  
 				<%
 					}
 							
