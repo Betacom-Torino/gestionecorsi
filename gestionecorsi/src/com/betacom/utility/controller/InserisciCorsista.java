@@ -8,12 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.businesscomponent.ClientFacade;
 import com.betacom.businesscomponent.model.Corsista;
-import com.betacom.businesscomponent.model.Corso;
 import com.betacom.businesscomponent.model.CorsoCorsista;
 
 
