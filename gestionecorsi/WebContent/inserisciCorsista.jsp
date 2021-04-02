@@ -1,3 +1,6 @@
+
+
+
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
@@ -173,3 +176,4 @@
 	<%@ include file="footer.html"%>
 </body>
 </html>
+
