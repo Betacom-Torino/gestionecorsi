@@ -6,7 +6,7 @@
 <%@ include file="CDN.html"%>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style2.css">
 <title>Home</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
 		</div>
 		<%@ include file="login.jsp"%>
 	</div>
-	<%@ include file="footer.html"%>
+	
 	<%
 	} else {
 	%>
@@ -59,7 +59,7 @@
 			</div>
 		</div>
 	</div>
-	<%@ include file="footer.html"%>
+	
 	<%
 	}
 	%>
@@ -165,6 +165,6 @@
 	%>
 
 
-
+<%@ include file="footer.html"%>
 </body>
 </html>

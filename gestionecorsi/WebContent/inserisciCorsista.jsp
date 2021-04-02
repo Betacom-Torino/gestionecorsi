@@ -8,7 +8,7 @@
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<link rel="stylesheet" href="css/style2.css">
+	<link rel="stylesheet" href="css/style.css">
 <script src="js/convalida.js"></script>
 <script src="js/modal.js"></script>
 

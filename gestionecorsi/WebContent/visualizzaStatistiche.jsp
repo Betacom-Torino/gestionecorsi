@@ -23,14 +23,14 @@
 </head>
 <body >
 <jsp:include page="nav.jsp"/>
-<div class="container" >
+<div class="container" style="margin-top: 20px;">
 
-	<h1 align="center"><strong>Statistiche</strong></h1>
+	<h1 align="center" style="margin-bottom: 20px; color: #133347;"><strong>Statistiche Generali</strong>&nbsp;<i class="fas fa-chart-pie"></i></h1>
 	
 	
 	<div>
 	<!-- NUMERO CORSI PIU FREQUENTATI-------------------------------------------------------------------------------------------- -->
-	<p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#corsiPiuFrequentati" aria-expanded="false" aria-controls="collapseExample">
+	<p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#corsiPiuFrequentati" aria-expanded="false" aria-controls="collapseExample" style="background-color: #133347; border-radius: 0; border: black;">
    		Nome corsi più frequentati </button></p>
    
    	<div class="collapse" id="corsiPiuFrequentati">
@@ -62,7 +62,7 @@
   	</div>
 				
   <!-- ELENCO CORSISTI---------------------------------------------------------------------------------------------------------- -->
-  <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#elencoCorsisti" aria-expanded="false" aria-controls="collapseExample">
+  <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#elencoCorsisti" aria-expanded="false" aria-controls="collapseExample" style="background-color: #133347; border-radius: 0; border: black;">
    		Elenco Corsisti </button><p>
    
    <div class="collapse" id="elencoCorsisti">
@@ -122,7 +122,7 @@
 
    
  <!--ELENCO DOCENTI CHE TENGONO PIU CORSI--------------------------------------------------------------------------------------  -->
-   <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#elencoDocenti" aria-expanded="false" aria-controls="collapseExample">
+   <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#elencoDocenti" aria-expanded="false" aria-controls="collapseExample" style="background-color: #133347; border-radius: 0; border: black;">
    Elenco Docenti che tengono più corsi </button><p>
    
     <div class="collapse" id="elencoDocenti">
@@ -161,7 +161,7 @@
    
    
    <!-- CORSI DISPONIBILI------------------------------------------------------------------------------------------------------- -->
-   <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#corsiDisponibili" aria-expanded="false" aria-controls="collapseExample">
+   <p><button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#corsiDisponibili" aria-expanded="false" aria-controls="collapseExample" style="background-color: #133347; border-radius: 0; border: black;">
    		Corsi disponibili </button></p>
    
    
@@ -211,14 +211,14 @@
 	<%
 		int n=ClientFacade.getInstance().getNumCorsistiTotali();
 	%>
-	<h3>Numero corsisti totali&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= n %></span></h3>
+	<h4 style="margin-top: 40px; margin-left: 10px;">Numero corsisti totali&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px; background-color: #133347; float: right; margin-right: 10px;"><%= n %></span></h4>
 	
 	
 	<!-- 3 STATISTICA-------------------------------------------------------------------------------------------------------- -->
 	<%
 		int durata=ClientFacade.getInstance().getDurataMediaCorsi();
 	%>
-	<h3>Durata media dei corsi&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= durata %></span></h3>
+	<h4 style="margin-top: 20px;margin-left: 10px;">Durata media dei corsi&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px; background-color: #133347; float: right; margin-right: 10px;"><%= durata %></span></h4>
 	
 	
 	<!-- 4 STATISTICA---------------------------------------------------------------------------------------------------------- -->
@@ -226,7 +226,7 @@
 		Date inizio=ClientFacade.getInstance().getDataUltimoCorso();
 		if(inizio != null){
 	%>
-	<h3>Data inizio ultimo corso&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%=new java.sql.Date( inizio.getTime())%></span></h3> 
+	<h4 style="margin-top: 20px; margin-bottom: 20px; margin-left: 10px;">Data inizio ultimo corso&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px; background-color: #133347;  float: right; margin-right: 10px;"><%=new java.sql.Date( inizio.getTime())%></span></h4> 
 	<%
 		}
 	%>
@@ -235,22 +235,12 @@
 	<%
 		int commenti=ClientFacade.getInstance().getNumeroCommenti();
 	%>
-	<h3>Numero totale di commenti&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%= commenti %></span></h3>
+	<h4 style="margin-bottom: 40px;margin-left: 10px;">Numero totale di commenti&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px; background-color: #133347; float: right;margin-right: 10px;"><%= commenti %></span></h4>
 		
-		
-
-	
-</div>
-
 
 </div>
-<p>
+</div>
 
-
-
-
-
-</p>
 <footer class="footer"><%@include file="footer.html" %></footer>
 </body>
 </html>
