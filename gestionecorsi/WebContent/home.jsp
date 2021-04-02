@@ -42,19 +42,19 @@
 		<div class="row" id="menu">
 			<div class="col-sm">
 				<form action="inserisciCorsista.jsp">
-					<input type="submit" class="btn" value="Inserisci Corsista"
+					<input style="color: white;" type="submit" class="btn" value="Inserisci Corsista"
 						id="center">
 				</form>
 			</div>
 			<div class="col-sm">
 				<form action="visualizzaStatistiche.jsp">
-					<input type="submit" class="btn" value="Visualizza Statistiche"
+					<input style="color: white;" type="submit" class="btn" value="Visualizza Statistiche"
 						id="center">
 				</form>
 			</div>
 			<div class="col-sm">
 				<form action="eliminaCorso.jsp">
-					<input type="submit" class="btn" value="Elimina Corso" id="center">
+					<input style="color: white;" type="submit" class="btn" value="Elimina Corso" id="center">
 				</form>
 			</div>
 		</div>

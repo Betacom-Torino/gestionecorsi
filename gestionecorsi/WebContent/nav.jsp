@@ -20,7 +20,7 @@
 				href="visualizzaStatistiche.jsp">Visualizza Statistiche</a></li>
 			<li class="nav-item"><a class="nav-link" href="eliminaCorsi.jsp">Elimina
 					corso</a></li>
-			<li class="nav-item"><a class="nav-link disabled" href="#"><i
+			<li class="nav-item"><a class="nav-link disabled" href=""><i
 					class="fas fa-user-tie"></i>&nbsp;<%=nome%></a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="modal"
 				data-target="#myModal">Logout</a></li>
