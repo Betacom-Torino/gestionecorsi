@@ -32,7 +32,7 @@
 		<h3>Inserimento nuovo corsista</h3>
 	</div>
 	<form
-		action="/<%=application.getServletContextName()%>/inserisciCorsista"
+		action="/gestionecorsi/inserisciCorsista"
 		method="post" class="form-horizontal" id="userForm">
 
 		<div class="form-group">
@@ -128,7 +128,7 @@
 	} else {
 	%>
 	<div class="page-header">
-		<h3>Scegli un corso:</h3>
+		<h3>Scegli un corso per il corsista da aggiungere:</h3>
 	</div>
 	<div class="btn-group">
 		<button type="button" class="btn btn-primary dropdown-toggle"

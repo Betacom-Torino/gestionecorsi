@@ -7,6 +7,7 @@ import com.betacom.architecture.dao.DAOException;
 import com.betacom.businesscomponent.model.Amministratore;
 import com.betacom.businesscomponent.model.Corsista;
 import com.betacom.businesscomponent.model.Corso;
+import com.betacom.businesscomponent.model.CorsoCorsista;
 import com.betacom.businesscomponent.model.Docente;
 
 public class ClientFacade {
@@ -42,6 +43,11 @@ public class ClientFacade {
 
 	public void createOrUpdateCorsista(Corsista corsista) throws DAOException, ClassNotFoundException, IOException {
 		corsistaBC.createOrUpdate(corsista);
+
+	}
+	
+	public void createCorsoCorsista(CorsoCorsista corsoCorsista) throws DAOException, ClassNotFoundException, IOException {
+		corsoCorsistaBC.create(corsoCorsista);
 
 	}
 
