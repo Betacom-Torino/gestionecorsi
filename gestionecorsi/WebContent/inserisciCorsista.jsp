@@ -1,10 +1,9 @@
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%
-	long codCorso = 0;
+long codCorso = 0;
 
-	String codice = (String)session.getAttribute("cod");
-
+String codice = (String) session.getAttribute("cod");
 %>
 <%@include file="CDN.html"%>
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
@@ -12,18 +11,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <script src="js/convalida.js"></script>
+<%@ include file="nav.jsp"%>
 <div class="container" style="width: 1000px;" id="inserisciCorsista">
 	<%
 	String s = (request.getParameter("codCorso"));
-	if(s!= null){
+	if (s != null) {
 		codCorso = Long.parseLong(s);
-	}else if(codice!=null){
+	} else if (codice != null) {
 		codCorso = Long.parseLong(codice);
-	}else{
+	} else {
 		codCorso = 0;
 	}
-	
-	if (codCorso>0) {
+
+	if (codCorso > 0) {
 	%>
 	<div class="page-header">
 		<h3>Inserimento nuovo corsista</h3>
@@ -74,16 +74,16 @@
 		</div>
 		<%
 		Corso corsetto = ClientFacade.getInstance().getCorsoByCod(codCorso);
-						
+
 		Docente docente = ClientFacade.getInstance().getDocenteByCod(corsetto.getCodDocente());
-								
+
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
 		%>
 		<div class="table-responsive">
 			<table class="table table-hover" style="width: 100%;">
 				<tr>
 					<td><strong>Nome Corso</strong></td>
-					<td><%=corsetto.getNome() %></td>
+					<td><%=corsetto.getNome()%></td>
 				</tr>
 				<tr>
 					<td><strong>Data Inizio</strong></td>
@@ -145,17 +145,20 @@
 			%>
 
 		</div>
-		<div>
-			<h3>O inserisci un nuovo corso:</h3>
-			<button type="button" class="btn btn-primary btn-sm"
-				data-toggle="modal" data-target="#corsistaModal">
-				Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
-			</button>
-			<jsp:include page="addCorsoModal.jsp">
-				<jsp:param value="1" name="id" />
-			</jsp:include></div>
+
+	</div>
+	<div>
+		<h3>O inserisci un nuovo corso:</h3>
+		<button type="button" class="btn btn-primary btn-sm"
+			data-toggle="modal" data-target="#corsistaModal">
+			Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
+		</button>
+		<jsp:include page="addCorsoModal.jsp">
+			<jsp:param value="1" name="id" />
+		</jsp:include>
 	</div>
 	<%
 	}
 	%>
+	<%@ include file="footer.html"%>
 </div>
