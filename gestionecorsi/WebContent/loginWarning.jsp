@@ -14,8 +14,19 @@
 		<h2>Warning Login</h2>
 		
 		
-		<button type="button" class="btn btn-primary" data-toggle="modal"
-			data-target="#myModal">Login</button>
+		<%
+	String eliminazione = (String) session.getAttribute("eliminazione");
+
+	if (eliminazione != null) {
+	%>
+
+	<script type="text/javascript">
+		$(window).on('load', function() {
+			$('#myModal').modal('show');
+		});
+	</script>
+	
+	
 
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
@@ -43,6 +54,13 @@
 				</div>
 			</div>
 		</div>
+		
+		<%
+	}
+
+	session.setAttribute("eliminazione", null);
+	%>
+		
 
 	</div>
 
