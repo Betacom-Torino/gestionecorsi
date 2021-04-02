@@ -111,7 +111,7 @@
 					<%
 						Corsista[] corsisti=ClientFacade.getInstance().getCorsisti();
 						if(corsisti!=null){
-						for(int i=0; i<corsisti.length; i++){
+						int i=1;
 							
 							%>
 							<tr  data-toggle="collapse" data-target="#elencoCorsi" aria-expanded="false" aria-controls="collapseExample">
@@ -178,7 +178,6 @@
   </div>
 </div> 
    <%
-   	} 
 	}
    %>
    
