@@ -76,7 +76,7 @@ a:before {
 		</div>
 	</div>
 
-	<div class="row justify-content-md-center" style="margin-top: 0px;">
+	<div class="row justify-content-md-center" style="margin-top: 0px; margin-bottom: 50px;">
 		<h3>
 			Oppure torna
 			<button class="button" onclick="window.history.back()">INDIETRO</button>

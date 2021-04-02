@@ -35,7 +35,7 @@ public class InserisciCorso extends HttpServlet {
 			
 			for(Corso c : corsi) {
 				if(c.getNome().equals(corso.getNome())) {
-					session.setAttribute("cod", c.getCod());
+					session.setAttribute("c", c);
 				}
 			}
 			

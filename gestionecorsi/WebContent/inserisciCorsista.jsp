@@ -1,35 +1,39 @@
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%
-	long codCorso = 0;
-
-	String codice = (String)session.getAttribute("cod");
-
-%>
+<!DOCTYPE html>
+<html>
+<head>
 <%@include file="CDN.html"%>
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<link rel="stylesheet" href="css2/style.css">
 <script src="js/convalida.js"></script>
+<title>Inserisci Corsista</title>
+</head>
+<body>
+<%@ include file="nav.jsp"%>
 <div class="container" style="width: 1000px;" id="inserisciCorsista">
 	<%
+	long codCorso;
+	Corso codice = (Corso) session.getAttribute("c");
 	String s = (request.getParameter("codCorso"));
-	if(s!= null){
+	if (s != null) {
 		codCorso = Long.parseLong(s);
-	}else if(codice!=null){
-		codCorso = Long.parseLong(codice);
-	}else{
+	} else if (codice != null) {
+		codCorso = codice.getCod();
+	} else {
 		codCorso = 0;
 	}
-	
-	if (codCorso>0) {
+	if (codCorso > 0) {
+	session.removeAttribute("c");
 	%>
 	<div class="page-header">
 		<h3>Inserimento nuovo corsista</h3>
 	</div>
 	<form
-		action="/<%=application.getServletContextName()%>/inserisciCorsista"
+		action="/gestionecorsi/inserisciCorsista"
 		method="post" class="form-horizontal" id="userForm">
 
 		<div class="form-group">
@@ -74,16 +78,16 @@
 		</div>
 		<%
 		Corso corsetto = ClientFacade.getInstance().getCorsoByCod(codCorso);
-						
+
 		Docente docente = ClientFacade.getInstance().getDocenteByCod(corsetto.getCodDocente());
-								
+
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
 		%>
 		<div class="table-responsive">
 			<table class="table table-hover" style="width: 100%;">
 				<tr>
 					<td><strong>Nome Corso</strong></td>
-					<td><%=corsetto.getNome() %></td>
+					<td><%=corsetto.getNome()%></td>
 				</tr>
 				<tr>
 					<td><strong>Data Inizio</strong></td>
@@ -125,7 +129,7 @@
 	} else {
 	%>
 	<div class="page-header">
-		<h3>Scegli un corso:</h3>
+		<h3>Scegli un corso per il corsista da aggiungere:</h3>
 	</div>
 	<div class="btn-group">
 		<button type="button" class="btn btn-primary dropdown-toggle"
@@ -145,17 +149,22 @@
 			%>
 
 		</div>
-		<div>
-			<h3>O inserisci un nuovo corso:</h3>
-			<button type="button" class="btn btn-primary btn-sm"
-				data-toggle="modal" data-target="#corsistaModal">
-				Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
-			</button>
-			<jsp:include page="addCorsoModal.jsp">
-				<jsp:param value="1" name="id" />
-			</jsp:include></div>
+
+	</div>
+	<div>
+		<h3>O inserisci un nuovo corso:</h3>
+		<button type="button" class="btn btn-primary btn-sm"
+			data-toggle="modal" data-target="#corsistaModal">
+			Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
+		</button>
+		<jsp:include page="addCorsoModal.jsp">
+			<jsp:param value="1" name="id" />
+		</jsp:include>
 	</div>
 	<%
 	}
 	%>
 </div>
+<%@ include file="footer.html"%>
+</body>
+</html>

@@ -18,11 +18,11 @@
 		</ul>
 
 		<ul class="navbar-nav navbar-right">
-			<li class="nav-item"><a class="nav-link" href="#inserisciCorsista">Inserisci
+			<li class="nav-item"><a class="nav-link" href="inserisciCorsista.jsp">Inserisci
 					corsista</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Visualizza
+			<li class="nav-item"><a class="nav-link" href="visualizzaStatistiche.jsp">Visualizza
 					Statistiche</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Elimina
+			<li class="nav-item"><a class="nav-link" href="eliminaCorsi.jsp">Elimina
 					corso</a></li>
 			<li class="nav-item"><a class="nav-link disabled" href="#"><i
 					class="fas fa-user-tie"></i>&nbsp;<%=nome%></a></li>

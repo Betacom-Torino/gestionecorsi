@@ -97,7 +97,7 @@ $(function() {
 		format : 'dd/mm/yyyy',
 		autoclose : true,
 		startDate : '01/01/1900',
-		endDate : new Date()
+		endDate : '31/12/2900'
 	}).on(
 			'changeDate',
 			function(e) {
@@ -111,7 +111,7 @@ $(function() {
 		format : 'dd/mm/yyyy',
 		autoclose : true,
 		startDate : '01/01/1900',
-		endDate : new Date()
+		endDate : '31/12/2900'
 	}).on(
 			'changeDate',
 			function(e) {

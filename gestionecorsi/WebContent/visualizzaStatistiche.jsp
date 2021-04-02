@@ -17,7 +17,7 @@
 <html>
 <head>
 <%@ include file="CDN.html" %>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style2.css">
 <meta charset="ISO-8859-1">
 <title>Visualizza statistiche</title>
 </head>
@@ -44,8 +44,12 @@
 	<!-- 4 STATISTICA---------------------------------------------------------------------------------------------------------- -->
 	<%
 		Date inizio=ClientFacade.getInstance().getDataUltimoCorso();
+		if(inizio != null){
 	%>
 	<h3>Data inizio ultimo corso&nbsp;&nbsp;<span class="badge badge-pill badge-primary" style="padding-bottom :10px;"><%=new java.sql.Date( inizio.getTime())%></span></h3> 
+	<%
+		}
+	%>
 	
 	<!-- 5 STATISTICA----------------------------------------------------------------------------------------------------------- -->
 	<%
@@ -71,6 +75,7 @@
 				<tbody>
 				<%
 						String[] nomeCorsi=ClientFacade.getInstance().getCorsoPiuFreq();
+						if(nomeCorsi != null){
 						for(int j=0; j<nomeCorsi.length; j++){
 				%>
 				<tr>
@@ -78,6 +83,7 @@
 				</tr>
 				</tbody>
 				<%
+						}
 						}
 				%>
 			</table>
@@ -104,8 +110,8 @@
 				<tbody>
 					<%
 						Corsista[] corsisti=ClientFacade.getInstance().getCorsisti();
-						
-						for(int i=0; i<corsisti.length; i++){
+						if(corsisti!=null){
+						int i=1;
 							
 							%>
 							<tr  data-toggle="collapse" data-target="#elencoCorsi" aria-expanded="false" aria-controls="collapseExample">
@@ -116,8 +122,11 @@
 							<td ><span><i class="fas fa-check-circle"></i> </span></td> 
 							<%}else{ %>
 							<td><span><i class="fas fa-times-circle"></i></span></td>
-							<%} %>
+							<%
+							}
+							%>
 							</tr>
+							
 						</tbody>
 					</table>
 				</div>
@@ -145,6 +154,7 @@
 				<tbody>
 					<%
 						Corso[] corsi2=ClientFacade.getInstance().corsiByCorsista(corsisti[i].getCodiceCor());
+						if(corsi2!=null){
 						for(int j=0; j<corsi2.length; j++){
 							%>
 					<tr>
@@ -157,16 +167,18 @@
 					<td><%= corsi2[j].getCommenti()%></td>
 					<td><%= corsi2[j].getAula()%></td>
 					</tr>
-			    </tbody>
 					<%
 						}
+						}
 					%>
+			    </tbody>
+					
 		</table>
 	</div>
   </div>
 </div> 
    <%
-   	} 
+	}
    %>
    
    
@@ -189,6 +201,7 @@
 				<tbody>
 					<%
 						Docente[] docenti=ClientFacade.getInstance().getStatisticaDocenti();
+						if(docenti!=null){
 						for(int i=0; i<docenti.length; i++){
 					%>
 					<tr>
@@ -199,6 +212,7 @@
 					</tr>
 					<%
 						} 
+						}
 					%>
 				</tbody>
 			</table>	
@@ -230,6 +244,7 @@
 				<tbody>
 					<%
 						Corso[] corsi3=ClientFacade.getInstance().getCorsiDisponibili();
+						if(corsi3!=null){
 						for(int j=0; j<corsi3.length; j++){
 					%>
 					<tr>
@@ -244,6 +259,7 @@
 					</tr>
 					<%
 						} 
+						}
 					%>
 				</tbody>
 			</table>	

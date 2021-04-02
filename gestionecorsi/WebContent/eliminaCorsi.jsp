@@ -68,7 +68,7 @@ if (username != null) {
 							<form
 								action="<%=request.getContextPath()%>/rimuoviCorso?cod=<%=c.getCod()%>"
 								method="post">
-								<button type="submit" class="btn btn-outline-danger">
+								<button type="submit" class="btn btn-outline-secondary">
 									<i class="fas fa-trash"></i> elimina
 								</button>
 							</form>
@@ -85,10 +85,10 @@ if (username != null) {
 	
 		<div style=" margin-bottom: 100px;">
 			
-				<form action="/home.jsp"
+				<form action="home.jsp"
 					method="post">
-					<button type="submit" class="btn btn-outline-success ">
-						<i class="fas fa-home"></i>Torna alla Home</button>
+					<button type="submit" class="btn btn-outline-primary">
+						<i class="fas fa-home"></i>&nbsp;Torna alla Home</button>
 						
 				</form>
 				<br>
