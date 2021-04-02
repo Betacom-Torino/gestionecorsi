@@ -4,7 +4,7 @@
 <div class="modal fade" id="corsistaModal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-	<form action="/gestionecorsi/inserisciCorso" method="post">
+	<form action="/gestionecorsi/inserisciCorso" method="post" id="formCorsoId">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -15,11 +15,12 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label class="col-md-1 control-label">Nome </label>
+					<label class="col-md-1 control-label">Nome</label>
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="fas fa-graduation-cap"></i></span> <input type="text"
+								class="fas fa-graduation-cap"></i></span> 
+								<input type="text"
 								name="nome" id="nome" placeholder="Nome corso..."
 								class="form-control">
 						</div>
@@ -30,7 +31,8 @@
 					<label class="col-md-1 control-label">Data Inizio</label>
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group date" id="data1">
-							<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span> <input type="text"
+							<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span> 
+							<input type="text"
 								name="inizio" id="inizio" placeholder="DD/MM/YYYY..."
 								class="form-control">
 						</div>
@@ -41,7 +43,8 @@
 					<label class="col-md-1 control-label">Data Fine</label>
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group date" id="data2">
-							<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span> <input type="text"
+							<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span> 
+							<input type="text"
 								name="fine" id="fine" placeholder="DD/MM/YYYY..."
 								class="form-control">
 						</div>
@@ -54,7 +57,8 @@
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="fas fa-graduation-cap"></i></span> <input type="number"
+								class="fas fa-graduation-cap"></i></span> 
+								<input type="number"
 								name="costo" id="costo"
 								class="form-control">
 						</div>
@@ -78,7 +82,8 @@
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="fas fa-graduation-cap"></i></span> <input type="text"
+								class="fas fa-graduation-cap"></i></span> 
+								<input type="text"
 								name="aula" id="aula" placeholder="Aula..."
 								class="form-control">
 						</div>
@@ -104,49 +109,44 @@
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-				<button type="submit" class="btn btn-primary" value="disable" disabled>Crea corso</button>
+				<input type="submit" class="btn btn-primary" id="submitButtonId" value="Crea corso" disabled></input>
 			</div>
 		</div>
-		
 		<script>
-			$(function myFunction() {
-				//document.getElementById("sceltaDocente").style.visibility = "false";
-				
-				if(allFieldsFilled){
-			  		document.getElementById("sceltaDocente").style.visibility = "true";
-			    }
-			});
-	
-			function allFieldsFilled(){
-				var c1 = document.getElementById("nome").value;
-				var c2 = document.getElementById("inizio").value;
-				var c3 = document.getElementById("fine").value;
-				var c4 = document.getElementById("costo").value;
-				var c5 = document.getElementById("aula").value;
-				
-				if(c1 == "" || c1 == null){
-					alert("Inserire il nome");
-					return false;	
-				}
-				if(c2 == "" || c2 == null){
-					alert("Inserire la data d'inizio");
-					return false;	
-				}
-				if(c3 == "" || c3 == null){
-					alert("Inserire la data di fine");
-					return false;	
-				}
-				if(c4 == "" || c4 == null){
-					alert("Inserire il costo");
-					return false;	
-				}
-				if(c5 == "" || c5 == null){
-					alert("Inserire l'aula'");
-					return false;	
-				}
-				return true;
-			}
-		
+		(function() {
+		    $('input').keyup(function() {
+
+		        var empty = false;
+		        
+	        	if($("#nome").val() == '' || $("#inizio").val() == '' || $("#fine").val() == '' 
+			    	|| $("#costo").val() == '' || $("#aula").val() == '' || $("#sceltaDocenteId").val() == ''){
+	        		empty = true;
+		        }
+
+		        if (empty) {
+		            $('#submitButtonId').attr('disabled', 'disabled');
+		        } else {
+		            $('#submitButtonId').removeAttr('disabled');
+		        }
+		    });
+		})()
+		(function() {
+		    $('input').change(function() {
+
+		        var empty = false;
+		        
+	        	if($("#nome").val() == '' || $("#inizio").val() == '' || $("#fine").val() == '' 
+			    	|| $("#costo").val() == '' || $("#aula").val() == '' || $("#sceltaDocenteId").val() == ''){
+	        		empty = true;
+		        }
+
+		        if (empty) {
+		            $('#submitButtonId').attr('disabled', 'disabled');
+		        } else {
+		            $('#submitButtonId').removeAttr('disabled');
+		        }
+		    });
+		})()
 		</script>
 		</form>
 	</div>
