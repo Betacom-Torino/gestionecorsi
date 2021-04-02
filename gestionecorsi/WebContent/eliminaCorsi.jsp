@@ -85,7 +85,7 @@ if (username != null) {
 	
 		<div style=" margin-bottom: 100px;">
 			
-				<form action="/home.jsp"
+				<form action="home.jsp"
 					method="post">
 					<button type="submit" class="btn btn-outline-success ">
 						<i class="fas fa-home"></i>Torna alla Home</button>

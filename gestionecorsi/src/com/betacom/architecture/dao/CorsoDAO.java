@@ -33,7 +33,6 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 
 	@Override
 	public void create(Connection conn, Corso entity) throws DAOException {
-
 		try {
 			rowSet.setCommand(SELECT_CORSI);
 			rowSet.execute(conn);

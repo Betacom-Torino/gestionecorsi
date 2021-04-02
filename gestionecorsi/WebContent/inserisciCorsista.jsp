@@ -1,10 +1,5 @@
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%
-long codCorso = 0;
-
-String codice = (String) session.getAttribute("cod");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,16 +15,18 @@ String codice = (String) session.getAttribute("cod");
 <%@ include file="nav.jsp"%>
 <div class="container" style="width: 1000px;" id="inserisciCorsista">
 	<%
+	long codCorso;
+	Corso codice = (Corso) session.getAttribute("c");
 	String s = (request.getParameter("codCorso"));
 	if (s != null) {
 		codCorso = Long.parseLong(s);
 	} else if (codice != null) {
-		codCorso = Long.parseLong(codice);
+		codCorso = codice.getCod();
 	} else {
 		codCorso = 0;
 	}
-
 	if (codCorso > 0) {
+	session.removeAttribute("c");
 	%>
 	<div class="page-header">
 		<h3>Inserimento nuovo corsista</h3>
