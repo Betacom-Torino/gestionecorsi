@@ -100,7 +100,7 @@ $(function() {
 		endDate : '31/12/2900'
 	}).on(
 			'changeDate',
-			function(e) {
+			function() {
 				// Rivalidazione del data field
 				$('#corsistaForm').bootstrapValidator(
 						'revalidateField', 'data1');
@@ -114,7 +114,7 @@ $(function() {
 		endDate : '31/12/2900'
 	}).on(
 			'changeDate',
-			function(e) {
+			function() {
 				// Rivalidazione del data field
 				$('#corsistaForm').bootstrapValidator(
 						'revalidateField', 'data2');
