@@ -13,26 +13,6 @@
 
 <style>
 
-a:hover {
-	color: #2F4F4F;
-}
-
-a:hover:before {
-	top: 0;
-}
-
-a:before {
-	content: "";
-	background: white;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: -100%;
-	left: 0;
-	transition: 0.3s;
-	z-index: -1;
-}
-
 .button {
 	border: none;
 	color: white;
@@ -75,7 +55,7 @@ a:before {
 			</div>
 		</div>
 	</div>
-	<div style="text-align: center; margin-top: 50px;">
+	<div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
 		<h3>
 			Ricomincia dalla &nbsp; <a href="home.jsp"><i class="fas fa-home" style="color: #2F4F4F;"></i></a>
 			oppure torna
