@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.betacom.businesscomponent.utilities.AccessUtility;
-import com.betacom.security.AlgoritmoMD5;
 import com.betacom.architecture.dao.DAOException;
 
 @WebServlet("/controllo")
@@ -17,14 +16,23 @@ public class Controllo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String codice = request.getParameter("codice");
-		
-		HttpSession session = request.getSession();
 		String adminpass;
+		int loginAttempts = 0;
 		
-		if(nome != null && cognome != null && codice !=null) {
+		try{
+			 loginAttempts = Integer.parseInt(session.getAttribute("LOGIN_ATTEMPTS").toString());	
+			}catch(Exception exc){
+				//setta LOGIN_ATTEMPTS ad 1 la prima volta
+				session.setAttribute("LOGIN_ATTEMPTS",1);
+				}
+		
+		if(nome != null && cognome != null && codice !=null && loginAttempts > 4) {
 			try {
 				AccessUtility au = new AccessUtility();
 				adminpass = au.getAdminPass(nome, cognome);
@@ -35,18 +43,21 @@ public class Controllo extends HttpServlet {
 						session.setAttribute("cognome", cognome);
 						response.sendRedirect("home.jsp");
 					}else {
+						loginAttempts++;
+						session.setAttribute("LOGIN_ATTEMPTS", loginAttempts);
 						response.sendRedirect("accessonegato.jsp");
 					}
 				}else {
+					loginAttempts++;
+					session.setAttribute("LOGIN_ATTEMPTS", loginAttempts);
 					response.sendRedirect("accessonegato.jsp");
-				}
+				} 
 			}catch(DAOException | ClassNotFoundException exc) {
 				exc.printStackTrace();
 				throw new ServletException(exc.getMessage());
 			}
-		}else {
+			}else {
 			response.sendRedirect("accessonegato.jsp");
-		}
+			}
 	}
-
 }
