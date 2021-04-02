@@ -13,39 +13,41 @@ import com.betacom.businesscomponent.ClientFacade;
 import com.betacom.businesscomponent.model.Corsista;
 import com.betacom.businesscomponent.model.CorsoCorsista;
 
-
 @WebServlet("/inserisciCorsista")
 public class InserisciCorsista extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		Corsista corsista = getCorsista(request);
-		
-		if(corsista != null) {
+
+		if (corsista != null) {
 			try {
 				ClientFacade.getInstance().createOrUpdateCorsista(corsista);
 				long codCorso = Long.parseLong(request.getParameter("codCorso"));
 				Corsista[] corsisti = ClientFacade.getInstance().getCorsisti();
-				long codCorsista=0;
-				for(Corsista c : corsisti) {
-					if(c.getNomeCor().equals(corsista.getNomeCor())) {
-						codCorsista=c.getCodiceCor();
+				long codCorsista = 0;
+				for (Corsista c : corsisti) {
+					if (c.getNomeCor().equals(corsista.getNomeCor())
+							&& c.getCognomeCor().equals(corsista.getCognomeCor())
+							&& c.getPreFormativi() == corsista.getPreFormativi()) {
+						codCorsista = c.getCodiceCor();
 					}
 				}
 				CorsoCorsista cc = new CorsoCorsista();
 				cc.setCodCorso(codCorso);
 				cc.setCodCorsista(codCorsista);
 				ClientFacade.getInstance().createCorsoCorsista(cc);
-			}catch(DAOException | ClassNotFoundException exc) {
+			} catch (DAOException | ClassNotFoundException exc) {
 				exc.printStackTrace();
 				throw new ServletException(exc.getMessage());
 			}
 		}
 		response.sendRedirect("inserisciCorsista.jsp");
-		
+
 	}
-	
+
 	private Corsista getCorsista(HttpServletRequest request) {
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
 		Corsista corsista = null;
@@ -54,8 +56,8 @@ public class InserisciCorsista extends HttpServlet {
 			corsista.setNomeCor(request.getParameter("nome"));
 			corsista.setCognomeCor(request.getParameter("cognome"));
 			corsista.setPreFormativi(Integer.parseInt(request.getParameter("precForm")));
-			
-		}catch(Exception exc) {
+
+		} catch (Exception exc) {
 			exc.printStackTrace();
 		}
 		return corsista;
