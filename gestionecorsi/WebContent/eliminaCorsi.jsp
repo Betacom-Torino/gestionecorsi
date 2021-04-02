@@ -40,7 +40,7 @@ if (username != null) {
 		<div class="table-responsive">
 			<table class="table table-hover" style="width: 100%;">
 				<thead>
-					<tr>
+					<tr style="background-color: #133347; color: white; text-align: center;">
 						<th style="width: 200px;">Codice</th>
 						<th style="width: 200px;">Nome</th>
 						<th style="width: 200px;">Inizio</th>
@@ -55,7 +55,7 @@ if (username != null) {
 					
 					for (Corso c : corsi) {
 					%>
-					<tr>
+					<tr style="text-align: center;">
 						<td><%=c.getCod()%></td>
 						<td><%=c.getNome()%></td>
 						<td><%Date p=new Date(c.getDataInizio().getTime()); %> <%=p %></td>
