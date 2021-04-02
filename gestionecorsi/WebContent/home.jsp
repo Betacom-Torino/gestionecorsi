@@ -34,9 +34,27 @@
 		<div class="row mx-0">
 			<div class="col-12 px-0">
 				<img src="img/img.jpg" class="img-fluid w-100">
+				<form action="#menu">
+					<input type="submit" class="btn" id="bottone" value="Menu" />
+				</form>
+			</div>
+		</div>
+		<div class="row" id="menu">
+			<div class="col-sm">
+				<form action="inserisciCorsista.jsp">
+					<input type="submit" class="btn" value="Inserisci Corsista"
+						id="center">
+				</form>
+			</div>
+			<div class="col-sm">
 				<form action="visualizzaStatistiche.jsp">
-					<input type="submit" class="btn" id="bottone"
-						value="Statistiche Generali" />
+					<input type="submit" class="btn" value="Visualizza Statistiche"
+						id="center">
+				</form>
+			</div>
+			<div class="col-sm">
+				<form action="eliminaCorso.jsp">
+					<input type="submit" class="btn" value="Elimina Corso" id="center">
 				</form>
 			</div>
 		</div>
