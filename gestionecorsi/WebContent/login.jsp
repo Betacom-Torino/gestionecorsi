@@ -47,7 +47,7 @@
 			<div class="card-footer" style="margin-bottom: 23px;">
 
 				<div class="d-flex justify-content-center">
-					<a href="#">Torna alla home</a>
+					<a href="#section">Torna alla home</a>
 				</div>
 			</div>
 		</div>
