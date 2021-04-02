@@ -131,10 +131,10 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-					<th style="width:200px">Codice Corsista</th>
+					<th style="width:200px">Codice Docente</th>
 					<th style="width:200px">Nome</th>
 					<th style="width:200px">Cognome</th>
-					<th style="width:200px">Precedenti formativi</th>
+					<th style="width:200px">Curriculum</th>
 					</tr>
 				</thead>
 				<tbody>

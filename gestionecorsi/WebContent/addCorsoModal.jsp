@@ -1,9 +1,9 @@
 <!-- Modal -->
 <%@page import="com.betacom.businesscomponent.ClientFacade"%>
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
-<div class="modal fade" id="corsistaModal" tabindex="-1" role="dialog"
+<div class="modal fade bd-example-modal-lg" id="corsistaModal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 	<form action="/gestionecorsi/inserisciCorso" method="post" id="formCorsoId">
 		<div class="modal-content">
 			<div class="modal-header">

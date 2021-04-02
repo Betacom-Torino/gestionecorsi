@@ -17,40 +17,7 @@ body {
     color: #0066ff;
 }
 
-footer {
-    position: absolute;
-    width: 100%;
-    bottom: -300;
-    height: 250px;
-    background-color: #000;
-    color: white;
-}
 
-@media screen and (max-width: 750px) {
-    footer {
-        position: absolute;
-        width: 100%;
-        bottom: 0px;
-        height: 540px;
-        background-color: #111;
-        color: white;
-    }
-    body{
-        margin-bottom:500px;
-    }
-}
-
-
-@media screen and (max-width: 650px) {
-    footer {
-        position: absolute;
-        width: 100%;
-        bottom: 0px;
-        height: 480px;
-        background-color: #111;
-        color: white;
-    }
-}
 
 #sceltaDocente{
     visibility: false;
