@@ -8,8 +8,11 @@
 <%@page import="com.betacom.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<link rel="stylesheet" href="css2/style.css">
+	<link rel="stylesheet" href="css/style2.css">
 <script src="js/convalida.js"></script>
+<script src="js/modal.js"></script>
+
+
 <title>Inserisci Corsista</title>
 </head>
 <body>
@@ -34,7 +37,7 @@
 	</div>
 	<form
 		action="/gestionecorsi/inserisciCorsista"
-		method="post" class="form-horizontal" id="userForm">
+		method="post" class="form-horizontal" id="corsistaForm">
 
 		<div class="form-group">
 			<label class="col-md-1 control-label"><strong>Nome</strong></label>
@@ -143,23 +146,20 @@
 			<a class="dropdown-item"
 				href="inserisciCorsista.jsp?codCorso=<%=corsi[i].getCod()%>"><%=corsi[i].getNome()%>&nbsp;&nbsp;<i
 				class="fas fa-graduation-cap"></i></a>
-
 			<%
 			}
 			%>
-
+			<a class="dropdown-item">
+				<button type="button" class="btn btn-primary btn-sm"
+					data-toggle="modal" data-target="#corsistaModal">
+					Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
+				</button>
+			</a>
 		</div>
-
-	</div>
-	<div>
-		<h3>O inserisci un nuovo corso:</h3>
-		<button type="button" class="btn btn-primary btn-sm"
-			data-toggle="modal" data-target="#corsistaModal">
-			Aggiungi Corso&nbsp;&nbsp;<i class="fas fa-plus"></i>
-		</button>
 		<jsp:include page="addCorsoModal.jsp">
 			<jsp:param value="1" name="id" />
 		</jsp:include>
+		
 	</div>
 	<%
 	}
