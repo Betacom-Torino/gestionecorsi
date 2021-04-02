@@ -34,6 +34,7 @@ public interface DAOConstants {
 	String NUM_COMMENTI = "Select count(commentocorso) from corso";
 	String DOC_PIU_CORSI = "Select c.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente from corso c,docente d where c.coddocente=d.coddocente group by c.coddocente, d.nomedocente, d.cognomedocente, d.cvdocente having count(*) >2";
 
+	String NUMERO_ISCRITTI_CORSI = "Select * from numero_iscritti_corso";
 	
 	// STATISTICHE PARI
 	String MAX_ISCRITTI = " Select nomecorso,max(num_iscritti) from numero_iscritti_corso nic, corso c where nic.codcorso=c.codcorso group by nomecorso having max(num_iscritti)=(select max(num_iscritti) from numero_iscritti_corso)";

@@ -60,7 +60,7 @@ a:before {
 <body>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<%@ include file="nav.jsp"%>
-	<div class="row justify-content-center"  style="margin-top: 50px;">
+	<div class="row justify-content-center"  style="margin-top: 30px;">
 
 		<div class="col-4 align-self-center" style="font-size: 300px; text-align: center;">
 		<i class="fas fa-spinner fa-pulse"> </i>
@@ -79,7 +79,7 @@ a:before {
 		</div>
 	</div>
 	
-	<div class="row justify-content-md-center"  style="margin-top:0px; margin-bottom: 4px;" >
+	<div class="row justify-content-md-center"  style="margin-top:0px; margin-bottom: 50px;" >
 	<h3>
 				Oppure torna
 				<button class="button" onclick="window.history.back()">INDIETRO</button>
