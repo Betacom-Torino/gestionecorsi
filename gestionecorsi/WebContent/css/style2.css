@@ -161,9 +161,8 @@ input:focus {
  padding: 20px 60px;
  width:250px;
 }
-
 #center:hover{
- background-color: #034e7d;
- border-color: white;
+ background-color: black;
+ border-color: #007bff;
  color: white;
 }

@@ -6,7 +6,7 @@
 <%@ include file="CDN.html"%>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/style.css">
 <title>Home</title>
 </head>
 <body>
