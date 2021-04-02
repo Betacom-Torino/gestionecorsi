@@ -51,7 +51,7 @@ public class Controllo extends HttpServlet {
 					loginAttempts++;
 					session.setAttribute("LOGIN_ATTEMPTS", loginAttempts);
 					response.sendRedirect("accessonegato.jsp");
-				}
+				} 
 			}catch(DAOException | ClassNotFoundException exc) {
 				exc.printStackTrace();
 				throw new ServletException(exc.getMessage());
