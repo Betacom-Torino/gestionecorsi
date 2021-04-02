@@ -1,11 +1,12 @@
 $(document).ready(
 	function() {
 		$('#corsistaForm').bootstrapValidator({
-			feedbackIcons: {
+			/*feedbackIcons: {
 				valid: 'glyphicon glyphicon-ok',
 				invalid: 'glyphicon glyphicon-remove',
 				validating: 'glyphicon glyphicon-refresh'
 			},
+			*/
 			fields: {
 				nomecorsista: {
 					container: '#infoNomeCorsista',
@@ -31,7 +32,7 @@ $(document).ready(
 						}
 					}
 				},
-				nomecorso: {
+				/*nomecorso: {
 					container: '#infoNomeCorso',
 					validators: {
 						notEmpty: {
@@ -84,14 +85,14 @@ $(document).ready(
 							message: 'Da 2 a 30 caratteri alfanumerici'
 						}
 					}
-				}
+				}*/
 			}
 
 		});
 	}
 );
 
-
+/*
 $(function() {
 	$('#data1').datepicker({
 		format : 'dd/mm/yyyy',
@@ -120,3 +121,4 @@ $(function() {
 						'revalidateField', 'data2');
 			});
 });
+*/
