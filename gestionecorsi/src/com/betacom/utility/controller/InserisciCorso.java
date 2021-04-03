@@ -46,6 +46,8 @@ public class InserisciCorso extends HttpServlet {
 				throw new ServletException(exc.getMessage());
 			}
 		}		
+		HttpSession session = request.getSession();
+		session.setAttribute("corsoAppenaInserito", true);
 		response.sendRedirect("home.jsp");
 		
 	}

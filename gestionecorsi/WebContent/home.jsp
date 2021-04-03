@@ -11,6 +11,14 @@
 </head>
 <body>
 	<%@ include file="nav.jsp"%>
+	
+	<script>
+	/*
+	setTimeout( function () {
+		alert( "moo" ); }, 2000 ); //displays msg in 10 seconds
+		
+	$('.alert').alert()*/
+	</script>
 	<%
 	nome = (String) session.getAttribute("nome");
 	if (nome == null) {
@@ -29,6 +37,21 @@
 	
 	<%
 	} else {
+		
+		
+		
+		boolean corsoInserito = (boolean)session.getAttribute("corsoAppenaInserito");
+		if(corsoInserito != false){
+			out.write("<div class=\"alert alert-success\" id=\"notificationId\">");
+			out.write("<strong>Corso inserito con successo.</strong></div>");
+			out.write("<script type='text/javascript'>\n");
+			out.write("(function myFunction() {" +
+					"setTimeout(function(){ " +
+					"document.getElementById(\"notificationId\").style.display = \"none\"; }, 2500); })()");
+			out.write("</script>\n");
+		}
+		session.setAttribute("corsoAppenaInserito", false);
+		
 	%>
 	<div class="container-fluid px-0" id="section">
 		<div class="row mx-0">

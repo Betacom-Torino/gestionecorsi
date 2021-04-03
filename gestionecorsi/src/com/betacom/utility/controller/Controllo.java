@@ -43,6 +43,9 @@ public class Controllo extends HttpServlet {
 					if (adminpass.equals(codice)) {
 						session.setAttribute("nome", nome);
 						session.setAttribute("cognome", cognome);
+						
+						session.setAttribute("corsoAppenaInserito", false);
+						session.setAttribute("corsoAppenaEliminato", false);
 
 						response.sendRedirect("home.jsp");
 					} else {

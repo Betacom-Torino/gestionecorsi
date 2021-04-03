@@ -1,6 +1,3 @@
-
-
-
 <%@page import="com.betacom.businesscomponent.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
@@ -164,9 +161,10 @@
 					</button>
 				</a>
 			</div>
+			<!-- 
 			<jsp:include page="addCorsoModal.jsp">
 				<jsp:param value="1" name="id" />
-			</jsp:include>
+			</jsp:include>-->
 
 		</div>
 		<%

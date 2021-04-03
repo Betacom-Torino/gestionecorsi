@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.betacom.architecture.dao.DAOException;
 import com.betacom.businesscomponent.ClientFacade;
@@ -35,6 +36,8 @@ public class RimuoviCorso extends HttpServlet {
 				e.printStackTrace();
 				throw new ServletException();
 			}
+			HttpSession session = request.getSession();
+			session.setAttribute("corsoAppenaEliminato", true);
 			response.sendRedirect("eliminaCorsi.jsp");
 			}
 

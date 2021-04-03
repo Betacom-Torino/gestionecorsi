@@ -19,6 +19,21 @@ if (username != null) {
 </head>
 <body>
 	<jsp:include page="nav.jsp" />
+	<%
+	boolean corsoEliminato = (boolean)session.getAttribute("corsoAppenaEliminato");
+	if(corsoEliminato != false){
+		out.write("<div class=\"alert alert-success\" id=\"notificationId\">");
+		out.write("<strong>Corso eliminato con successo.</strong></div>");
+		out.write("<script type='text/javascript'>\n");
+		out.write("(function myFunction() {" +
+				"setTimeout(function(){ " +
+				"document.getElementById(\"notificationId\").style.display = \"none\"; }, 2500); })()");
+		out.write("</script>\n");
+	}
+	session.setAttribute("corsoAppenaEliminato", false);
+	
+	%>
+	
 	<div class="container" style="margin-top:40px;">
 		<div class="page-header">
 			<h3>Corsi non ancora avviati</h3>
