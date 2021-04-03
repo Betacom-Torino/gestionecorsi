@@ -100,11 +100,11 @@
 			
 			if(s!=null){
 							
-			Corso corsetto = ClientFacade.getInstance().getCorsoByCod(Long.parseLong(s));
-
-			Docente docente = ClientFacade.getInstance().getDocenteByCod(corsetto.getCodDocente());
-
-			SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+				Corso corsetto = ClientFacade.getInstance().getCorsoByCod(Long.parseLong(s));
+	
+				Docente docente = ClientFacade.getInstance().getDocenteByCod(corsetto.getCodDocente());
+	
+				SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
 			%>
 			<div class="table-responsive" style="padding-left: 15px;">
 				<table class="table table-hover" style="width: 100%;">
@@ -138,19 +138,23 @@
 					</tr>
 				</table>
 			</div>
-			<%} %>
+			
+			
 			<div class="row">
 				<div class="col-md-4 col-md-offset-1">
-					<input type="hidden" name="codCorso" value="<%=1%>">
+					<input type="hidden" name="codCorso" value="<%=corsetto.getCod()%>">
 					<button type="submit" class="btn btn-primary"
 						style="border-radius: 0px; margin-left: 30px; background-color: #133347;">
 						Inserisci&nbsp;</button>
 				</div>
 			</div>
+			<%
+			} 
+			%>
 			<hr>
 			<a href="inserisciCorsista.jsp"
 				style="margin-top: 30px; color: #133347; margin-left: 30px;">Torna
-				alla selezione del Corso</a>
+				alla selezione del Corso</a>	
 		</form>
 
 	</div>

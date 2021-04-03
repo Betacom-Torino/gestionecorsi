@@ -20,6 +20,8 @@ if (username != null) {
 <body>
 	<jsp:include page="nav.jsp" />
 	<%
+	
+	//controllo se ho eliminato un corso esistente
 	boolean corsoEliminato = (boolean)session.getAttribute("corsoAppenaEliminato");
 	if(corsoEliminato != false){
 		out.write("<div class=\"alert alert-success\" id=\"notificationId\">");

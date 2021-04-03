@@ -39,7 +39,7 @@
 	} else {
 		
 		
-		
+		//controllo se ho inserito un nuovo corso
 		boolean corsoInserito = (boolean)session.getAttribute("corsoAppenaInserito");
 		if(corsoInserito != false){
 			out.write("<div class=\"alert alert-success\" id=\"notificationId\">");
@@ -52,7 +52,22 @@
 		}
 		session.setAttribute("corsoAppenaInserito", false);
 		
+		
+		//controllo se ho inserito un nuovo corsista
+		boolean corsistaInserito = (boolean)session.getAttribute("corsistaAppenaInserito");
+		if(corsistaInserito != false){
+			out.write("<div class=\"alert alert-success\" id=\"notificationId\">");
+			out.write("<strong>Corsista inserito con successo.</strong></div>");
+			out.write("<script type='text/javascript'>\n");
+			out.write("(function myFunction() {" +
+					"setTimeout(function(){ " +
+					"document.getElementById(\"notificationId\").style.display = \"none\"; }, 2500); })()");
+			out.write("</script>\n");
+		}
+		session.setAttribute("corsistaAppenaInserito", false);
+		
 	%>
+	
 	<div class="container-fluid px-0" id="section">
 		<div class="row mx-0">
 			<div class="col-12 px-0">

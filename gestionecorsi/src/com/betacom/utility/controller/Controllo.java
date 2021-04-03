@@ -46,6 +46,7 @@ public class Controllo extends HttpServlet {
 						
 						session.setAttribute("corsoAppenaInserito", false);
 						session.setAttribute("corsoAppenaEliminato", false);
+						session.setAttribute("corsistaAppenaInserito", false);
 
 						response.sendRedirect("home.jsp");
 					} else {
