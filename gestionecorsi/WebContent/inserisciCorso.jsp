@@ -11,6 +11,13 @@
 <link rel="stylesheet" href="css/style2.css">
 <script src="js/convalida.js"></script>
 </head>
+<%
+	
+	String nome = (String)session.getAttribute("nome");
+	if(nome!=null){
+		
+
+%>
 <body>
 	<%@ include file="nav.jsp"%>
 	<div class="container" style="height: 100vh; margin-top: 20px; " id="inserisciCorso" >
@@ -159,6 +166,11 @@
 			</script>
 		</form>
 	</div>
-	<!-- TODO: INCLUDERE IL FOOTER -->
+	<%@ include file="footer.html"%>
 </body>
+<%
+	}else{
+		response.sendRedirect("accessonegato.jsp");
+	}
+%>
 </html>

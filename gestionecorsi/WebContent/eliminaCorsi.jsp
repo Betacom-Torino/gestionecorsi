@@ -117,7 +117,7 @@ if (username != null) {
 </html>
 <%
 } else {
-response.sendRedirect("error.jsp"); //accesso ala pagina senza login
+response.sendRedirect("accessonegato.jsp"); //accesso ala pagina senza login
 }
 %>
 

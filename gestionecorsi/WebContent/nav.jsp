@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<a class="navbar-brand" style="color: white;" href="home.jsp">TorinoUniversity</a>
 	<%
-	String nome = (String) session.getAttribute("nome");
-	if (nome != null) {
+	String admin = (String) session.getAttribute("nome");
+	if (admin != null) {
 	%>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
@@ -23,7 +23,7 @@
 			<li class="nav-item"><a class="nav-link" href="eliminaCorsi.jsp">Elimina
 					corso</a></li>
 			<li class="nav-item"><a class="nav-link" href="home.jsp?#menu"><i
-					class="fas fa-user-tie"></i>&nbsp;<%=nome%></a></li>
+					class="fas fa-user-tie"></i>&nbsp;<%=admin%></a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="modal"
 				data-target="#myModal">Logout</a></li>
 		</ul>

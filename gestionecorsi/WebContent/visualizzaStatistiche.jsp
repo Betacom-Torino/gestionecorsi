@@ -247,6 +247,6 @@
 
 <%
 	}else{
-		response.sendRedirect("error.jsp");
+		response.sendRedirect("accessonegato.jsp");
 	}
 %>
