@@ -160,7 +160,7 @@
 			} 
 			%>
 			<hr>
-			<a href="home.jsp"
+			<a href="home.jsp?#section"
 				style="margin-top: 30px; color: #133347; margin-left: 30px;">Torna
 				alla Home</a>	
 		</form>
