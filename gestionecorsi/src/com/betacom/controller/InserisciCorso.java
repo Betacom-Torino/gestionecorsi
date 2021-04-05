@@ -1,4 +1,4 @@
-package com.betacom.utility.controller;
+package com.betacom.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

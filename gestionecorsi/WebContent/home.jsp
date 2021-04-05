@@ -20,7 +20,7 @@
 	$('.alert').alert()*/
 	</script>
 	<%
-	nome = (String) session.getAttribute("nome");
+	String nome = (String) session.getAttribute("nome");
 	if (nome == null) {
 	%>
 	<div class="container-fluid px-0" id="section">
