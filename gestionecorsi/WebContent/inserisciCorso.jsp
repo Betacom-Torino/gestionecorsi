@@ -110,7 +110,7 @@ $(function() {
 							class="fas fa-graduation-cap"></i></span> 
 							<input type="number"
 							name="costo" id="costo"
-							class="form-control">
+							class="form-control" step=".01">
 					</div>
 				</div>
 				<div class="col-md-7 control-label" id="infoCosto"></div>

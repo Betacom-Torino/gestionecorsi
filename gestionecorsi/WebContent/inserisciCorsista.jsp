@@ -160,9 +160,9 @@
 			} 
 			%>
 			<hr>
-			<a href="inserisciCorsista.jsp"
+			<a href="home.jsp"
 				style="margin-top: 30px; color: #133347; margin-left: 30px;">Torna
-				alla selezione del Corso</a>	
+				alla Home</a>	
 		</form>
 
 	</div>
