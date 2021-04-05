@@ -46,7 +46,7 @@
 					String valoreCognome = request.getParameter("cognome");
 
 					
-					Corso[] corsi = ClientFacade.getInstance().getCorsi();
+					Corso[] corsi = ClientFacade.getInstance().getCorsiDisponibili();
 					for (int i = 0; i < corsi.length; i++) {
 					%>
 					<a class="dropdown-item"

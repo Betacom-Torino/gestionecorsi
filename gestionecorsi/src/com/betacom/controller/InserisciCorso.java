@@ -28,19 +28,6 @@ public class InserisciCorso extends HttpServlet {
 		if(corso != null) {
 			try {
 				ClientFacade.getInstance().createOrUpdateCorso(corso);
-				
-				HttpSession session = request.getSession();
-				session.setAttribute("corso", corso);
-				session.setAttribute("valore", 1);
-	
-				Corso[] corsi = ClientFacade.getInstance().getCorsi();
-				
-				for(Corso c : corsi) {
-					if(c.getNome().equals(corso.getNome())) {
-						session.setAttribute("c", c);
-					}
-				}
-			
 			}catch(DAOException | ClassNotFoundException exc) {
 				exc.printStackTrace();
 				throw new ServletException(exc.getMessage());

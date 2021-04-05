@@ -92,33 +92,5 @@ $(document).ready(
 	}
 );
 
-/*
-$(function() {
-	$('#data1').datepicker({
-		format : 'dd/mm/yyyy',
-		autoclose : true,
-		startDate : '01/01/1900',
-		endDate : '31/12/2900'
-	}).on(
-			'changeDate',
-			function(e) {
-				// Rivalidazione del data field
-				$('#corsistaForm').bootstrapValidator(
-						'revalidateField', 'data1');
-			});
-});
-$(function() {
-	$('#data2').datepicker({
-		format : 'dd/mm/yyyy',
-		autoclose : true,
-		startDate : '01/01/1900',
-		endDate : '31/12/2900'
-	}).on(
-			'changeDate',
-			function(e) {
-				// Rivalidazione del data field
-				$('#corsistaForm').bootstrapValidator(
-						'revalidateField', 'data2');
-			});
-});
-*/
+
+
