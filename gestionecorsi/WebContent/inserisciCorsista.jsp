@@ -17,6 +17,13 @@
 <title>Inserisci Corsista</title>
 </head>
 <body>
+<%
+	
+	String nome = (String)session.getAttribute("nome");
+	if(nome!=null){
+		
+
+%>
 	<%@ include file="nav.jsp"%>
 	<div class="container" style="margin-top: 20px;" id="inserisciCorsista">
 
@@ -53,26 +60,27 @@
 				</div>
 
 			</div>
+			
 			<div class="form-group">
-				<label class="col-md-1 control-label"><strong>Nome</strong></label>
+				<label class="col-md-2 control-label"><strong><span
+							class="	far fa-user"></span>&nbsp;Nome</strong></label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"> <i
-							class="glyphicon glyphicon-user"></I>
+						<span class="input-group-addon"> 
 						</span> <input type="text" name="nome" id="nome" placeholder="nome..."
 							value="<%=request.getParameter("nome") != null ? request.getParameter("nome") : "" %>"
-							clas="form-control" required>
+							class="form-control" required>
 					</div>
 				</div>
 				<div class="col-md-7 control-label" id="infoNome"></div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-1 control-label"><strong>Cognome</strong></label>
+				<label class="col-md-2 control-label"><strong><i
+							class="	far fa-user"></i>&nbsp;Cognome</strong></label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"> <i
-							class="glyphicon glyphicon-user"></I>
+						<span class="input-group-addon">
 						</span> <input type="text" name="cognome" id="cognome"
 							placeholder="cognome..."
 							value="<%=request.getParameter("cognome") != null ? request.getParameter("cognome") : "" %>"
@@ -160,4 +168,9 @@
 	</div>
 	<%@ include file="footer.html"%>
 </body>
+<%
+	}else{
+		response.sendRedirect("accessonegato.jsp");
+	}
+%>
 </html>
