@@ -193,7 +193,7 @@ if (nome != null) {
 
 
 				<script>
-					/*	(function() {
+					/*	(function() {          attivazione bottone se si riempiono tutti i campi in ordine e non sparso
 							$('input')
 									.keyup(
 											function() {
